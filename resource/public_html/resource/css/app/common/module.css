@@ -157,6 +157,10 @@ body.scroll-lock {
   font-size: 1.6rem;
 }
 
+.wrap > :first-child {
+  padding-bottom: 36px;
+}
+
 ul,
 ol,
 li {
