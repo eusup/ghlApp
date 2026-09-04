@@ -680,6 +680,8 @@
 
 .library.videos .color-box .book-list ul {
   flex-direction: column;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .library.videos .color-box .book-list ul li {
