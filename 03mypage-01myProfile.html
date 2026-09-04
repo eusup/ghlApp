@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favorite</title>
+
+  <script src="./resource/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/highcharts.js"></script>
+  <script src="./resource/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="lv3_8 wrap">
+    <div class="myprofile">
+      <nav class="nav-top">
+        <div class="con">
+          <div>
+            <a href="./01main.html" class="btn btn-icnOnly btn-back">
+              <img src="./resource/public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+          </div>
+          <div class="flex">
+            <h2>My Page</h2>
+            <div class="menu-select">
+              <button class="btn btn-noStyle">
+                <p>My Profile</p>
+                <img src="./resource/public_html/resource/images/icn-menuArrow.svg" alt="#">
+              </button>
+              <ul class="menu-wrap">
+                <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
+                <li><a href="#">My History</a></li>
+                <li><a href="#">E-mail Us</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="con">
+
+        <div class="user-detail">
+          <div class="user-data-wrap">
+            <div class="user-profile">
+              <img src="./resource/public_html/resource/images/img-profile-spot.png" alt="my profile image is Spot">
+            </div>
+            <div class="inner">
+              <p class="user-class">Lux Class</p>
+              <p class="user-mail">email@highlights.com</p>
+              <p class="user-name">User Name</p>
+            </div>
+            <a href="#" class="btn btn-icnOnly btn-userSetting">
+              <img src="/resource/public_html/resource/images/icn-setting.svg" alt="#">
+            </a>
+          </div>
+          <div class="dl-wrap">
+            <dl>
+              <dt>Level</dt>
+              <dd>1</dd>
+            </dl>
+            <dl>
+              <dt>Lexile reading range for Level</dt>
+              <dd>BR-120</dd>
+            </dl>
+            <dl>
+              <dt>All Reding</dt>
+              <dd>100</dd>
+            </dl>
+          </div>
+          <div class="btn-wrap">
+            <button class="btn btn-noStyle">Logout</button>
+          </div>
+        </div>
+
+        <section class="profile-section my-interesting">
+          <h3 class="profile-section-title">My Interesting</h3>
+          <ul>
+            <li class="category-school">
+              <img src="./resource/public_html/resource/images/icn-category-school.svg" alt="">
+              <span>School</span>
+            </li>
+            <li class="category-people">
+              <img src="./resource/public_html/resource/images/icn-category-people.svg" alt="">
+              <span>People&amp;<br>Places</span>
+            </li>
+            <li class="category-art">
+              <img src="./resource/public_html/resource/images/icn-category-art.svg" alt="">
+              <span>Art &amp; Culture</span>
+            </li>
+            <li class="category-science">
+              <img src="./resource/public_html/resource/images/icn-category-science.svg" alt="">
+              <span>Science &amp;<br>Nature</span>
+            </li>
+            <li class="category-health">
+              <img src="./resource/public_html/resource/images/icn-category-health.svg" alt="">
+              <span>Health&amp;<br>Wellness</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="profile-section profile-categories">
+          <h3 class="profile-section-title">
+            <span>Categories</span>
+            <small>Data of this month</small>
+          </h3>
+          <div id="categoryChart" class="profile-chart category-chart"></div>
+        </section>
+
+        <section class="profile-section quick-stats">
+          <h3 class="profile-section-title">Quick Stats for this month</h3>
+          <ul>
+            <li>
+              <span>Number of books read</span>
+              <strong>13</strong>
+            </li>
+            <li>
+              <span>Minutes Read</span>
+              <strong>13</strong>
+            </li>
+            <li>
+              <span>Number of activities<br>completed</span>
+              <strong>13</strong>
+            </li>
+          </ul>
+        </section>
+
+        <section class="profile-section profile-trend">
+          <h3 class="profile-section-title">
+            <span>Trend</span>
+            <small>Data of the last 12 months</small>
+          </h3>
+          <div class="trend-chart-wrap">
+            <div id="booksTrendChart" class="profile-chart trend-chart"></div>
+            <div id="minutesTrendChart" class="profile-chart trend-chart"></div>
+            <div id="activitiesTrendChart" class="profile-chart trend-chart"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="./resource/public_html/resource/images/icn-nav-home.svg" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="./resource/public_html/resource/images/icn-nav-library.svg" alt="">
+            <span>Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="./03mypage-01myProfile.html">
+            <img src="./resource/public_html/resource/images/icn-nav-user.svg" alt="">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-reward.svg" alt="">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-down.svg" alt="">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="dimmed">
+      <div class="popup option">
+        <button class="btn btn-icnOnly btn-close">
+          <img src="./resource/public_html/resource/images/icn-close-black.svg" alt="close the option">
+        </button>
+        <div class="inner">
+          <div class="box">
+            <div class="option-type-level">
+              <div class="flex">
+                <p class="option-title">Level</p>
+                <div class="flex">
+                  <input type="number" value="1">
+                  <span>~</span>
+                  <input type="number" value="30">
+                </div>
+              </div>
+              <div class="range"></div>
+              <div class="flex number"><span>1</span><span>30</span></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-genre">
+              <p class="option-title">Genre</p>
+              <div class="flex">
+                <label for="favorite-genre-all" class="check-box pill">
+                  <input type="radio" id="favorite-genre-all" name="favorite-genre" checked>
+                  <div></div>
+                  <p>All</p>
+                </label>
+                <label for="favorite-fiction" class="check-box pill">
+                  <input type="radio" id="favorite-fiction" name="favorite-genre">
+                  <p>Fiction</p>
+                </label>
+                <label for="favorite-nonfiction" class="check-box pill">
+                  <input type="radio" id="favorite-nonfiction" name="favorite-genre">
+                  <p>Non-Fiction</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn btn-white">Reset Filters</button>
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
