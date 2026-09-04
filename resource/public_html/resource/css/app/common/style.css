@@ -526,7 +526,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  background-image: url(/resource/public_html/resource/images/img-next.svg);
+  background-image: url(../../../images/img-next.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 84px;
@@ -552,7 +552,7 @@
   right: 10px;
   width: 44px;
   height: 8px;
-  background-image: url(/resource/public_html/resource/images/img-myPhonicsDECO02.svg);
+  background-image: url(../../../images/img-myPhonicsDECO02.svg);
   z-index: 0;
 }
 
@@ -568,7 +568,7 @@
   right: 1px;
   width: 141px;
   height: 80px;
-  background-image: url(/resource/public_html/resource/images/img-myPhonicsDECO01.svg);
+  background-image: url(../../../images/img-myPhonicsDECO01.svg);
   z-index: 0;
 }
 
@@ -637,7 +637,7 @@
   width: 100%;
   margin-bottom: 15px;
   padding: 15px;
-  background-image: url(/resource/public_html/resource/images/img-magazineBG.svg);
+  background-image: url(../../../images/img-magazineBG.svg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -652,7 +652,7 @@
 /** videos **/
 .library.videos .color-box {
   height: 100%;
-  background-image: url(/resource/public_html/resource/images/img-videoRightBg.svg);
+  background-image: url(../../../images/img-videoRightBg.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -871,7 +871,7 @@
 }
 
 .library.assignment.detail .con .tab-contents ul li.correct::before{
-  background-image: url(/resource/public_html/resource/images/img-correct.svg);
+  background-image: url(../../../images/img-correct.svg);
 }
 
 .library.assignment.detail .con .tab-contents ul li.wrong{
@@ -879,7 +879,7 @@
 }
 
 .library.assignment.detail .con .tab-contents ul li.wrong::before{
-  background-image: url(/resource/public_html/resource/images/img-wrong.svg);
+  background-image: url(../../../images/img-wrong.svg);
 }
 
 .library.assignment.detail .con .tab-contents ul li p.num {
@@ -1086,8 +1086,8 @@
 }
 
 .myprofile .my-interesting li.category-school::before {
-  -webkit-mask-image: url(/resource/public_html/resource/images/icn-category-school.svg);
-  mask-image: url(/resource/public_html/resource/images/icn-category-school.svg);
+  -webkit-mask-image: url(../../../images/icn-category-school.svg);
+  mask-image: url(../../../images/icn-category-school.svg);
 }
 
 .myprofile .my-interesting li.category-people {
@@ -1095,8 +1095,8 @@
 }
 
 .myprofile .my-interesting li.category-people::before {
-  -webkit-mask-image: url(/resource/public_html/resource/images/icn-category-people.svg);
-  mask-image: url(/resource/public_html/resource/images/icn-category-people.svg);
+  -webkit-mask-image: url(../../../images/icn-category-people.svg);
+  mask-image: url(../../../images/icn-category-people.svg);
 }
 
 .myprofile .my-interesting li.category-art {
@@ -1104,8 +1104,8 @@
 }
 
 .myprofile .my-interesting li.category-art::before {
-  -webkit-mask-image: url(/resource/public_html/resource/images/icn-category-art.svg);
-  mask-image: url(/resource/public_html/resource/images/icn-category-art.svg);
+  -webkit-mask-image: url(../../../images/icn-category-art.svg);
+  mask-image: url(../../../images/icn-category-art.svg);
 }
 
 .myprofile .my-interesting li.category-science {
@@ -1113,8 +1113,8 @@
 }
 
 .myprofile .my-interesting li.category-science::before {
-  -webkit-mask-image: url(/resource/public_html/resource/images/icn-category-science.svg);
-  mask-image: url(/resource/public_html/resource/images/icn-category-science.svg);
+  -webkit-mask-image: url(../../../images/icn-category-science.svg);
+  mask-image: url(../../../images/icn-category-science.svg);
 }
 
 .myprofile .my-interesting li.category-health {
@@ -1122,8 +1122,8 @@
 }
 
 .myprofile .my-interesting li.category-health::before {
-  -webkit-mask-image: url(/resource/public_html/resource/images/icn-category-health.svg);
-  mask-image: url(/resource/public_html/resource/images/icn-category-health.svg);
+  -webkit-mask-image: url(../../../images/icn-category-health.svg);
+  mask-image: url(../../../images/icn-category-health.svg);
 }
 
 .myprofile .profile-chart {
