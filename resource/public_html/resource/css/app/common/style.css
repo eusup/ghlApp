@@ -1,7 +1,6 @@
 /* home */
 .wrap:has(.home) {
   padding-top: 20px;
-  padding-bottom: 0;
 }
 
 /** notice area **/
@@ -366,6 +365,11 @@
 
 .home .full-width .con .book-list:not(:last-child) {
   border-bottom: 1px solid rgb(var(--color-border));
+}
+
+.home .full-width .con .book-list:last-child{
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .home .book-list .list-name {

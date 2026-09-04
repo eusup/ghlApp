@@ -17,7 +17,7 @@
     display: block;
   }
 
-  .wrap:has(> .library.phonics) {
+  .wrap:has(> .library:not(.detail)){
     height: auto;
   }
 

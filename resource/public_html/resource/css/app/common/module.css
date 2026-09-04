@@ -157,7 +157,7 @@ body.scroll-lock {
   font-size: 1.6rem;
 }
 
-.wrap > :first-child {
+.wrap > :first-child:not(.home) {
   padding-bottom: 36px;
 }
 
