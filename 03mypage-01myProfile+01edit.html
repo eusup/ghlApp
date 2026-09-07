@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Edit My Profile</title>
+
+  <script src="./resource/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="lv1_2 wrap">
+    <div class="mypage myprofile edit">
+      <nav class="nav-top">
+        <div class="con">
+          <div class="btn-wrap">
+            <a href="./03mypage-01myProfile.html" class="btn btn-icnOnly btn-back">
+              <img src="./resource/public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+          </div>
+          <div class="flex">
+            <h2>My Page</h2>
+            <div class="menu-select">
+              <button class="btn btn-noStyle">
+                <p>My Profile</p>
+                <img src="./resource/public_html/resource/images/icn-menuArrow.svg" alt="#">
+              </button>
+              <ul class="menu-wrap">
+                <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
+                <li><a href="#">My History</a></li>
+                <li><a href="#">E-mail Us</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="con">
+        <div class="left">
+          <div class="box">
+            <p class="title">Profile</p>
+            <label for="#">
+              <span class="label-text">ID</span>
+              <input type="text" disabled value="User ID">
+            </label>
+            <label for="#">
+              <span class="label-text">Last Name</span>
+              <input type="text" value="Last Name">
+            </label>
+            <label for="#">
+              <span class="label-text">first Name</span>
+              <input type="text" value="first Name">
+            </label>
+            <label for="#">
+              <span class="label-text">E-mail</span>
+              <input type="text" value="E-mail">
+            </label>
+            <label for="#">
+              <span class="label-text">Password</span>
+              <div class="search-wrap password-wrap btn-wrap">
+                <input type="password" value="Password">
+                <button type="button" class="btn btn-icnOnly btn-pw">
+                  <img src="./resource/public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="./resource/public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                </button>
+              </div>
+            </label>
+            <label for="#">
+              <span class="label-text">Confirm Password</span>
+              <div class="search-wrap password-wrap btn-wrap">
+                <input type="password" value="Confirm Password">
+                <button type="button" class="btn btn-icnOnly btn-pw">
+                  <img src="./resource/public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="./resource/public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                </button>
+              </div>
+            </label>
+          </div>
+          <div class="box">
+            <p class="title">Parent Report Setting</p>
+            <label for="#">
+              <span class="label-text">E-mail</span>
+              <input type="text" value="User Email">
+            </label>
+            <div>
+              <span>Report Setting</span>
+              <div class="flex">
+                <label for="subscribe" class="check-box pill">
+                  <input type="radio" id="subscribe" name="subscribe" checked>
+                  <div></div>
+                  <p>Subscribe</p>
+                </label>
+                <label for="unSubscribe" class="check-box pill">
+                  <input type="radio" id="unSubscribe" name="subscribe">
+                  <div></div>
+                  <p>Unsubscribe</p>
+                </label>
+              </div>
+              <div class="box-white">
+                <label for="week" class="check-box">
+                  <input type="radio" name="report" id="week">
+                  <div></div>
+                  <p>Weekly Report</p>
+                </label>
+                <label for="month" class="check-box">
+                  <input type="radio" name="report" id="month">
+                  <div></div>
+                  <p>Monthly Report</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="box">
+            <p class="title">Parent Report Setting</p>
+            <div class="chara">
+              <span>Change Reading Friend</span>
+              <ul class="flex">
+                <li class="act">
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-spot.png" alt="#">
+                    <p>Spot</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-shu.png" alt="#">
+                    <p>Shu</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-nova.png" alt="#">
+                    <p>Nova</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-giga.png" alt="#">
+                    <p>Giga</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-turi.png" alt="#">
+                    <p>Turi</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-bebo.png" alt="#">
+                    <p>Bebo</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-odo.png" alt="#">
+                    <p>Odo</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-beverly.png" alt="#">
+                    <p>Beverly</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-drangon.png" alt="#">
+                    <p>Dragon</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-bot.png" alt="#">
+                    <p>Bot</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-charm.png" alt="#">
+                    <p>Charm</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-donarosa.png" alt="#">
+                    <p>Dona Rosa</p>
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-noStyle">
+                    <img src="./resource/public_html/resource/images/img-profile-monster.png" alt="#">
+                    <p>Monster</p>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="category">
+              <span>My Interesting</span>
+              <div class="flex category-wrap">
+                <label for="profile-category-school" class="check-box category-school">
+                  <input type="checkbox" id="profile-category-school" name="profile-category" value="school">
+                  <div></div>
+                  <p>School</p>
+                </label>
+                <label for="profile-category-animals" class="check-box category-animals">
+                  <input type="checkbox" id="profile-category-animals" name="profile-category" value="animals">
+                  <div></div>
+                  <p>Animals</p>
+                </label>
+                <label for="profile-category-people" class="check-box category-people">
+                  <input type="checkbox" id="profile-category-people" name="profile-category" value="people">
+                  <div></div>
+                  <p>People &amp; Places</p>
+                </label>
+                <label for="profile-category-sports" class="check-box category-sports">
+                  <input type="checkbox" id="profile-category-sports" name="profile-category" value="sports">
+                  <div></div>
+                  <p>Sports</p>
+                </label>
+                <label for="profile-category-art" class="check-box category-art">
+                  <input type="checkbox" id="profile-category-art" name="profile-category" value="art">
+                  <div></div>
+                  <p>Art &amp; Culture</p>
+                </label>
+                <label for="profile-category-family" class="check-box category-family">
+                  <input type="checkbox" id="profile-category-family" name="profile-category" value="family">
+                  <div></div>
+                  <p>Family &amp; Friends</p>
+                </label>
+                <label for="profile-category-science" class="check-box category-science">
+                  <input type="checkbox" id="profile-category-science" name="profile-category" value="science">
+                  <div></div>
+                  <p>Science &amp; Nature</p>
+                </label>
+                <label for="profile-category-community" class="check-box category-community">
+                  <input type="checkbox" id="profile-category-community" name="profile-category" value="community">
+                  <div></div>
+                  <p>Community</p>
+                </label>
+                <label for="profile-category-health" class="check-box category-health">
+                  <input type="checkbox" id="profile-category-health" name="profile-category" value="health">
+                  <div></div>
+                  <p>Health &amp; Wellness</p>
+                </label>
+                <label for="profile-category-fun" class="check-box category-fun">
+                  <input type="checkbox" id="profile-category-fun" name="profile-category" value="fun">
+                  <div></div>
+                  <p>Fun Stories</p>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <p class="title">Parent Report Setting</p>
+            <div class="myLevel">
+              <span>Change Reading Friend</span>
+              <ul class="flex">
+                <li class="lv1_2 act">
+                  <button class="btn btn-noStyle">1</button>
+                  <span>Now</span>
+                </li>
+                <li class="lv1_2">
+                  <button class="btn btn-noStyle">2</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">3</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">4</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">5</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">6</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">7</button>
+                </li>
+                <li class="lv3_8">
+                  <button class="btn btn-noStyle">8</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">9</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">10</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">11</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">12</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">13</button>
+                </li>
+                <li class="lv9_14">
+                  <button class="btn btn-noStyle">14</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">15</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">16</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">17</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">18</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">19</button>
+                </li>
+                <li class="lv15_20">
+                  <button class="btn btn-noStyle">20</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">21</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">22</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">23</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">24</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">25</button>
+                </li>
+                <li class="lv21_26">
+                  <button class="btn btn-noStyle">26</button>
+                </li>
+                <li class="lv27_30">
+                  <button class="btn btn-noStyle">27</button>
+                </li>
+                <li class="lv27_30">
+                  <button class="btn btn-noStyle" disabled>28</button>
+                </li>
+                <li class="lv27_30">
+                  <button class="btn btn-noStyle" disabled>29</button>
+                </li>
+                <li class="lv27_30">
+                  <button class="btn btn-noStyle" disabled>30</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="./resource/public_html/resource/images/icn-nav-home.svg" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="./resource/public_html/resource/images/icn-nav-library.svg" alt="">
+            <span>Library</span>
+          </a>
+        </li>
+        <li class="act">
+          <a href="./03mypage-01myProfile.html">
+            <img src="./resource/public_html/resource/images/icn-nav-user.svg" alt="">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-reward.svg" alt="">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-down.svg" alt="">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+</html>

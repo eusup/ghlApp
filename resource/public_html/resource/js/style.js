@@ -1,4 +1,32 @@
 $(document).ready(function () {
+  // 임시: 99popup.html 클릭 시 기본 팝업 확인. 확인 후 제거.
+  if (window.location.pathname.split("/").pop() === "99popup.html") {
+    $("body").click(function (event) {
+      if ($(event.target).closest(".dimmed").length) return;
+      openLayerPopup($(".popup-box:not(.book-info)"));
+    });
+  }
+
+  // 프로필 캐릭터 변경
+  $(".myprofile.edit > .con .right .box .chara .flex li .btn").click(function () {
+    $(this).parent("li").addClass("act").siblings("li").removeClass("act");
+  });
+
+  // 비번 보기
+  $(".password-wrap .btn-pw").on("click", function () {
+    const $input = $(this).siblings("input");
+    const showPassword = $input.attr("type") === "password";
+    $input.attr("type", showPassword ? "text" : "password");
+    $(this).toggleClass("act", showPassword);
+  });
+
+  // 레벨 선택
+  $(".myLevel .flex li button").click(function () {
+    $(this).closest(".flex").find("li > button").removeClass("act");
+    $(this).closest(".flex").find("li > button + span").remove();
+    $(this).addClass("act").after("<span>Now</span>");
+  });
+
   // 팝업 닫기 기능 -dimmed 영역 클릭시에도 닫힘
   $(function () {
     $(".popup .btn-close, .dimmed").click(function (event) {
@@ -159,7 +187,7 @@ $(document).ready(function () {
   // phonics 스크롤 위치에 따른 상단 nav 상태 변경
   $(window)
     .on("scroll", function () {
-      $(".nav-top").toggleClass("act", window.scrollY >= 10);
+      $(".nav-top").toggleClass("act", window.scrollY >= 1);
     })
     .trigger("scroll");
 
@@ -332,6 +360,7 @@ $(document).ready(function () {
   }
 });
 
+// mypage highcharts 영역
 $(function () {
   if (!document.getElementById("categoryChart") || typeof Highcharts === "undefined") return;
 
@@ -348,25 +377,39 @@ $(function () {
       spacingTop: 12,
       spacingRight: 0,
       spacingBottom: 0,
-      spacingLeft: 0
+      spacingLeft: 0,
     },
     title: { text: null },
     credits: { enabled: false },
     legend: { enabled: false },
     tooltip: { enabled: false },
     xAxis: {
-      categories: ["School", "Animals", "People<br>&amp; Places", "Sports", "Art<br>&amp; Culture", "Family<br>&amp; Friends", "Science<br>&amp; Nature", "Community", "Health<br>&amp; Wellness", "Fun<br>Stories", "Phonics", "Classics"],
+      categories: [
+        "School",
+        "Animals",
+        "People<br>&amp; Places",
+        "Sports",
+        "Art<br>&amp; Culture",
+        "Family<br>&amp; Friends",
+        "Science<br>&amp; Nature",
+        "Community",
+        "Health<br>&amp; Wellness",
+        "Fun<br>Stories",
+        "Phonics",
+        "Classics",
+      ],
       lineColor: axisColor,
       tickLength: 0,
       labels: {
         useHTML: true,
+        autoRotation: [90],
         style: {
           color: labelColor,
           fontFamily: chartFont,
           fontSize: "12px",
-          textAlign: "center"
-        }
-      }
+          textAlign: "center",
+        },
+      },
     },
     yAxis: {
       min: 0,
@@ -378,25 +421,27 @@ $(function () {
         style: {
           color: labelColor,
           fontFamily: chartFont,
-          fontSize: "12px"
-        }
-      }
+          fontSize: "12px",
+        },
+      },
     },
     plotOptions: {
       column: {
         borderWidth: 0,
         pointPadding: 0.18,
-        groupPadding: 0.08
+        groupPadding: 0.08,
       },
       series: {
         animation: false,
-        colorByPoint: true
-      }
+        colorByPoint: true,
+      },
     },
     colors: ["#ff595e", "#ff862d", "#ffca3a", "#72c66c", "#31bce8", "#4d6ee8", "#7f61f2", "#d36ce5", "#10c6c7", "#9bd66f", "#3f4149", "#c8c8c8"],
-    series: [{
-      data: [34, 28, 21, 21, 39, 5, 21, 21, 45, 46, 21, 11]
-    }]
+    series: [
+      {
+        data: [34, 28, 21, 21, 39, 5, 21, 21, 45, 46, 21, 11],
+      },
+    ],
   });
 
   function createTrendChart(container, title, color, data) {
@@ -408,7 +453,7 @@ $(function () {
         spacingTop: 4,
         spacingRight: 0,
         spacingBottom: 0,
-        spacingLeft: 0
+        spacingLeft: 0,
       },
       title: {
         text: title,
@@ -417,8 +462,8 @@ $(function () {
           color: color,
           fontFamily: chartFont,
           fontSize: "15px",
-          fontWeight: "700"
-        }
+          fontWeight: "700",
+        },
       },
       credits: { enabled: false },
       legend: { enabled: false },
@@ -431,9 +476,9 @@ $(function () {
           style: {
             color: labelColor,
             fontFamily: chartFont,
-            fontSize: "11px"
-          }
-        }
+            fontSize: "11px",
+          },
+        },
       },
       yAxis: {
         min: 0,
@@ -445,9 +490,9 @@ $(function () {
           style: {
             color: labelColor,
             fontFamily: chartFont,
-            fontSize: "11px"
-          }
-        }
+            fontSize: "11px",
+          },
+        },
       },
       plotOptions: {
         series: {
@@ -456,14 +501,16 @@ $(function () {
           marker: {
             enabled: true,
             radius: 3,
-            lineWidth: 0
-          }
-        }
+            lineWidth: 0,
+          },
+        },
       },
-      series: [{
-        color: color,
-        data: data
-      }]
+      series: [
+        {
+          color: color,
+          data: data,
+        },
+      ],
     });
   }
 
