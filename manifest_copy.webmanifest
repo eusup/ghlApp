@@ -1,8 +1,8 @@
 {
-  "id": "./01main_copy.html",
+  "id": "./01main.html",
   "name": "Highlights Library Preview",
   "short_name": "GHL Preview",
-  "start_url": "./01main_copy.html",
+  "start_url": "./01main.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
