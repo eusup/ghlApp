@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>My Favorite</title>
+
+  <script src="./resource/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/highcharts.js"></script>
+  <script src="./resource/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="lv3_8 wrap">
+    <div class="mypage terms">
+      <nav class="nav-top">
+        <div class="con">
+          <div>
+            <a href="./01main.html" class="btn btn-icnOnly btn-back">
+              <img src="./resource/public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+          </div>
+          <div class="flex">
+            <h2>My Page</h2>
+            <div class="menu-select">
+              <button class="btn btn-noStyle">
+                <p>Settings</p>
+                <img src="./resource/public_html/resource/images/icn-menuArrow.svg" alt="#">
+              </button>
+              <ul class="menu-wrap">
+                <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
+                <li><a href="#">My History</a></li>
+                <li><a href="#">E-mail Us</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="con">
+        <h2>System Requirements</h2>
+        <div class="short">
+          <b>Information you provide to us</b>
+          <ul class="text-list">
+            <li>Broadband / High Speed Internet connection, 25 Mbps download speed or higher is recommended.</li>
+            <li>
+              <div>
+                <p>On PC or Mac, a web browser with JavaScript enabled: </p>
+                <ul class="no-pdn">
+                  <li>Chrome (Preferred. Current, or last two versions)</li>
+                  <li>Safari (Current, or last two versions)</li>
+                  <li>Firefox (Current, or last two versions)</li>
+                </ul>
+              </div>
+            </li>
+            <li>For iOS: iOS 11 or higher</li>
+            <li>For Android Tablets: Android 6.0 or higher with 1024 x 768 minimum resolution on a screen size of at least 7" x 9".</li>
+            <li>For Chrome Books: Current Chrome OS or last two versions</li>
+          </ul>
+        </div>
+        <div class="short">
+          <b>Bandwidth Estimates</b>
+          <ul class="text-list">
+            <li>Highlights Library has more than 2000 stories across many content areas and includes audio, illustrations and   text highlighting</li>
+            <li>Page content is cached locally-subject to browser settings and School District IT policies.</li>
+          </ul>
+        </div>
+        <div class="short">
+          <b>Minimum System Requirements</b>
+          <ul class="text-list">
+            <li>Broadband / High Speed Internet connection, minimum 10 Mbps download speed or higher.</li>
+            <li>
+              <div>
+                <p>On PC or Mac, a web browser with JavaScript enabled: </p>
+                <ul class="no-pdn">
+                  <li>Chrome (Preferred. Current, or last two versions)</li>
+                  <li>Safari 7.0 on OS X 10.9 or higher.</li>
+                  <li>Firefox 44 or higher.</li>
+                </ul>
+              </div>
+            </li>
+            <li>1024 x 768 minimum resolution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="./resource/public_html/resource/images/icn-nav-home.svg" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="./resource/public_html/resource/images/icn-nav-library.svg" alt="">
+            <span>Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="./03mypage-01myProfile.html">
+            <img src="./resource/public_html/resource/images/icn-nav-user.svg" alt="">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-reward.svg" alt="">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-down.svg" alt="">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="dimmed">
+      <div class="popup option">
+        <button class="btn btn-icnOnly btn-close">
+          <img src="./resource/public_html/resource/images/icn-close-black.svg" alt="close the option">
+        </button>
+        <div class="inner">
+          <div class="box">
+            <div class="option-type-level">
+              <div class="flex">
+                <p class="option-title">Level</p>
+                <div class="flex">
+                  <input type="number" value="1">
+                  <span>~</span>
+                  <input type="number" value="30">
+                </div>
+              </div>
+              <div class="range"></div>
+              <div class="flex number"><span>1</span><span>30</span></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-genre">
+              <p class="option-title">Genre</p>
+              <div class="flex">
+                <label for="favorite-genre-all" class="check-box pill">
+                  <input type="radio" id="favorite-genre-all" name="favorite-genre" checked>
+                  <div></div>
+                  <p>All</p>
+                </label>
+                <label for="favorite-fiction" class="check-box pill">
+                  <input type="radio" id="favorite-fiction" name="favorite-genre">
+                  <p>Fiction</p>
+                </label>
+                <label for="favorite-nonfiction" class="check-box pill">
+                  <input type="radio" id="favorite-nonfiction" name="favorite-genre">
+                  <p>Non-Fiction</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn btn-white">Reset Filters</button>
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

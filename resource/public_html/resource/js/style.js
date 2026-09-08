@@ -108,9 +108,16 @@ $(document).ready(function () {
     const $tabWrap = $(this);
     const $tabItems = $tabWrap.find("ul li");
     const $tabContents = $tabWrap.nextAll(".tab-contents").first().children();
+    const isSupportTab = $tabWrap.closest(".mypage.support").length > 0;
 
     const activateTab = function (index) {
       $tabItems.eq(index).addClass("act").siblings("li").removeClass("act");
+      if (isSupportTab) {
+        $tabContents.removeClass("act");
+        if (index === 0) $tabContents.addClass("act");
+        else $tabContents.eq(index - 1).addClass("act");
+        return;
+      }
       $tabContents.eq(index).addClass("act").siblings().removeClass("act");
     };
 
@@ -120,6 +127,10 @@ $(document).ready(function () {
 
     const activeIndex = $tabItems.filter(".act").first().index();
     if (activeIndex >= 0 && $tabContents.length) activateTab(activeIndex);
+  });
+
+  $(".mypage.support .tab-contents > ul > li > button").on("click", function () {
+    $(this).parent("li").toggleClass("act");
   });
 
   // notice 닫기

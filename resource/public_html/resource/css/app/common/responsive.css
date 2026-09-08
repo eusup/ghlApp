@@ -85,10 +85,6 @@
     padding: 0;
   }
 
-  .library.favorite ul li:not(.nothing){
-  width: calc((100% - 24px) / 4);
-  }
-
   .myprofile .my-interesting ul li{
     width: calc((100% - 18px) / 4);
   }

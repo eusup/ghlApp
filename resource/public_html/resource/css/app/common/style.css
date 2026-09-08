@@ -1528,25 +1528,192 @@
 /** my history end **/
 
 /** email us **/
-.wrap:has(.mypage.email){
+.wrap:has(.mypage.email) {
   height: 100dvh;
 }
 
-.wrap:has(.mypage.email) :where(.mypage.email, .mypage.email .con, .con label:has(textarea), .con label textarea){
+.wrap:has(.mypage.email) :where(.mypage.email, .mypage.email .con, .con label:has(textarea), .con label textarea) {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.mypage.email .con{
+.mypage.email .con {
   gap: calc(var(--gap) * 2);
 }
 
-.mypage.email .con .btn-wrap .btn{
+.mypage.email .con .btn-wrap .btn {
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
 }
 /** email us end **/
+
+/** settings **/
+.mypage.settings .con .terms {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mypage.settings .con .terms li {
+  width: 100%;
+}
+
+.mypage.settings .con .terms li a {
+  display: block;
+  margin-bottom: 8px;
+  padding: 15px;
+  border-radius: 12px;
+  background-color: rgb(var(--color-white));
+  background-image: url(/resource/public_html/resource/images/icn-link.svg);
+  background-repeat: no-repeat;
+  background-position: top 14px right 10px;
+  box-shadow: 0px 4px 8px rgb(var(--color-shadow));
+  line-height: 1.6;
+}
+
+.mypage.settings .con .settings-menu li {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 1.8rem;
+}
+
+.mypage.settings .con .settings-menu li:last-child {
+  border-top: 1px solid rgb(var(--color-border));
+}
+
+.mypage.settings .con .settings-menu .btn-noStyle {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #ff5656;
+}
+
+/*** settings - terms ***/
+.mypage.terms * {
+  line-height: 1.6;
+}
+
+.mypage.terms .short {
+  margin: 18px 0;
+}
+
+.mypage.terms .short p.semi-title {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.mypage.terms .short *:not(.semi-title, div, .no-pdn) {
+  padding-left: 8px;
+}
+
+.mypage.terms b {
+  font-weight: 600;
+  line-height: 1;
+}
+
+.mypage.terms .text-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.mypage.terms .text-list li {
+  display: flex;
+  gap: 3px;
+  line-height: 1.4;
+}
+
+.mypage.terms .text-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: 9px;
+  border-radius: 2px;
+  background-color: rgb(var(--color-font));
+}
+/*** settings - terms end ***/
+/** settings end **/
+
+/** suport **/
+.mypage.support .tab-contents {
+  margin-top: 24px;
+}
+
+.mypage.support .tab-contents > ul {
+  margin-bottom: 8px;
+}
+
+.mypage.support .tab-contents > ul > li {
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: var(--radius);
+  background-color: rgb(var(--color-white));
+  box-shadow: 0px 4px 8px rgb(var(--color-font) / 0.1);
+}
+
+.mypage.support .tab-contents > ul > li .btn-noStyle {
+  width: 100%;
+  text-align: left;
+}
+
+.mypage.support .tab-contents > ul > li .btn-noStyle div {
+  width: 100%;
+}
+
+.mypage.support .tab-contents > ul > li .btn-noStyle div .tag {
+  margin-bottom: 4px;
+  font-size: 1.4rem;
+}
+
+.mypage.support .tab-contents > ul.suport-program > li .btn-noStyle div .tag {
+  color: #31b557;
+}
+
+.mypage.support .tab-contents > ul.suport-book > li .btn-noStyle div .tag {
+  color: #B35EDB;
+}
+
+.mypage.support .tab-contents > ul.suport-level > li .btn-noStyle div .tag {
+  color: #FFA959;
+}
+
+.mypage.support .tab-contents > ul.suport-viewer > li .btn-noStyle div .tag {
+  color: #36D6FA;
+}
+
+.mypage.support .tab-contents > ul > li .btn-noStyle img {
+  transform: rotate(180deg);
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 100px;
+  background-color: rgb(var(--color-font));
+  box-sizing: content-box;
+}
+
+.mypage.support .tab-contents > ul > li.act .btn-noStyle img {
+  transform: rotate(0);
+}
+
+.mypage.support .tab-contents > ul > li .box {
+  padding: 0;
+  height: 0;
+  margin-top: 12px;
+  border-radius: 8px;
+  background-color: rgb(var(--color-gray));
+  overflow: hidden;
+}
+
+.mypage.support .tab-contents > ul > li.act .box {
+  height: auto;
+  padding: 8px;
+  line-height: 1.4;
+}
+/*0* suport end **/
 
 /* my page end */

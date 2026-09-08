@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>My Favorite</title>
+
+  <script src="./resource/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./resource/public_html/resource/js/highcharts.js"></script>
+  <script src="./resource/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="./resource/public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="lv3_8 wrap">
+    <div class="mypage terms">
+      <nav class="nav-top">
+        <div class="con">
+          <div>
+            <a href="./01main.html" class="btn btn-icnOnly btn-back">
+              <img src="./resource/public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+          </div>
+          <div class="flex">
+            <h2>My Page</h2>
+            <div class="menu-select">
+              <button class="btn btn-noStyle">
+                <p>Settings</p>
+                <img src="./resource/public_html/resource/images/icn-menuArrow.svg" alt="#">
+              </button>
+              <ul class="menu-wrap">
+                <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
+                <li><a href="#">My History</a></li>
+                <li><a href="#">E-mail Us</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="con">
+        <h2>Terms of use</h2>
+        <p>
+          The Highlights Library, including the servers upon which all content of the Highlights Library is stored, is
+          provided by Highlights for Children International, Inc. on servers hosted and maintained by Chungchydotcom
+          Co., Ltd. Your access to and use of
+          the Highlights Library is subject to the following terms and conditions. In addition, your access to the
+          Highlights Library, whether online or through a mobile application, is facilitated by a third party access
+          provider ("Access Host") and subject
+          to their additional terms and conditions and privacy policies.
+        </p>
+        <div class="short">
+          <p class="semi-title">Acceptance of Terms and Conditions.</p>
+          <p>
+            By accessing the Highlights Library, you accept and agree to all of the following terms and conditions (the
+            "Terms and Conditions"). If you do not agree to the Terms and Conditions, you must refrain from accessing or
+            using the Highlights Library.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Revision of Terms and Conditions.</p>
+          <p>
+            We reserve the right to modify these Terms and Conditions at any time. While we may provide notices of
+            changes to the Terms and Conditions within the Highlights Library or through our Access Hosts, you are
+            responsible for periodically reviewing the Terms
+            and Conditions. Continued access to the Highlights Library after any revision to the Terms and Conditions
+            shall be deemed acceptance of those changes. If you do not agree with any of the revisions, please refrain
+            from accessing or using the Highlights
+            Library.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Fees for Use.</p>
+          <p>
+            All fees for accessing and using the Highlights Library are charged and collected by our Access Hosts. We do
+            not have access to any credit card or other billing information you provided to those Access Hosts. You
+            agree to settle all disputes over usage
+            fees directly with those third party Access Hosts.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Availability and Monitoring.</p>
+          <p>
+            While we intend to make the Highlights Library available twenty four hours a day, seven days a week, we
+            reserve the right to control or change: accessibility, hours of use, and availability of features in the
+            Highlights Library. In our efforts to provide
+            a quality experience in the Highlights Library, we may monitor use of the library and its features. We
+            reserve the right to restrict access to any or all portions of the Highlights Library or remove or modify
+            any features or content from the library
+            at any time. Due to the nature of the internet and servers, we cannot be held liable for any disruption in
+            the availability of the Highlights Library. You are solely responsible for providing the equipment used to
+            access the Highlights Library as
+            well as securing your own internet connection/mobile services through which you make access.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Prohibited Uses and Conduct</p>
+          <p>
+            When accessing or using the Highlights Library, you expressly agree to not:
+          </p>
+          <ul class="text-list">
+            <li>remove, alter, cover, or distort any copyright, trademark, or other proprietary rights notice in
+              Highlights Library;</li>
+            <li>circumvent, disable or otherwise interfere with security-related features of Highlights Library
+              including, without limitation, any features that prevent or restrict access to, or use of, any content or
+              information on the servers housing the Highlights
+              Library;</li>
+            <li>use an automatic device (such as a robot or spider) or manual process to copy or "scrape" Highlights
+              Library content for any purpose without our express written permission;</li>
+            <li>attempt to collect or harvest any personally identifiable information from the Highlights Library
+              including, without limitation, user names, passwords, email addresses, or customer information provided by
+              other users;</li>
+            <li>attempt to or interfere with the proper working of Highlights Library or impair, overburden, or disable
+              the same;</li>
+            <li>decompile, reverse engineer, or disassemble any portion of the Highlights Library;</li>
+            <li>impersonate another user, person, or entity (e.g., using another person’s account information without
+              permission); or</li>
+            <li>engage in any conduct that restricts or inhibits any other user from using or enjoying the Highlights
+              Library.</li>
+          </ul>
+          <p>
+            We reserve the right to deny or terminate the access to, or use of, the Highlights Library by any user who
+            violates these Terms and Conditions. We further reserve the right to pursue any civil and criminal claims we
+            may have against any user who violates
+            these Terms and Conditions or who otherwise accesses the Highlights Library in an unauthorized manner.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">User Registration</p>
+          <p>
+            In order to access or use Highlights Library, you must become a registered user through one of our Access
+            Hosts. You agree to provide such Access Host with true, accurate and complete registration information and,
+            if such information changes, you will
+            promptly update the relevant registration information. During registration, you may be asked by our Access
+            Host to create a user name and password ("Account Information"). You are responsible for safeguarding and
+            maintaining the confidentiality of
+            your Account Information. You are solely responsible for the activity that occurs through the use of your
+            Account Information, whether or not you have authorized the activity. You agree to notify your Access Host
+            immediately of any breach of security
+            or unauthorized use of your Account Information.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Privacy Policy</p>
+          <p>
+            Highlights and ChungChyDotCom utilize any personally identifiable information we collect for the sole
+            purpose of individualizing the user experience within the Highlights Library. In addition, from time to
+            time, we receive from our Access Hosts information on users relating to technical issues. In such instances,
+            we utilize the information and/or contact the user for the sole purpose of resolving the technical issue.
+            All other uses of personally identifiable information, non-personally identifiable information and cookies
+            are in strict compliance with our corporate Privacy Policy: <a
+              href="https://www.highlights.com/privacy-policy">https://www.highlights.com/privacy-policy</a>
+          </p>
+          <div>
+            <b>Information you provide to us</b>
+            <p>
+              Certain features of the Highlights Library individualize the experience, requiring the collection,
+              use,
+              or tracking of certain information (e.g. individual reading preferences, progress tracking, names,
+              device identifier, IP address and/or country of residence, grade levels, reading levels and e-mail
+              addresses). If you use Speaking activities within Highlights Library, we will ask for permission to
+              access your computer or device’s microphone. Once you complete an activity, the voice recording will
+              be
+              stored accessible by teacher(s) and administrators associated with your account for a time period of 4
+              months. The Services do not allow users (including children) to disclose personal information
+              publicly.
+            </p>
+          </div>
+          <div>
+            <b>Information we collect automatically</b>
+            <p>
+              We automatically collect certain non-personal information when you use our Services. For example, we may
+              collect device information, such as your device type, operating system type, and/or browser type. We may
+              also collect usage data, such as, what pages and content you accessed, and features you used on our
+              Services. We may combine this device and usage information with other personal information.
+            </p>
+          </div>
+          <div>
+            <b>Cookies and Tracking</b>
+            <p>
+              Our Mobile App(s) use a variety of technical methods for collecting and tracking device information and
+              usage data, including cookies, pixels, and device IDs. Cookies and pixels are small pieces of text that
+              may be saved on your device when you view our Mobile App(s). We and other companies use unique identifiers
+              in cookies to distinguish your device for a variety of purposes, including helping you navigate our Mobile
+              App(s), remembering your preferences and interests, and tracking your online activities over time and
+              across our Mobile App. Device IDs are unique identifiers for your devices. We and others may collect and
+              use device IDs for tracking activities and usage of our Services, such as how you use our Services, to
+              operate, maintain, optimize and improve.
+            </p>
+          </div>
+        </div>
+        <div class="short">
+          <p class="semi-title">Intellectual Property</p>
+          <p>
+            We own all intellectual property rights in and to the content in the Highlights Library, including copyright
+            and trademark rights. As an authorized user, we grant to you a limited license to copy the content, solely
+            for the purposes of caching, displaying
+            the content on your viewing device and printing the content (if such functionality is activated) in the
+            Highlights Library, solely for your own, personal, non-commercial use. Beyond this very limited license, the
+            Highlights Library content may not
+            be copied, reproduced, modified, published, uploaded, posted, transmitted, "framed" on another site, or
+            distributed in any way, shape or form without our prior written consent.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Disclaimer and Limitation of Liability.</p>
+          <p>
+            We make every effort to ensure the availability and security of the Highlights Library. Even so, no warranty
+            is expressed or implied by any statement made in these Terms and Conditions and we make no guarantee or
+            warranty, express or implied, as to the
+            availability, reliability, accuracy, or completeness of any content in the Highlights Library and we assume
+            no responsibility for any errors or omissions therein. YOU ACCESS THE HIGHLIGHTS LIBRARY AT YOUR OWN RISK.
+            THE HIGHLIGHTS LIBRARY IS PROVIDED
+            ON AN "AS IS, AS AVAILABLE" BASIS WITHOUT WARRANTY OF ANY KIND AND ANY AND ALL WARRANTIES OF MERCHANTABILITY
+            OR FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT ARE SPECIFICALLY DISCLAIMED. NEITHER OF HIGHLIGHTS
+            FOR CHILDREN OR CHUNGCHYDOTCOM,
+            NOR ANY OF THEIR AFFILIATES, EMPLOYEES, AGENTS OR THIRD PARTY CONTENT PROVIDERS SHALL BE LIABLE FOR ANY LOSS
+            RESULTING FROM USE OR UNAVAILABILITY OF INFORMATION OR CONTENT IN THE HIGHLIGHTS LIBRARY, INCLUDING BUT NOT
+            LIMITED TO ANY LOST PROFITS,
+            LOSS OR DAMAGE TO DATA, LOSS OR DAMAGE TO EQUIPMENT USED TO ACCESS THE HIGHLIGHTS LIBRARY, OR ANY DIRECT,
+            INDIRECT, SPECIAL, CONSEQUENTIAL, COMPENSATORY OR INCIDENTAL DAMAGES, EVEN IF THEY HAVE BEEN ADVISED OF THE
+            POSSIBILITY OF SUCH DAMAGES. THIS
+            DISCLAIMER IS APPLICABLE TO ANY DAMAGE OR INJURY RESULTING FROM INADVERTENT DISCLOSURE OF USER INFORMATION,
+            COMPUTER VIRUS OR OTHER SIMILAR ITEM, TELECOMMUNICATIONS ERRORS, OR UNAUTHORIZED ACCESS TO OR USE OF USER
+            INFORMATION THROUGH THEFT OR ANY
+            OTHER MEANS. WE ARE NOT LIABLE FOR CRIMINAL, TORTIOUS, OR NEGLIGENT ACTIONS OR OMISSIONS OF THIRD PARTIES
+            THAT AFFECT THE HIGHLIGHTS LIBRARY.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Release of Information and Indemnification.</p>
+          <p>
+            In accordance with applicable law, we reserve the right to release information concerning anyone using the
+            Highlights Library where we have a good faith belief that this person or entity may be in violation of their
+            obligations to us or may be involved
+            in some unlawful activity, where we are responding to civil subpoenas or discovery requests, where we are
+            attempting to protect the interests of our business, our customers or others, or where otherwise permitted
+            or required by law. If you misuse
+            or abuse the Highlights Library or the content in it, you agree to indemnify us and hold us harmless from
+            any and all claims, liabilities, demands, causes of action, damages, losses, and expenses, including,
+            without limitation, reasonable attorneys'
+            fees and costs of suit, arising out of or in connection with such misuse or abuse.
+          </p>
+        </div>
+        <div class="short">
+          <p class="semi-title">Miscellaneous</p>
+          <p>
+            These Terms and Conditions constitute the entire agreement between you and us regarding your use and access
+            to the Highlights Library. As noted, additional terms and conditions and privacy policies may be utilized by
+            our Access Hosts. You are solely responsible
+            for reviewing any such additional terms and policies. If any portion of these Terms and Conditions is found
+            to be unenforceable for any reason, such portion will be deemed severed and will not affect the
+            enforceability of the remaining terms.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="./resource/public_html/resource/images/icn-nav-home.svg" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="./resource/public_html/resource/images/icn-nav-library.svg" alt="">
+            <span>Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="./03mypage-01myProfile.html">
+            <img src="./resource/public_html/resource/images/icn-nav-user.svg" alt="">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-reward.svg" alt="">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./resource/public_html/resource/images/icn-nav-down.svg" alt="">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="dimmed">
+      <div class="popup option">
+        <button class="btn btn-icnOnly btn-close">
+          <img src="./resource/public_html/resource/images/icn-close-black.svg" alt="close the option">
+        </button>
+        <div class="inner">
+          <div class="box">
+            <div class="option-type-level">
+              <div class="flex">
+                <p class="option-title">Level</p>
+                <div class="flex">
+                  <input type="number" value="1">
+                  <span>~</span>
+                  <input type="number" value="30">
+                </div>
+              </div>
+              <div class="range"></div>
+              <div class="flex number"><span>1</span><span>30</span></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-genre">
+              <p class="option-title">Genre</p>
+              <div class="flex">
+                <label for="favorite-genre-all" class="check-box pill">
+                  <input type="radio" id="favorite-genre-all" name="favorite-genre" checked>
+                  <div></div>
+                  <p>All</p>
+                </label>
+                <label for="favorite-fiction" class="check-box pill">
+                  <input type="radio" id="favorite-fiction" name="favorite-genre">
+                  <p>Fiction</p>
+                </label>
+                <label for="favorite-nonfiction" class="check-box pill">
+                  <input type="radio" id="favorite-nonfiction" name="favorite-genre">
+                  <p>Non-Fiction</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn btn-white">Reset Filters</button>
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
