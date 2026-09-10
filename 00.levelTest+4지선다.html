@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>home</title>
+
+  <script src="/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="/public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="/public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="/public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="/public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="levelTest testing">
+      <nav class="nav-top">
+        <div class="con">
+          <div>
+            <a href="/01main.html" class="btn btn-icnOnly btn-back">
+              <img src="/public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="con inner">
+        <div class="flex indicator">
+          <div class="flex">
+            <img src="/public_html/resource/images/icn-question.svg" alt="#">
+            <p>Question</p>
+          </div>
+          <div class="flex question-length">
+            <p>1</p>
+            <p>5</p>
+          </div>
+        </div>
+        <div class="box">
+          <p class="epilogue">Match the picture to the correct word:</p>
+          <img src="/public_html/resource/images/dump/questionImage.png" alt="bike">
+        </div>
+        <div class="choice-wrap">
+          <ul class="flex choice">
+            <li>
+              <button class="btn btn-icnOnly">
+                <img src="/public_html/resource/images/icn-listen.svg" alt="sound on">
+              </button>
+              <label for="answer01">
+                <span class="label-text">a. coat</span>
+                <input type="radio" id="answer01" name="question1">
+              </label>
+            </li>
+            <li>
+              <button class="btn btn-icnOnly">
+                <img src="/public_html/resource/images/icn-listen.svg" alt="sound on">
+              </button>
+              <label for="answer02">
+                <span class="label-text">a. coat</span>
+                <input type="radio" id="answer02" name="question1">
+              </label>
+            </li>
+            <li>
+              <button class="btn btn-icnOnly">
+                <img src="/public_html/resource/images/icn-listen.svg" alt="sound on">
+              </button>
+              <label for="answer03">
+                <span class="label-text">a. coat</span>
+                <input type="radio" id="answer03" name="question1">
+              </label>
+            </li>
+            <li>
+              <button class="btn btn-icnOnly">
+                <img src="/public_html/resource/images/icn-listen.svg" alt="sound on">
+              </button>
+              <label for="answer04">
+                <span class="label-text">a. coat</span>
+                <input type="radio" id="answer04" name="question1">
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn">
+            <span>Next</span>
+            <img src="/public_html/resource/images/icn-StrokeArrow+white.svg" alt="#">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="dimmed">
+      <div class="popup popup-box book-info">
+        <button type="button" class="btn btn-icnOnly btn-next">
+          <img src="/public_html/resource/images/icn-StrokeArrow.svg" alt="Next">
+        </button>
+        <div class="con">
+          <div class="inner">
+            <div class="book-slides">
+              <div class="flex">
+                <div class="left">
+                  <div class="thumb">
+                    <img src="/public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                  </div>
+                  <div class="btn-wrap">
+                    <button class="btn btn-noStyle">
+                      <img src="/public_html/resource/images/icn-download.svg" alt="#">
+                      <span>Book & Quiz</span>
+                    </button>
+                    <button class="btn btn-white">Book & Quiz</button>
+                    <button class="btn btn-speaking">Speaking</button>
+                    <button class="btn btn-listening">Listening</button>
+                    <button class="btn btn-thinking">Thinking</button>
+                    <button class="btn btn-bookReport">Thinking</button>
+                  </div>
+                </div>
+                <div class="right">
+                  <p class="title">This Content's title</p>
+                  <ul class="meta-data">
+                    <li>
+                      <dl>
+                        <dt>Level</dt>
+                        <dd>99</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>LEXILE</dt>
+                        <dd>NF</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>CATEGORY</dt>
+                        <dd>Science & Nature</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <dl>
+                        <dt>GRL</dt>
+                        <dd>AA</dd>
+                      </dl>
+                    </li>
+                    <li class="description">
+                      <dl>
+                        <dt>DESCRIPTION</dt>
+                        <dd>Baby Bunny gets all bundled up in her winter clothes to play in the snow with Papa.</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="book-slide">
+                <!-- 두 번째 슬라이드 콘텐츠 -->
+              </div>
+            </div>
+            <div class="btn-wrap">
+              <button class="btn btn-favorite">
+                <img src="/public_html/resource/images/icn-favorite.svg" alt="#">
+                <img src="/public_html/resource/images/icn-favorite+act.svg" alt="#">
+              </button>
+              <button class="btn">Read</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup option">
+        <button class="btn btn-icnOnly btn-close">
+          <img src="/public_html/resource/images/icn-close-black.svg" alt="close the option">
+        </button>
+        <div class="inner">
+          <div class="box">
+            <div class="option-type-level">
+              <div class="flex">
+                <p class="option-title">Level</p>
+                <div class="flex">
+                  <input type="number" value="">
+                  <span>~</span>
+                  <input type="number" value="">
+                </div>
+              </div>
+              <div class="range"></div>
+              <div class="flex number">
+                <span>1</span>
+                <span>30</span>
+              </div>
+              <label for="myGoal" class="check-box">
+                <input type="checkbox" name="" id="myGoal">
+                <div></div>
+                <p>My Goal</p>
+              </label>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-readingType">
+              <p class="option-title">Reading Type</p>
+              <label for="readersPlus" class="check-box">
+                <input type="checkbox" name="" id="readersPlus">
+                <div></div>
+                <p>Readers+ Only</p>
+              </label>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-genre">
+              <p class="option-title">Genre</p>
+              <div class="flex">
+                <label for="genre-all" class="check-box pill">
+                  <input type="radio" id="genre-all" name="genre">
+                  <div></div>
+                  <p>All</p>
+                </label>
+                <ul class="flex">
+                  <li>
+                    <label for="f" class="check-box pill">
+                      <input type="radio" id="f" name="genre">
+                      <p>Fiction</p>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="nf" class="check-box pill">
+                      <input type="radio" id="nf" name="genre">
+                      <p>Non-Fiction</p>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="option-type-category">
+              <p class="option-title">CATEGORY</p>
+              <div class="tab-wrap">
+                <ul>
+                  <li>
+                    <button class="btn">Highlights</button>
+                  </li>
+                  <li class="act">
+                    <button class="btn">SDC</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-contents">
+                <div class="flex category-wrap">
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>School</p>
+                  </label>
+                  <label for="category-animals" class="check-box category-animals">
+                    <input type="checkbox" id="category-animals">
+                    <div></div>
+                    <p>Animals</p>
+                  </label>
+                  <label for="category-people" class="check-box category-people">
+                    <input type="checkbox" id="category-people">
+                    <div></div>
+                    <p>People &amp; Places</p>
+                  </label>
+                  <label for="category-sports" class="check-box category-sports">
+                    <input type="checkbox" id="category-sports">
+                    <div></div>
+                    <p>Sports</p>
+                  </label>
+                  <label for="category-art" class="check-box category-art">
+                    <input type="checkbox" id="category-art">
+                    <div></div>
+                    <p>Art &amp; Culture</p>
+                  </label>
+                  <label for="category-family" class="check-box category-family">
+                    <input type="checkbox" id="category-family">
+                    <div></div>
+                    <p>Family &amp; Friends</p>
+                  </label>
+                  <label for="category-science" class="check-box category-science">
+                    <input type="checkbox" id="category-science">
+                    <div></div>
+                    <p>Science &amp; Nature</p>
+                  </label>
+                  <label for="category-community" class="check-box category-community">
+                    <input type="checkbox" id="category-community">
+                    <div></div>
+                    <p>Community</p>
+                  </label>
+                  <label for="category-health" class="check-box category-health">
+                    <input type="checkbox" id="category-health">
+                    <div></div>
+                    <p>Health &amp; Wellness</p>
+                  </label>
+                  <label for="category-fun" class="check-box category-fun">
+                    <input type="checkbox" id="category-fun">
+                    <div></div>
+                    <p>Fun Stories</p>
+                  </label>
+                  <label for="genre-all" class="check-box pill">
+                    <input type="radio" id="genre-all" name="genre">
+                    <div></div>
+                    <p>All</p>
+                  </label>
+                </div>
+                <div class="flex category-wrap act">
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Zero Hunger</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Good Health<br>&amp; Well-Being</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Quality Education</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Affordable<br>&amp; Clean Energy</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Decent Work<br>&amp; Economic Growth</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Industry, Innovation<br>&amp; Infrastructure</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Reduced Inequalities</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Sustainable Cities<br>&amp; Communities</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Responsible Consumption<br>&amp; Production</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Climate Action</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Life below Water</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Life on Land</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Peace, Justice<br>&amp; Strong Institutions</p>
+                  </label>
+                  <label for="category-school" class="check-box category-school">
+                    <input type="checkbox" id="category-school">
+                    <div></div>
+                    <p>Partnerships<br>for the Goals</p>
+                  </label>
+                  <div class="category-all">
+                    <label for="genre-all" class="check-box pill">
+                      <input type="radio" id="genre-all" name="genre">
+                      <div></div>
+                      <p>All</p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn btn-white">Reset Filters</button>
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

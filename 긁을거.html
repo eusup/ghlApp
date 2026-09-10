@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Popup</title>
+
+  <script src="/public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="/public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/css/app/common/base.css?v=2024071002">
+  <link rel="stylesheet" type="text/css"
+    href="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/css/app/common/cmm.css?v=2026072201">
+  <link rel="stylesheet" type="text/css"
+    href="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/css/app/common/swiper.css?v=2026072003">
+  <link rel="stylesheet" type="text/css"
+    href="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/css/app/common/range-slider.css?v=2026071601">
+  <link rel="stylesheet" type="text/css"
+    href="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/css/app/common/style.css?v=2026072201">
+</head>
+
+<body>
+
+  <!-- HEADER APP -->
+  <nav id="top" data-role="oMainNav">
+    <div class="nav2depth">
+      <div class="inner">
+        <button type="button" id="oMenu" class="flex" aria-label="menu open">
+          <p class="now-depth">Reading Map</p>
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/app/cmm/icn-navArrow.svg"
+            alt="#">
+        </button>
+        <ul id="oMenuList">
+          <li><a data-nav="reward" href="/app/reward/reward" class="act">Reading Map</a></li>
+          <li><a data-nav="badgecollection" href="/app/reward/reward/badgecollection">Badge Collection</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <!-- filters  -->
+
+
+
+  <div id="oFilterBox" class="setting-wrap">
+    <header>
+      <h1>Filters</h1>
+      <div class="l-btn">Cancel</div>
+      <div data-role="oBtnSave" class="r-btn">Save</div>
+    </header>
+    <div class="content" style="padding-bottom: 66.3834px;">
+      <section>
+        <div class="title">
+          <h2>LEVEL</h2>
+        </div>
+        <div class="box range-wrap">
+          <div class="range-slider">
+            <div class="level start" data-min="1">1</div>
+            <div class="level end" data-max="30">30</div>
+            <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+              aria-disabled="false">
+              <a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;">
+
+                <span id="min" style="margin-left: 0px; top: 29px; left: 0px;">1</span></a>
+              <a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 100%;">
+
+                <span id="max" style="margin-left: 3px; top: 29px; left: -3px;">30</span></a>
+              <div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <article>
+          <div class="title">
+            <h2>Genre</h2>
+          </div>
+          <div class="box tab">
+            <div class="tab-wrap">
+              <label class="checkbox-wrap" for="oGenreAll">
+                <input type="checkbox" name="oGenreAll" id="oGenreAll" value="11,12" checked="checked">
+                <div class="checkbox-shape">All</div>
+              </label>
+              <label class="checkbox-wrap" for="oGenre1">
+                <input type="checkbox" name="oGenre" id="oGenre1" value="11">
+                <div class="checkbox-shape">Fiction</div>
+              </label>
+              <label class="checkbox-wrap" for="oGenre2">
+                <input type="checkbox" name="oGenre" id="oGenre2" value="12">
+                <div class="checkbox-shape">Non-Fiction</div>
+              </label>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section>
+        <div class="title">
+          <h2>CATEGORY</h2>
+        </div>
+        <ul class="book-category-tab">
+          <li>
+            <a href="javascript:void(0);" data-role="oCategoryTab" data-tab="hll_category"
+              class="act">Highlights<br>Category</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" data-role="oCategoryTab" data-tab="unesco_category">SDG<br>Category</a>
+          </li>
+        </ul>
+        <div class="box category">
+          <div class="book-area-wrap">
+            <button type="button" id="oBtnCategoryAll" class="btn-all
+                    act
+                        ">All</button>
+            <ul class="content-area" id="hll_category" data-role="oCategoryList" data-type="tab-1">
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="102">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-school.png"
+                    alt="School">
+                  <h1>School</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="100">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-animal.png"
+                    alt="Animals">
+                  <h1>Animals</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="104">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-world.png"
+                    alt="People &amp; Places">
+                  <h1>People &amp; Places</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="108">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-sno.png"
+                    alt="Sports">
+                  <h1>Sports</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="105">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-art.png"
+                    alt="Art &amp; Culture">
+                  <h1>Art &amp; Culture</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="101">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-ff.png"
+                    alt="Family &amp; Friends">
+                  <h1>Family &amp; Friends</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="106">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-snn.png"
+                    alt="Science &amp; Nature">
+                  <h1>Science &amp; Nature</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="103">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-neighbor.png"
+                    alt="Community">
+                  <h1>Community</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="107">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-hnw.png"
+                    alt="Health &amp; Wellness">
+                  <h1>Health &amp; Wellness</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategory" data-idx="109">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contets-fun.png"
+                    alt="Fun Stories">
+                  <h1>Fun Stories</h1>
+                </a>
+              </li>
+            </ul>
+            <ul class="content-area" id="unesco_category" data-role="oCategoryList" data-type="tab-3"
+              style="display: none;">
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="195">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-ZH.svg"
+                    alt="Zero Hunger">
+                  <h1>Zero Hunger</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="196">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-GHWB.svg"
+                    alt="Good Health&lt;br&gt;&amp; Well-Being">
+                  <h1>Good Health<br>&amp; Well-Being</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="197">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-QE.svg"
+                    alt="Quality Education">
+                  <h1>Quality Education</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="198">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-AC.svg"
+                    alt="Affordable&lt;br&gt;&amp; Clean Energy">
+                  <h1>Affordable<br>&amp; Clean Energy</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="199">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-DE.svg"
+                    alt="Decent Work&lt;br&gt;&amp; Economic Growth">
+                  <h1>Decent Work<br>&amp; Economic Growth</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="200">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-II.svg"
+                    alt="Industry, Innovation&lt;br&gt;&amp; Infrastructure">
+                  <h1>Industry, Innovation<br>&amp; Infrastructure</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="201">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-RI.svg"
+                    alt="Reduced Inequalities">
+                  <h1>Reduced Inequalities</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="202">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-SC.svg"
+                    alt="Sustainable Cities&lt;br&gt;&amp; Communities">
+                  <h1>Sustainable Cities<br>&amp; Communities</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="203">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-RP.svg"
+                    alt="Responsible Consumption&lt;br&gt;&amp; Production">
+                  <h1>Responsible Consumption<br>&amp; Production</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="204">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-CA.svg"
+                    alt="Climate Action">
+                  <h1>Climate Action</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="205">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-LBW.svg"
+                    alt="Life below Water">
+                  <h1>Life below Water</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="206">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-LOL.svg"
+                    alt="Life on Land">
+                  <h1>Life on Land</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="207">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-PJS.svg"
+                    alt="Peace, Justice&lt;br&gt;&amp; Strong Institutions">
+                  <h1>Peace, Justice<br>&amp; Strong Institutions</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryUnesco" data-idx="208">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-sdg-RF.svg"
+                    alt="Partnerships&lt;br&gt;for the Goals">
+                  <h1>Partnerships<br>for the Goals</h1>
+                </a>
+              </li>
+            </ul>
+            <ul class="content-area" data-role="oCategoryList" data-type="tab-2">
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="189">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-ANI.png"
+                    alt="Animation">
+                  <h1>Animation</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="209">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-TG.png"
+                    alt="Tinkergarten">
+                  <h1>Tinkergarten</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="179">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-DYK.png"
+                    alt="Did You Know?">
+                  <h1>Did You Know?</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="181">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-WAI.png"
+                    alt="Who Am I?">
+                  <h1>Who Am I?</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="183">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-BP.png"
+                    alt="Brain Play">
+                  <h1>Brain Play</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="185">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-AHK.png"
+                    alt="Ask Highlights Kids">
+                  <h1>Ask Highlights Kids</h1>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);" data-role="oCategoryVideo" data-idx="187">
+                  <span></span>
+                  <img
+                    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/new/contents-vid-MI.png"
+                    alt="Make It">
+                  <h1>Make It</h1>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="setting-bottom">
+      <button type="button" data-role="oBtnReset" class="btn-noStyle">
+        Reset Filters
+        <img
+          src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/app/cmm/icn_repeat.svg"
+          alt="#">
+      </button>
+      <button type="button" data-role="oBtnSave" class="btn-save">Save</button>
+    </div>
+  </div>
+  <div class="reward">
+    <div class="content">
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item act now">
+            <div class="badge">
+              <a href="#;return false;" data-role="oBtnPuzzle" data-idx="1" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="2" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-10.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-10.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="3" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-20.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="4" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-30.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-30.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="5" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-40.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="6" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-50.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-50.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+        <a href="#" class="gift gift01 " data-role="oBtnSkillDetail" data-type="read">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+        <a href="#" class="gift gift02 " data-role="oBtnSkillDetail" data-type="quiz">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="7" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-60.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="8" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-70.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="9" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-80.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="10" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-90.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="11" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-100.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-100.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+        <a href="#" class="gift gift03 " data-role="oBtnSkillDetail" data-type="streak">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+        <a href="#" class="gift gift04 " data-role="oBtnSkillDetail" data-type="read">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="12" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-110.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="13" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-120.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="14" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-130.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="15" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-140.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="16" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-150.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-150.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+        <a href="#" class="gift gift05 " data-role="oBtnSkillDetail" data-type="quiz">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+        <a href="#" class="gift gift06 " data-role="oBtnSkillDetail" data-type="streak">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+        <a href="#" class="gift gift07 " data-role="oBtnSkillDetail" data-type="read">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="17" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-160.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="18" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-170.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="19" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-180.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="20" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-190.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="21" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-200.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-200.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+        <a href="#" class="gift gift08 " data-role="oBtnSkillDetail" data-type="quiz">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+        <a href="#" class="gift gift09 " data-role="oBtnSkillDetail" data-type="streak">
+          <img
+            src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/giftBox.png"
+            alt="#">
+        </a>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="22" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-210.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="23" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-220.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="24" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-230.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="25" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-240.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="26" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-250.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-250.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="27" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-260.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="28" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-270.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="29" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-280.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="30" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-290.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="31" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-300.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-300.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="32" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-310.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="33" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-320.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="34" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-330.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="35" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-340.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="36" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-350.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-350.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="37" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-360.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="38" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-370.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="39" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-380.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="40" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-390.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="41" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-400.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-400.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="42" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-410.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="43" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-420.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="44" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-430.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="45" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-440.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="46" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-450.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-450.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="47" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-460.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="48" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-470.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="49" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-480.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="50" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-490.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="51" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-500.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-500.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="52" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-520.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="53" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-540.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="54" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-560.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="55" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-580.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="56" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-600.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-600.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="57" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-620.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="58" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-640.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="59" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-660.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="60" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-680.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="61" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-700.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-700.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="62" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-720.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="63" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-740.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="64" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-760.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="65" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-780.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="66" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-800.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-800.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="67" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-820.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="68" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-840.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="69" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-860.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="70" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-880.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="71" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-900.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-900.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="72" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-920.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="73" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-940.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="74" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-960.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="75" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-980.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="76" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1000.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1000.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="77" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1040.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="78" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1080.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="79" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1120.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="80" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1160.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="81" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1200.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1200.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="82" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1240.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="83" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1280.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="84" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1320.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="85" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1360.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="86" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1400.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1400.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="87" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1440.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="88" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1480.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="89" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1520.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="90" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1560.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="91" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1600.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1600.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="92" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1640.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="93" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1680.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="94" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1720.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="95" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1760.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="96" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-1800.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1800.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="97" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1840.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="98" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1880.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="99" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1920.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="100" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-1960.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <a href="#;return false;" data-idx="101" class="puzzle-wrap">
+                <img
+                  src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/icn_puzzle.png"
+                  alt="">
+              </a>
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-2000.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2000.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2040.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2080.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2120.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2160.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-2200.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2200.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2240.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2280.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2320.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2360.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-2400.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2400.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2440.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2480.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2520.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2560.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-2600.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2600.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2640.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2680.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2720.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2760.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-2800.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2800.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section name="step-sec">
+        <div class="inner">
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2840.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2880.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2920.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-2960.png"
+                alt="#">
+            </div>
+          </div>
+          <div class="item  ">
+            <div class="badge">
+              <img class="book-off"
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-lock-3000.png"
+                alt="#">
+              <img
+                src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/reward/step-3000.png"
+                alt="#">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <input type="hidden" id="sRewardStep" name="sRewardStep" value="1">
+</body>
+
+</html>
