@@ -4,8 +4,8 @@
   font-display: swap;
   src:
     local("Montserrat Black"),
-    url("/public_html/resource/fonts/Montserrat-Black.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-Black.woff") format("woff");
+    url("../../../fonts/Montserrat-Black.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-Black.woff") format("woff");
 }
 
 @font-face {
@@ -14,8 +14,8 @@
   font-display: swap;
   src:
     local("Montserrat ExtraBold"),
-    url("/public_html/resource/fonts/Montserrat-ExtraBold.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-ExtraBold.woff") format("woff");
+    url("../../../fonts/Montserrat-ExtraBold.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-ExtraBold.woff") format("woff");
 }
 
 @font-face {
@@ -24,8 +24,8 @@
   font-display: swap;
   src:
     local("Montserrat Bold"),
-    url("/public_html/resource/fonts/Montserrat-Bold.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-Bold.woff") format("woff");
+    url("../../../fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -34,8 +34,8 @@
   font-display: swap;
   src:
     local("Montserrat SemiBold"),
-    url("/public_html/resource/fonts/Montserrat-SemiBold.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-SemiBold.woff") format("woff");
+    url("../../../fonts/Montserrat-SemiBold.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-SemiBold.woff") format("woff");
 }
 
 @font-face {
@@ -44,8 +44,8 @@
   font-display: swap;
   src:
     local("Montserrat Medium"),
-    url("/public_html/resource/fonts/Montserrat-Medium.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-Medium.woff") format("woff");
+    url("../../../fonts/Montserrat-Medium.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -54,8 +54,8 @@
   font-display: swap;
   src:
     local("Montserrat Regular"),
-    url("/public_html/resource/fonts/Montserrat-Regular.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-Regular.woff") format("woff");
+    url("../../../fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -64,8 +64,8 @@
   font-display: swap;
   src:
     local("Montserrat Light"),
-    url("/public_html/resource/fonts/Montserrat-Light.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-Light.woff") format("woff");
+    url("../../../fonts/Montserrat-Light.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-Light.woff") format("woff");
 }
 
 @font-face {
@@ -74,8 +74,8 @@
   font-display: swap;
   src:
     local("Montserrat ExtraLight"),
-    url("/public_html/resource/fonts/Montserrat-ExtraLight.woff2") format("woff2"),
-    url("/public_html/resource/fonts/Montserrat-ExtraLight.woff") format("woff");
+    url("../../../fonts/Montserrat-ExtraLight.woff2") format("woff2"),
+    url("../../../fonts/Montserrat-ExtraLight.woff") format("woff");
 }
 
 :root {
@@ -437,7 +437,7 @@ input[type="number"]::-webkit-outer-spin-button {
   left: 50%;
   width: 14px;
   height: 14px;
-  background-image: url(/public_html/resource/images/icn-check.svg);
+  background-image: url(../../../images/icn-check.svg);
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -448,7 +448,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .check-box:not([class*="category"]):has(input:checked) div::before {
-  background-image: url(/public_html/resource/images/icn-check+act.svg);
+  background-image: url(../../../images/icn-check+act.svg);
 }
 
 .check-box:has(input:checked) p {
@@ -502,7 +502,7 @@ label.check-box.pill:has(input:checked) div {
 }
 
 .check-box.pill:has(input:checked) div::before {
-  background-image: url(/public_html/resource/images/icn-check+black.svg);
+  background-image: url(../../../images/icn-check+black.svg);
 }
 /* pill end */
 
@@ -1708,88 +1708,88 @@ label[class*="category"] div::before {
 }
 
 label.category-school div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-school.svg);
-  mask-image: url(/public_html/resource/images/icn-category-school.svg);
+  -webkit-mask-image: url(../../../images/icn-category-school.svg);
+  mask-image: url(../../../images/icn-category-school.svg);
 }
 
 label.category-animals div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-animals.svg);
-  mask-image: url(/public_html/resource/images/icn-category-animals.svg);
+  -webkit-mask-image: url(../../../images/icn-category-animals.svg);
+  mask-image: url(../../../images/icn-category-animals.svg);
 }
 
 label.category-people div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-people.svg);
-  mask-image: url(/public_html/resource/images/icn-category-people.svg);
+  -webkit-mask-image: url(../../../images/icn-category-people.svg);
+  mask-image: url(../../../images/icn-category-people.svg);
 }
 
 label.category-sports div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-sports.svg);
-  mask-image: url(/public_html/resource/images/icn-category-sports.svg);
+  -webkit-mask-image: url(../../../images/icn-category-sports.svg);
+  mask-image: url(../../../images/icn-category-sports.svg);
 }
 
 label.category-art div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-art.svg);
-  mask-image: url(/public_html/resource/images/icn-category-art.svg);
+  -webkit-mask-image: url(../../../images/icn-category-art.svg);
+  mask-image: url(../../../images/icn-category-art.svg);
 }
 
 label.category-family div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-family.svg);
-  mask-image: url(/public_html/resource/images/icn-category-family.svg);
+  -webkit-mask-image: url(../../../images/icn-category-family.svg);
+  mask-image: url(../../../images/icn-category-family.svg);
 }
 
 label.category-science div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-science.svg);
-  mask-image: url(/public_html/resource/images/icn-category-science.svg);
+  -webkit-mask-image: url(../../../images/icn-category-science.svg);
+  mask-image: url(../../../images/icn-category-science.svg);
 }
 
 label.category-community div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-community.svg);
-  mask-image: url(/public_html/resource/images/icn-category-community.svg);
+  -webkit-mask-image: url(../../../images/icn-category-community.svg);
+  mask-image: url(../../../images/icn-category-community.svg);
 }
 
 label.category-health div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-health.svg);
-  mask-image: url(/public_html/resource/images/icn-category-health.svg);
+  -webkit-mask-image: url(../../../images/icn-category-health.svg);
+  mask-image: url(../../../images/icn-category-health.svg);
 }
 
 label.category-fun div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-fun.svg);
-  mask-image: url(/public_html/resource/images/icn-category-fun.svg);
+  -webkit-mask-image: url(../../../images/icn-category-fun.svg);
+  mask-image: url(../../../images/icn-category-fun.svg);
 }
 
 label.category-animation div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-animation.svg);
-  mask-image: url(/public_html/resource/images/icn-category-animation.svg);
+  -webkit-mask-image: url(../../../images/icn-category-animation.svg);
+  mask-image: url(../../../images/icn-category-animation.svg);
 }
 
 label.category-tinkergarten div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-tinkergarten.svg);
-  mask-image: url(/public_html/resource/images/icn-category-tinkergarten.svg);
+  -webkit-mask-image: url(../../../images/icn-category-tinkergarten.svg);
+  mask-image: url(../../../images/icn-category-tinkergarten.svg);
 }
 
 label.category-dyk div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-dyk.svg);
-  mask-image: url(/public_html/resource/images/icn-category-dyk.svg);
+  -webkit-mask-image: url(../../../images/icn-category-dyk.svg);
+  mask-image: url(../../../images/icn-category-dyk.svg);
 }
 
 label.category-wai div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-wai.svg);
-  mask-image: url(/public_html/resource/images/icn-category-wai.svg);
+  -webkit-mask-image: url(../../../images/icn-category-wai.svg);
+  mask-image: url(../../../images/icn-category-wai.svg);
 }
 
 label.category-brain div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-brain.svg);
-  mask-image: url(/public_html/resource/images/icn-category-brain.svg);
+  -webkit-mask-image: url(../../../images/icn-category-brain.svg);
+  mask-image: url(../../../images/icn-category-brain.svg);
 }
 
 label.category-kids div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-kids.svg);
-  mask-image: url(/public_html/resource/images/icn-category-kids.svg);
+  -webkit-mask-image: url(../../../images/icn-category-kids.svg);
+  mask-image: url(../../../images/icn-category-kids.svg);
 }
 
 label.category-make div::before {
-  -webkit-mask-image: url(/public_html/resource/images/icn-category-make.svg);
-  mask-image: url(/public_html/resource/images/icn-category-make.svg);
+  -webkit-mask-image: url(../../../images/icn-category-make.svg);
+  mask-image: url(../../../images/icn-category-make.svg);
 }
 
 .category-wrap .category-all {

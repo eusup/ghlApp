@@ -77,10 +77,6 @@
     height: auto;
   }
 
-  .library.assignment > .con {
-    display: block;
-  }
-
   .library .right .book-list ul li:not(.nothing) {
     width: calc((100% - ((var(--gap) / 2) * 2)) / 3);
   }
@@ -113,8 +109,12 @@
     width: 100%;
   }
 
-  .library.assignment .con {
-    padding: 0;
+  .library.assignment > .con {
+    display: block;
+  }
+
+  .library.assignment .box-list ul li:not(.nothing) {
+    width: 100%;
   }
 
   .myprofile .my-interesting ul li {
