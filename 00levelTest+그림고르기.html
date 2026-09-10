@@ -18,7 +18,7 @@
 
 <body>
   <div class="wrap">
-    <div class="levelTest">
+    <div class="levelTest testing">
       <nav class="nav-top">
         <div class="con">
           <div>
@@ -29,11 +29,67 @@
         </div>
       </nav>
       <div class="con inner">
-        <h2>
-          <img src="/public_html/resource/images/img-levelTest+title.png" alt="Placement Test">
-          <p>The test will start shortly.<br>There are 5 questions.</p>
-        </h2>
-        <button class="btn">Start</button> 
+        <div class="flex indicator">
+          <div class="flex">
+            <img src="/public_html/resource/images/icn-question.svg" alt="#">
+            <p>Question</p>
+          </div>
+          <div class="flex question-length">
+            <p>1</p>
+            <p>5</p>
+          </div>
+        </div>
+        <div class="box">
+          <p class="epilogue">Match the picture to the correct word:</p>
+          <div class="btn-wrap">
+            <button class="btn btn-white">
+              <img src="/public_html/resource/images/icn-listen.svg" alt="play">
+              <span>ball</span>
+            </button>
+          </div>
+        </div>
+        <div class="choice-wrap">
+          <ul class="flex choice">
+            <li>
+              <label for="answer01">
+                <input type="radio" id="answer01" name="question1">
+                <div>
+                  <img src="/public_html/resource/images/dump/questionImage.png" alt="number 1">
+                </div>
+              </label>
+            </li>
+            <li>
+              <label for="answer02">
+                <input type="radio" id="answer02" name="question1">
+                <div>
+                  <img src="/public_html/resource/images/dump/questionImage.png" alt="number 1">
+                </div>
+              </label>
+            </li>
+            <li>
+              <label for="answer03">
+                <input type="radio" id="answer03" name="question1">
+                <div>
+                  <img src="/public_html/resource/images/dump/questionImage.png" alt="number 1">
+                </div>
+              </label>
+            </li>
+            <li>
+              <label for="answer04">
+                <input type="radio" id="answer04" name="question1">
+                <div>
+                  <img src="/public_html/resource/images/dump/questionImage.png" alt="number 1">
+                </div>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="btn-wrap">
+          <a href="/00levelTest+레벨업테스트+결과.html" class="btn">
+            <span>Next</span>
+            <img src="/public_html/resource/images/icn-StrokeArrow+white.svg" alt="#">
+          </a>
+        </div>
       </div>
     </div>
     <div class="dimmed">

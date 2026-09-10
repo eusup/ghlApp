@@ -2,16 +2,16 @@ $(document).ready(function () {
   // 로드 완료 3초 후 탭 안내 숨김
   const hideTapInfo = function () {
     window.setTimeout(function () {
-      $(".reward.newChara .tap-info").removeClass("act");
+      $(".reward.rewardDetail .tap-info").removeClass("act");
     }, 3000);
   };
-  if ($(".reward.newChara .tap-info").length) {
+  if ($(".reward.rewardDetail .tap-info").length) {
     if (document.readyState === "complete") hideTapInfo();
     else $(window).one("load", hideTapInfo);
   }
 
   // 보상 카드: 클릭으로 앞뒤 전환
-  $(".reward.newChara .flip-card").on("click", function () {
+  $(".reward.rewardDetail .flip-card").on("click", function () {
     $(this).find(".tap-info").removeClass("act");
     if ($(this).hasClass("flipping")) return;
     $(this).addClass("flipping").find(".flip-inner").one("animationend", function () {
@@ -21,7 +21,7 @@ $(document).ready(function () {
   });
 
   // 새 캐릭터 선택 상태 확인용
-  $(".reward.newChara .btn-friend").on("click", function () {
+  $(".reward.rewardDetail .btn-friend").on("click", function () {
     $(this).addClass("act").attr("aria-pressed", "true").text("Reading Friend Selected");
   });
 
@@ -223,7 +223,7 @@ $(document).ready(function () {
   }
 
   // book info 팝업
-  $("button:has(.content-thumb)").click(function () {
+  $("button:has(.content-thumb), .todays-book .inner .btn").click(function () {
     openLayerPopup($(".book-info"));
   });
 
@@ -243,15 +243,7 @@ $(document).ready(function () {
         margin: 0,
       });
 
-      $userDetailClone.find(".user-data-wrap .inner .btn-icnOnly").css({
-        position: "static",
-        transform: "none",
-        width: "32px",
-        height: "32px",
-        marginLeft: "auto",
-        borderRadius: 0,
-        backgroundColor: "transparent",
-      });
+        $userDetailClone.find(".user-data-wrap .inner .btn-icnOnly").hide();
 
       $userDataPopup.find(".user-detail-clone").remove();
       $userDataPopup.prepend($userDetailClone);

@@ -27,7 +27,6 @@
 
   .mypage.myhistory .right .history-list li .text .btn-noStyle {
     position: static;
-    width: auto;
   }
 
   .reward .badge-list {
@@ -36,52 +35,38 @@
 }
 
 @media screen and (max-width: 768px) {
-  .wrap:has(> .reward.newChara) > .reward.newChara {
+  .wrap:has(> .reward.rewardDetail) > .reward.rewardDetail {
     padding: 32px 0 36px;
   }
 
-  .reward.newChara .con {
+  .reward.rewardDetail .con {
     height: calc(100dvh - 152px - env(safe-area-inset-bottom));
+    padding-top: 0;
   }
 
-  .reward.newChara > .title {
+  .reward.rewardDetail > .title {
     width: 56%;
     margin-bottom: 24px;
   }
 
-  .reward.newChara > .box {
+  .reward.rewardDetail > .box {
     width: 75%;
     max-width: 390px;
     padding: 24px 12px;
     border-radius: 20px;
   }
 
-  .reward.newChara .chara-img {
-    height: 180px;
-    margin-bottom: 12px;
-  }
-
-  .reward.newChara .box p {
-    font-size: 1.6rem;
-  }
-
-  .reward.newChara .chara-name {
+  .reward.rewardDetail .chara-name {
     font-size: 2.6rem;
   }
 
-  .reward.newChara > .btn-wrap {
+  .reward.rewardDetail > .btn-wrap {
     width: 69%;
     max-width: 356px;
-    margin-top: 24px;
   }
 
   .popup-box:not(.book-info) > .btn-wrap {
     flex-direction: column;
-  }
-
-  .popup-box:not(.book-info) > .btn-wrap .btn {
-    width: 100%;
-    flex-basis: auto;
   }
 
   .con:has(.todays-book) {
@@ -180,7 +165,6 @@
 
   .mypage.myprofile.edit > .con .box .myLevel .flex li span {
     font-size: 1.3rem;
-    bottom: 0px;
   }
 
   .mypage.myprofile.edit .color-box.calendar {
@@ -222,12 +206,20 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .reward .badge-list .badge-img{
+  .reward .badge-list .badge-img {
     width: 120px;
   }
 
-  .reward .tab-contents > div:last-child .badge-list .badge-img{
+  .reward .tab-contents > div:last-child .badge-list .badge-img {
     width: 84px;
+  }
+
+  .reward.rewardDetail .btn-wrap {
+    flex-direction: column;
+  }
+
+  .reward.rewardDetail .btn-wrap .btn {
+    font-size: 1.6rem;
   }
 }
 
@@ -264,7 +256,6 @@
 
   .library.favorite li.add-contents .btn {
     position: relative;
-    align-items: center;
     justify-content: center;
     text-align: center;
     font-size: 1.8rem;
@@ -316,38 +307,38 @@
     width: 72px;
   }
 
-  .reward .tab-wrap li .btn{
+  .reward .tab-wrap li .btn {
     font-size: 1.4rem;
   }
-  
-  .reward .tab-contents > div:last-child .badge-list li a{
+
+  .reward .tab-contents > div:last-child .badge-list li a {
     flex-direction: column;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .badge-img{
+  .reward .tab-contents > div:last-child .badge-list li a .badge-img {
     width: 54px;
     height: 54px;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .badge-name{
+  .reward .tab-contents > div:last-child .badge-list li a .badge-name {
     text-align: center;
     margin-bottom: 12px;
   }
 
-  .reward .tab-contents > div:last-child .badge-list div{
+  .reward .tab-contents > div:last-child .badge-list div {
     justify-content: space-between;
     width: 100%;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .detailList{
+  .reward .tab-contents > div:last-child .badge-list li a .detailList {
     margin-bottom: 12px;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap{
+  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap {
     width: auto;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap:not(:last-child)::after{
+  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap:not(:last-child)::after {
     display: none;
   }
 }
