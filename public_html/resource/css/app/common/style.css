@@ -208,6 +208,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 12px;
 }
 
 .todays-book .inner .meta-data li {
@@ -1049,10 +1050,11 @@
   width: 180px;
   min-height: 52px;
   padding: 8px 12px;
-  border: 1px solid rgb(var(--category-color));
+  border: 1px solid var(--category-color);
   border-radius: var(--radius);
-  color: rgb(var(--category-color));
+  color: var(--category-color);
   font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .mypage.myprofile .my-interesting li img {
@@ -1064,7 +1066,7 @@
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background-color: rgb(var(--category-color));
+  background-color: var(--category-color);
   -webkit-mask-position: center;
   mask-position: center;
   -webkit-mask-repeat: no-repeat;
@@ -1074,7 +1076,7 @@
 }
 
 .mypage.myprofile .my-interesting li.category-school {
-  --category-color: 255 80 91;
+  --category-color: #39b629;
 }
 
 .mypage.myprofile .my-interesting li.category-school::before {
@@ -1082,8 +1084,17 @@
   mask-image: url(../../../images/icn-category-school.svg);
 }
 
+.mypage.myprofile .my-interesting li.category-animals {
+  --category-color: #a0bd00;
+}
+
+.mypage.myprofile .my-interesting li.category-animals::before {
+  -webkit-mask-image: url(../../../images/icn-category-animals.svg);
+  mask-image: url(../../../images/icn-category-animals.svg);
+}
+
 .mypage.myprofile .my-interesting li.category-people {
-  --category-color: 236 180 31;
+  --category-color: #e9ab00;
 }
 
 .mypage.myprofile .my-interesting li.category-people::before {
@@ -1091,8 +1102,17 @@
   mask-image: url(../../../images/icn-category-people.svg);
 }
 
+.mypage.myprofile .my-interesting li.category-sports {
+  --category-color: #fc8923;
+}
+
+.mypage.myprofile .my-interesting li.category-sports::before {
+  -webkit-mask-image: url(../../../images/icn-category-sports.svg);
+  mask-image: url(../../../images/icn-category-sports.svg);
+}
+
 .mypage.myprofile .my-interesting li.category-art {
-  --category-color: 27 179 225;
+  --category-color: #ea485b;
 }
 
 .mypage.myprofile .my-interesting li.category-art::before {
@@ -1100,8 +1120,17 @@
   mask-image: url(../../../images/icn-category-art.svg);
 }
 
+.mypage.myprofile .my-interesting li.category-family {
+  --category-color: #9d5ad6;
+}
+
+.mypage.myprofile .my-interesting li.category-family::before {
+  -webkit-mask-image: url(../../../images/icn-category-family.svg);
+  mask-image: url(../../../images/icn-category-family.svg);
+}
+
 .mypage.myprofile .my-interesting li.category-science {
-  --category-color: 92 124 255;
+  --category-color: #4356a4;
 }
 
 .mypage.myprofile .my-interesting li.category-science::before {
@@ -1109,13 +1138,49 @@
   mask-image: url(../../../images/icn-category-science.svg);
 }
 
+.mypage.myprofile .my-interesting li.category-community {
+  --category-color: #578ceb;
+}
+
+.mypage.myprofile .my-interesting li.category-community::before {
+  -webkit-mask-image: url(../../../images/icn-category-community.svg);
+  mask-image: url(../../../images/icn-category-community.svg);
+}
+
 .mypage.myprofile .my-interesting li.category-health {
-  --category-color: 218 103 230;
+  --category-color: #59b2e6;
 }
 
 .mypage.myprofile .my-interesting li.category-health::before {
   -webkit-mask-image: url(../../../images/icn-category-health.svg);
   mask-image: url(../../../images/icn-category-health.svg);
+}
+
+.mypage.myprofile .my-interesting li.category-fun {
+  --category-color: #49c2ba;
+}
+
+.mypage.myprofile .my-interesting li.category-fun::before {
+  -webkit-mask-image: url(../../../images/icn-category-fun.svg);
+  mask-image: url(../../../images/icn-category-fun.svg);
+}
+
+.mypage.myprofile .my-interesting li.category-phonics {
+  --category-color: #C65AA9;
+}
+
+.mypage.myprofile .my-interesting li.category-phonics::before {
+  -webkit-mask-image: url(../../../images/icn-category-phonics.svg);
+  mask-image: url(../../../images/icn-category-phonics.svg);
+}
+
+.mypage.myprofile .my-interesting li.category-classics {
+  --category-color: #7D3C98;
+}
+
+.mypage.myprofile .my-interesting li.category-classics::before {
+  -webkit-mask-image: url(../../../images/icn-category-classics.svg);
+  mask-image: url(../../../images/icn-category-classics.svg);
 }
 
 .mypage.myprofile .profile-chart {

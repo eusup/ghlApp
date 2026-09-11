@@ -29,31 +29,33 @@
           <div class="flex">
             <h2>Library</h2>
             <div class="menu-select">
-              <button class="btn btn-noStyle">
-                <p>Magazines</p>
+              <button class="btn btn-noStyle" id="oMenu" aria-label="menu open">
+                <p>Books</p>
                 <img src="./public_html/resource/images/icn-menuArrow.svg" alt="#">
               </button>
               <ul class="menu-wrap">
                 <li>
-                  <a href="./02library-01phonics.html">Phonics</a>
+                  <a href="./02library-01phonics.html" data-nav="phonics">Phonics</a>
                 </li>
                 <li>
-                  <a href="./02library-02books.html">Books</a>
+                  <a href="./02library-02books.html" data-nav="level">Books</a>
                 </li>
                 <li>
-                  <a href="./02library-03magazine.html">Magazines</a>
+                  <a href="./02library-03magazine.html" data-nav="magazines">Magazines</a>
                 </li>
                 <li>
-                  <a href="./02library-04extensive.html">Extensive Books</a>
+                  <a href="./02library-04extensive.html" data-nav="plusbook">Extensive Books</a>
                 </li>
                 <li>
-                  <a href="./02library-05videos.html">Videos</a>
+                  <a href="./02library-05videos.html" data-nav="animation">Videos</a>
                 </li>
                 <li>
-                  <a href="./02library-06Assignment.html">Assignment</a>
+                  <a href="./02library-06Assignment.html" data-nav="assignment">Assignment
+                    <span class="new">New</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="./02library-07favorite.html">My Favorite</a>
+                  <a href="./02library-07favorite.html" data-nav="myfavorite">My Favorite</a>
                 </li>
               </ul>
             </div>
@@ -286,7 +288,7 @@
                     <button class="btn">Highlights</button>
                   </li>
                   <li class="act">
-                    <button class="btn">SDC</button>
+                    <button class="btn">SDG</button>
                   </li>
                 </ul>
               </div>

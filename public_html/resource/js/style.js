@@ -631,7 +631,7 @@ $(function () {
         colorByPoint: true,
       },
     },
-    colors: ["#ff595e", "#ff862d", "#ffca3a", "#72c66c", "#31bce8", "#4d6ee8", "#7f61f2", "#d36ce5", "#10c6c7", "#9bd66f", "#3f4149", "#c8c8c8"],
+    colors: ["#39b629", "#a9d709", "#ffcc00", "#fc8923", "#ea485b", "#9d5ad6", "#4356a4", "#578ceb", "#a0dafb", "#7fe4de", "#C65AA9", "#7D3C98"],
     series: [
       {
         data: [34, 28, 21, 21, 39, 5, 21, 21, 45, 46, 21, 11],

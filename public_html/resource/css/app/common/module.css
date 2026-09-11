@@ -1682,6 +1682,7 @@ li.nothing > img {
 .category-wrap {
   flex-wrap: wrap;
   row-gap: 4px;
+  align-items: stretch;
   column-gap: 4px;
 }
 
@@ -1942,9 +1943,21 @@ nav.nav-top .con > .flex .menu-select .btn-noStyle img {
 }
 
 nav.nav-top .con > .flex .menu-select .menu-wrap li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 2px;
   width: 200px;
   padding: 16px 18px;
+}
+
+nav.nav-top .con > .flex .menu-select .menu-wrap li a .new{
+  transform: translateY(-10px);
+  font-size: 13px;
+  padding: 2px 6px;
+  background-color: rgb( var(--color-red) );
+  border-radius: 9px;
+  border-bottom-left-radius: 3px;
+  color: rgb( var(--color-white) );
 }
 /* nav top end */
 

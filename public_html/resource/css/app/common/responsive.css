@@ -11,6 +11,10 @@
     font-size: 1.4rem;
   }
 
+  .mypage.myprofile .my-interesting ul li{
+    width: calc((100% - 18px) / 4);
+  }
+
   .myLevel .flex li {
     width: calc((100% - 16px) / 5);
   }
@@ -117,25 +121,25 @@
     width: 100%;
   }
 
-  .myprofile .my-interesting ul li {
-    width: calc((100% - 18px) / 4);
+  .mypage.myprofile .my-interesting ul li {
+    width: calc((100% - 12px) / 3);
   }
 
-  .myprofile .quick-stats ul {
+  .mypage.myprofile .quick-stats ul {
     flex-direction: column;
     gap: 2px;
   }
-  .myprofile .quick-stats li {
+  .mypage.myprofile .quick-stats li {
     flex-direction: row;
     justify-content: space-between;
     min-height: auto;
   }
 
-  .myprofile .quick-stats li span {
+  .mypage.myprofile .quick-stats li span {
     font-size: 1.6rem;
   }
 
-  .myprofile .quick-stats li span br {
+  .mypage.myprofile .quick-stats li span br {
     display: none;
   }
 
@@ -228,8 +232,20 @@
     width: calc((100% - 16px) / 3);
   }
 
-  .myprofile .my-interesting ul li {
-    width: calc((100% - 12px) / 3);
+  .mypage.myprofile .my-interesting ul li{
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .mypage.myprofile .my-interesting li::before{
+    flex-shrink: 0;
+  }
+
+  .mypage.myprofile .my-interesting li span{
+    display: block;
+    height: 30px;
+    align-content: center;
   }
 
   .myLevel .flex li {
