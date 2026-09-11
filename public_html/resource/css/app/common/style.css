@@ -114,7 +114,7 @@
   background: linear-gradient(rgb(var(--color-gray) / 1), rgb(var(--color-BG) / 1) 80%);
 }
 
-.todays-book .btn-noStyle{
+.todays-book .btn-noStyle {
   width: auto;
   height: auto;
   width: 210px;
@@ -240,6 +240,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 12px;
   width: 100%;
   margin-bottom: 54px;
   padding: 14px;
@@ -306,8 +307,8 @@
   transform: translate(0, -50%);
   top: 50%;
   right: -18px;
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
 }
 
 .user-detail .books-count {
@@ -847,7 +848,7 @@
   border-radius: 10px;
   border-left: 10px solid rgb(var(--color-main));
   background-color: rgb(var(--color-white));
-  box-shadow: 0px 4px 6px rgb( var(--color-shadow) );
+  box-shadow: 0px 4px 6px rgb(var(--color-shadow));
 }
 
 .library.assignment.detail .con .tab-contents ul li::before {
@@ -1700,6 +1701,7 @@
 }
 
 .firstLogin .box {
+  position: relative;
   margin-bottom: 24px;
   padding: 4px;
   border-radius: var(--radius);
@@ -1723,13 +1725,30 @@
 }
 
 .firstLogin .btn:not(.btn-noStyle),
-.testing .inner .btn:not(.btn-noStyle) {
+.testing .inner .btn:not(.btn-noStyle, .btn-white) {
   width: auto;
   margin-left: auto;
   padding-left: 24px;
   padding-right: 18px;
   font-size: 2rem;
   box-shadow: 0px 6px 10px rgb(var(--color-shadow));
+}
+
+.firstLogin .box .bubble {
+  display: none;
+  top: 20px;
+  left: 20px;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.firstLogin .box .bubble.act{
+  display: block;
+}
+
+.firstLogin .box .chara .flex li .btn img {
+  width: 64px;
+  height: 64px;
 }
 /* first Login end */
 
@@ -2052,6 +2071,7 @@
   min-height: 100%;
 }
 
+/** level test result **/
 .levelTest.result > .inner {
   flex-grow: 1;
   height: auto;
@@ -2131,8 +2151,15 @@
   padding: 24px;
   font-size: 2.4rem;
   font-weight: 600;
-}
+  opacity: 0;
 
+  animation: fadeinY;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.4s;
+}
+/** level test result end **/
 /* level up test end */
 
 /* reward */
@@ -2416,7 +2443,6 @@
 }
 
 .reward.rewardDetail .flip-card.turned .flip-inner {
-
   animation-name: rewardFlipFront;
   animation-duration: 0.85s;
   animation-timing-function: ease-in-out;
@@ -2472,7 +2498,7 @@
   box-shadow: 0px 10px 20px rgb(var(--color-main) / 0.6);
 }
 
-.reward.rewardDetail .flip-card .box div{
+.reward.rewardDetail .flip-card .box div {
   display: flex;
   flex-direction: column;
   align-items: center;

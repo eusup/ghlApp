@@ -1,4 +1,48 @@
 $(document).ready(function () {
+  // 하단 메뉴 순서: Home, Library, My Profile, Reward
+  $(".wrap").each(function () {
+    const $wrap = $(this);
+    const $navItems = $wrap.children("nav.nav-bottom").children("ul").children("li");
+    const pageClasses = ["home", "library", "mypage", "reward"];
+
+    $navItems.removeClass("act");
+    for (let i = 0; i < pageClasses.length; i++) {
+      if ($wrap.children("." + pageClasses[i]).length) {
+        $navItems.eq(i).addClass("act");
+        break;
+      }
+    }
+
+    // 선택 메뉴는 레벨 아이콘, 미선택 메뉴는 기본 nav 아이콘 사용
+    const levelClass = ($wrap.attr("class") || "").match(/\blv\d+_\d+\b/);
+    const activeIconType = levelClass ? levelClass[0] : "default";
+    const navIconNames = ["home", "library", "user", "reward", "down"];
+    const activeIconNames = ["home", "library", "myProfile", "reward", "download"];
+
+    $navItems.each(function (index) {
+      if (!navIconNames[index]) return;
+      const $item = $(this);
+      const $image = $item.children("a").children("img");
+      const isActive = $item.hasClass("act");
+      const iconType = isActive ? activeIconType : "nav";
+      const iconName = isActive ? activeIconNames[index] : navIconNames[index];
+      const src = $image.attr("src");
+      if (src) $image.attr("src", src.replace(/[^/]+$/, "icn-" + iconType + "-" + iconName + ".svg"));
+    });
+  });
+
+  // 2초 후 로딩 팝업과 해당 dimmed 삭제
+  const $loadingCovers = $(".popup.loadingCover");
+  if ($loadingCovers.length) {
+    window.setTimeout(function () {
+      for (let i = 0; i < $loadingCovers.length; i++) {
+        const $loadingCover = $loadingCovers.eq(i);
+        const $dimmed = $loadingCover.closest(".dimmed");
+        $dimmed.addClass("fadeOutRadial");
+      }
+    }, 2000);
+  }
+
   // 로드 완료 3초 후 탭 안내 숨김
   const hideTapInfo = function () {
     window.setTimeout(function () {
@@ -14,9 +58,12 @@ $(document).ready(function () {
   $(".reward.rewardDetail .flip-card").on("click", function () {
     $(this).find(".tap-info").removeClass("act");
     if ($(this).hasClass("flipping")) return;
-    $(this).addClass("flipping").find(".flip-inner").one("animationend", function () {
-      $(this).parent().removeClass("flipping");
-    });
+    $(this)
+      .addClass("flipping")
+      .find(".flip-inner")
+      .one("animationend", function () {
+        $(this).parent().removeClass("flipping");
+      });
     $(this).addClass("turned").toggleClass("flipped");
   });
 
@@ -37,6 +84,12 @@ $(document).ready(function () {
       .toggleClass("act");
   });
 
+  // select 선택 항목 텍스트 반영
+  $(".select ul.selectBorn li").click(function () {
+    $(this).parent("ul.selectBorn").siblings(".val").text($(this).text());
+    $(this).parent("ul.selectBorn").removeClass("act");
+  });
+
   // 임시: 99popup.html 클릭 시 기본 팝업 확인. 확인 후 제거.
   if (window.location.pathname.split("/").pop() === "99popup.html") {
     $("body").click(function (event) {
@@ -46,9 +99,29 @@ $(document).ready(function () {
   }
 
   // 프로필 캐릭터 변경
-  $(".chara .flex li .btn").click(function () {
-    $(this).parent("li").addClass("act").siblings("li").removeClass("act");
+  $(".chara .flex li .btn")
+    .not(".step2 .chara .flex li .btn")
+    .click(function () {
+      $(this).parent("li").addClass("act").siblings("li").removeClass("act");
+    });
+
+  // 프로필 캐릭터 변경
+  $(".step2 .chara .flex li .btn").click(function () {
+    $(this).parent("li").toggleClass("act");
   });
+
+  // 첫 로그인: 선택 여부에 따라 Next 버튼 상태 변경
+  $(".firstLogin")
+    .has(".chara")
+    .each(function () {
+      const $firstLogin = $(this);
+      const updateNextButton = function () {
+        $firstLogin.find(".con > .btn-wrap > a.btn").toggleClass("disabled", !$firstLogin.find(".chara .flex li.act").length);
+      };
+
+      updateNextButton();
+      $firstLogin.find(".chara .flex li .btn").click(updateNextButton);
+    });
 
   // 비번 보기
   $(".password-wrap .btn-pw").on("click", function () {
@@ -243,7 +316,7 @@ $(document).ready(function () {
         margin: 0,
       });
 
-        $userDetailClone.find(".user-data-wrap .inner .btn-icnOnly").hide();
+      $userDetailClone.find(".user-data-wrap .inner .btn-icnOnly").hide();
 
       $userDataPopup.find(".user-detail-clone").remove();
       $userDataPopup.prepend($userDetailClone);
