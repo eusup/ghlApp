@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Highlights StoryBook</title>
+  <meta name="viewport"
+    content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+
+  <link rel="stylesheet"
+    href="https://library.highlights.com/public_html/viewer-app-1.0_lite/css/base.css?v=2025070801">
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer-app-1.0_lite/css/cmm.css?v=2026072801">
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer-app-1.0_lite/css/swiper.min.css">
+
+
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/jquery-ui-1.11.4.min.js"></script>
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/jquery.touchSwipe.min.js"></script>
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/jquery.jplayer.min.js"></script>
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/jquery.timer.js"></script>
+  <script type="text/javascript"
+    src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/viewer-app-1.0_lite/js/rangeslider.min.js"></script>
+
+  <script type="text/javascript"
+    src="https://library.highlights.com/public_html/viewer-app-1.0_lite/js/org/common.js?v=2026082601"></script>
+  <script type="text/javascript"
+    src="https://library.highlights.com/public_html/viewer-app-1.0_lite/js/org/event.js?v=2026082701"></script>
+
+
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+
+      var $document = $(document);
+      var selector = '[data-rangeslider]';
+      var $element = $(selector);
+      var $one = false;
+
+      // For ie8 support
+      var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
+      // Example functionality to demonstrate a value feedback
+      function valueOutput(element) {
+        var value = element.value;
+        var output = element.parentNode.getElementsByTagName('output')[0] || element.parentNode.parentNode.getElementsByTagName('output')[0];
+        //output[textContent] = value;
+      }
+
+      // Basic rangeslider initialization
+      $element.rangeslider({
+        // Deactivate the feature detection
+        polyfill: false,
+        // Callback function
+        onInit: function () {
+          valueOutput(this.$element[0]);
+        },
+        // Callback function
+        onSlideEnd: function (position, value) {
+
+          // 이거 이벤트 중복으로 발생하는 버그있음 
+          //if ($one == false) {
+
+          //$one = true;
+
+          // writer 페이지 빼기
+          if (value != 1) {
+            value = value + 2; // 2page viewer : value = value + 2;
+          }
+
+          if (currentPage == value) {
+            return;
+          }
+
+          // 화면 막기
+          $('.modal_transparent').show();
+
+          // 로딩 이미지
+          $('.loader_wrap').show();
+
+          // 일시 정지    
+          $('.audio-player').jPlayer("pause");
+
+          // autoplay 관련 timeout 이벤트가 있을 경우
+          // autoplay 재생중 다음페이지 눌렀을때 페이지가 이중으로 넘어가는 현상
+          if (typeof myTimeOut != "undefined") {
+            clearTimeout(myTimeOut);
+          }
+
+          if (value > currentPage) {
+            goPage(value, function () {
+              $one = false;
+            }, 'next');
+          } else {
+            goPage(value, function () {
+              $one = false;
+            }, 'prev');
+          }
+
+          valueOutput(this.$element[0]);
+          //}
+
+        }
+      });
+
+      $("body").css({ overflow: 'hidden' }).bind('touchmove', function (e) { e.preventDefault() });
+
+      // 뷰어 프레임 사이즈 조정
+      setTimeout(function () {
+
+        init();
+
+      }, 500); // ios 크롬에서 $(window).height() 값이 맞지 않아서 0.5초 텀을 줌              
+
+    });
+  </script>
+
+  <script type="text/javascript">
+
+    var SUPPORTS_TOUCH = 'ontouchstart' in window,
+      SUPPORTS_POINTER_IE10 = window.navigator.msPointerEnabled && !window.navigator.pointerEnabled,
+      SUPPORTS_POINTER = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
+
+    // device
+    var device = "mobile";
+
+    // 특정 브라우저가 이벤트가 두번 발생하는 문제 때문에...
+    // ios9 문제 때문에 touchend로 http://qiita.com/uupaa/items/e5856e3cb2a9fc8c5507
+    var eventType = (SUPPORTS_TOUCH == true) ? 'touchend' : 'click';
+    //var eventType = 'click touchend';
+    var execType = "MA";
+
+    // 책번호
+    var number = "3972";
+
+    var contentUri = "https://content-cf-cdn.chungchy.com/Highlights_Content_Global/Bert, Beth, and the Snowman/";
+
+    var contentData = null;
+
+    // 현재 페이지
+    var currentPage = 1;
+
+    // 가장 마지막으로 본 페이지
+    var latestPage = "1";
+
+    // 마지막 페이지
+    var endPage = "9";
+
+    var mp3_file = 'https://content-cf-cdn.chungchy.com/Highlights_Content_Global/Bert, Beth, and the Snowman/Bert, Beth, and the Snowman.mp3';
+    var mp4_file = 'https://content-cf-cdn.chungchy.com/Highlights_Content_Global/Bert, Beth, and the Snowman/';
+
+    // timer object
+    var timer = null;
+
+    // Timer speed in milliseconds
+    var incrementTime = 100;
+
+    // Current timer position in milliseconds
+    var currentTime = 0;
+
+    // SVG 크기
+    //var SVG_WIDTH = window.innerWidth || document.documentElement.clientWidth;
+    //var SVG_HEIGHT = window.innerHeight || document.documentElement.clientHeight;
+    var SVG_WIDTH = '768';
+    var SVG_HEIGHT = '1024';
+    var bookWidthSize = '768';
+    var bookHeightSize = '1024';
+    var PAGE_DIV_WIDTH = 0, PAGE_DIV_HEIGHT = 0;
+
+    SVG_WIDTH = parseInt(SVG_WIDTH);
+    SVG_HEIGHT = parseInt(SVG_HEIGHT);
+    // 책을 감싸는 div
+    //var SVG_WIDTH = 0, SVG_HEIGHT = 0;
+
+    // 줌 초기값
+    var zoom = 1;
+
+    // 줌 배율
+    var zoom_step = 0.06;
+
+    // sync info
+    var syncInfo = [];
+
+    // 단어 목록 배열
+    var wordLists = [];
+
+    // 문장 목록 배열
+    var sentenceLists = [];
+
+    // 하이라이트 색상
+    var color = 'blue';
+
+    // 단어 단위(1), 문장 단위(2)
+    var highlightType = "2";
+
+    // 하이라이트된 단어 카운트
+    var wordCount = 0;
+
+    // 하이라이트된 문장 카운트
+    var sentenceCount = 0;
+
+    // 한번도 플레이 버튼을 누르지 않았을 경우(애플 정책)
+    var bPlayed = false;
+
+    var myTimeOut;
+
+    var isOver = false;
+
+    var bSwipe = false;
+
+    var bDraging = false;
+
+    var bookTop = 0;
+    var bookLeft = 0;
+
+    // 플레이 스피드
+    var pSpeed = "1.0";
+
+    var book_level = "10";
+
+    var cur_speed = 2;
+
+    // 하이라이트 가능한지 여부
+    var bHighlighting = true;
+
+    // 책을 이미 다 읽었는지 여부
+    var bReadComplete = 'N';
+
+    // bReadComplete 이 'Y' 일때 nt_user_project_np 코드
+    var iUserprojectCode = '';
+
+    // 선생님 추천 여부
+    var recommend_yn = "N";
+
+    // 선생님 추천 코드
+    var recommend_cd = "0";
+
+    //letsReadType의 종류 (free, normal, pTest)
+    var letsReadType = "normal";
+
+    // 총 페이지
+    var totalPage = "9";
+    var showTotalPage = "7";
+
+    var $location = "level";
+    var marketingV = 'N';
+
+    var isApp = "app";
+
+    var sAlertFast = 'on';
+    var sQuizYn = 'on';
+
+    var sStartTime = new Date();
+    var sEndTime = 0;
+
+    var is_has_quiz = 'N';
+
+    var bDicLayerOpen = false;
+    var sTargetInfo = null;
+
+    var SCRNMODE = "";
+
+    var aJsLang = JSON.parse('{"common_txt_1":"Do you want to take the quiz now?","common_ok":"OK","common_cancel":"Cancel","common_txt_2":"Reading Complete!","common_txt_3":"You just finished reading the book.","common_close":"Close","common_sysnotice":"System Notice","common_txt_4":"Word-by-word highlighting is not available<br>for this book.","common_txt_5":"Looks like you read this book too fast!<br\/>Are you sure you completed it?","common_yes":"Yes","common_no":"No","common_startover":"Start Over","common_txt_6":"Dictionary ID Now Available!","common_txt_7":"You can now show words available in the Highlights Library Dictionary! Select this icon in the Reader menu to try it now!","common_txt_8":"You were reading this book.<br>Do you want to continue reading here?","animationcommon_txt_1":"Video Complete!<br>Do you want to watch this video again?","animationcommon_yes":"Yes","animationcommon_no":"No","phonics_txt_1":"Complete!","phonics_txt_2":"Do you want to read this book again?","phonics_yes":"Yes","phonics_no":"No"}');
+
+    /* dictionary on/off setting */
+    var sDic_state = '1';
+
+    var remove_underline = "";
+    if (sDic_state == "Y") {
+      remove_underline = "n";
+    } else {
+      remove_underline = "y";
+    }
+
+    var nowDateTime = '2026-09-11 10:23:52';
+
+    var sDomainFull = 'https://library.highlights.com';
+
+    var sFromLms = 'N';
+
+    // 사전 layerpopup 띄울당시의 재생상태
+    var bDicPlayed = false;
+
+    // bookmark
+    var iBookmarkPageNum = '';
+
+    // worker
+    var worker;
+    var contentDataTemp;
+    if (!window.Worker) {
+      console.log("not support worker");
+    } else {
+      worker = new Worker('./js/worker.js');
+    }
+
+    if (worker) {
+      var contentDataWorker = {
+        uri: contentUri,
+        page: totalPage
+      }
+      worker.postMessage(contentDataWorker);
+      worker.onmessage = function (e) {
+        contentDataTemp = e.data;
+        if (contentDataTemp.sync.length >= totalPage) worker.terminate();
+      }
+    }
+
+    var tapped = null;
+
+  </script>
+</head>
+
+<body style="overflow: hidden;">
+  <!-- 프로젝트 버전 업데이트 팝업 -->
+  <!--  -->
+  <div id="projectNoticeLayer" class="projectNotice slider" style="display: none;">
+    <ul class="panel">
+      <li style="display: none;"><img src="./images/viewer_notice_6.0_01.png" alt=""></li>
+      <li id="projectNoticeClose" style="display: list-item;"><a href="#"><img src="./images/viewer_notice_6.0_02.png"
+            alt=""></a></li>
+    </ul>
+    <ul class="btn">
+      <li class="">버튼1</li>
+      <li class="on">버튼2</li>
+    </ul>
+    <button class="next" style="display: none;"></button>
+  </div>
+  <!--  -->
+  <!-- 프로젝트 버전 업데이트 팝업 -->
+
+  <!--levi add begin-->
+  <div id="cover"></div>
+  <div id="guide"><img src="./images/guide1.png"></div>
+
+  <style type="text/css">
+    #cover {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 18888;
+      background-color: #000000;
+      opacity: 0.7;
+    }
+
+    #guide {
+      display: none;
+      position: fixed;
+      right: 18px;
+      top: 25px;
+      z-index: 19999;
+    }
+
+    #guide img {
+      width: 260px;
+      height: 180px;
+    }
+  </style>
+
+  <!--levi add end-->
+  <div id="book-layer" style="display:none;"></div>
+  <div class="modal_transparent" style="display: none;"></div>
+
+  <div class="loader_wrap" style="display: none;">
+    <div class="loader_box">
+      <div class="loader">Loading...</div>
+    </div>
+  </div>
+  <nav id="top" class="clearFix">
+    <a href="#" id="btn-exit" class="back flex"><span></span></a>
+    <h1 class="nm-fs-44">Bert, Beth, and the Snowman</h1>
+    <a href="#" id="btn-dic" class="dict  "><span></span></a>
+    <a href="#" id="btn-bookmark" class="bookmark"><span></span></a>
+  </nav>
+  <nav id="bt">
+    <div class="bt-rw2 book">
+      <div class="inner">
+        <div class="range">
+          <p class="nm-fs-md"><span><output name="ageOutputName" id="ageOutputId">0</output></span>%</p>
+          <input type="range" name="ageInputName" id="ageInputId" data-type="page" step="1" value="1" min="1" max="7"
+            {*oninput="ageOutputId.value = ageInputId.value" *}="" data-rangeslider=""
+            style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+        </div>
+      </div>
+      <div class="inner">
+        <div class="autoplay-switch">
+          <input id="autoplay" class="check-auto" type="checkbox" hidden="">
+          <label for="autoplay">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#fcfcfc" viewBox="0 0 256 256">
+              <path
+                d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"
+                class=""></path>
+            </svg>
+          </label>
+        </div>
+        <ul>
+          <li>
+            <a href="#" id="btn-first" class="first"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-prev" class="prev"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-play" class="play" status="on"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-next" class="next" style="display: none;"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-repeat" class="repeat"></a>
+          </li>
+        </ul>
+        <div id="oBtnSpeed" class="speed">
+          <p id="oCurSpeed" class="nm-fs-44">1.0X</p>
+          <ul class="option-wrap">
+            <li data-role="oSpeed" data-value="0.5">0.5</li>
+            <li data-role="oSpeed" data-value="0.75">0.75</li>
+            <li data-role="oSpeed" data-value="1.0" class="act">1.0</li>
+            <li data-role="oSpeed" data-value="1.25">1.25</li>
+            <li data-role="oSpeed" data-value="1.5">1.5</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex" style="width:100%;height:100%;">
+    <section class="flex" style="width:100%;height:100%;">
+      <!-- book_wrapper start -->
+      <div class="page_div_wrapper">
+      </div>
+      <!-- book_wrapper end -->
+    </section>
+  </main>
+
+  <div id="dic-layer" style="position: absolute; display:none;"></div> <!-- 사전 레이어 -->
+
+  <div class="audio-player" style="display: none; width: 0px; height: 0px;" id="jp_jplayer_0"><img id="jp_poster_0"
+      style="width: 0px; height: 0px; display: none;"><audio id="jp_audio_0" preload="metadata"
+      src="https://content-cf-cdn.chungchy.com/Highlights_Content_Global/Bert,%20Beth,%20and%20the%20Snowman/Bert,%20Beth,%20and%20the%20Snowman.mp3"></audio>
+  </div>
+
+  <div id="recommendPop"
+    style=" display:none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; margin: auto; z-index: 100000; overflow: hidden;">
+    <iframe id="assignRecomPopup" frameborder="0" scrolling="yes" style="overflow:hidden;"></iframe>
+  </div>
+</body>
+
+</html>

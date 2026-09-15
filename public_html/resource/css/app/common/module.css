@@ -1517,6 +1517,8 @@ li.nothing > img {
 
 .popup.book-info .inner .flex .right ul li.description dl dd {
   line-height: 1.4;
+  max-height: 180px;
+  overflow-y: auto;
 }
 
 .popup.book-info .inner > .btn-wrap .btn:not(.btn-favorite) {

@@ -1,0 +1,198 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>highlights library</title>
+  <link rel="shortcut icon" href="image/highlights_library.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet"
+    href="https://library.highlights.com/public_html/viewer-global-pc-plus/css/base.css?v=2026090101">
+  <link rel="stylesheet"
+    href="https://library.highlights.com/public_html/viewer-global-pc-plus/css/style.css?v=2026090103">
+</head>
+
+<body id="gray">
+  <div id="book-layer" style="display:none;"></div>
+  <div id="modal_transparent" class="modal_transparent" style="display: none;"></div>
+
+  <div class="loader_wrap" style="display: none;">
+    <div class="loader_box">
+      <div class="loader">Loading...</div>
+    </div>
+  </div>
+
+  <div class="leftCornerBtn off" id="leftCornerBtn" style="display: block; top: 373.5px;" data-role="prev"></div>
+  <div class="rightCornerBtn off" id="rightCornerBtn" style="display: block; top: 373.5px;" data-role="next"></div>
+
+  <nav id="top" class="a-cmm plus">
+    <h1>A Tale of Two Cities</h1>
+    <div class="clearFix a-cmm">
+      <button id="btn-exit" class="exit act" title="exit"><span class="sprite"></span></button>
+      <button id="btn-fs" class="expand" title="full screen" style="float:right;"><span class="sprite"></span></button>
+      <button id="btn-zoom" class="zoom" title="zoom" style="float:right;"><span class="sprite"></span></button>
+      <button id="btn-bookmark" class="bookmark" title="bookmark (page double click)" style="float:right;"></button>
+
+      <div class="zoom_range" style="display: none;">
+        <p>ZOOM</p>
+        <b><img src="image/speed-min.png" alt="" id="zoom_minus" style="cursor: pointer;"></b>
+        <em><input type="range" name="zoom_range_input" id="zoom_range_input" step="0.2" value="1" min="1"
+            max="1.8"></em>
+        <b><img src="image/speed-plus.png" alt="" id="zoom_plus" style="cursor: pointer;"></b>
+      </div>
+    </div>
+  </nav>
+
+  <nav id="bt" class="plus">
+    <button class="contents-index" id="contents-index">
+      <span class="sprite"></span>
+    </button>
+    <button class="first" title="first page" data-role="firstPage">
+      <span class="sprite"></span>
+    </button>
+    <button class="prev" title="previous page" data-role="prev">
+      <span class="sprite"></span>
+    </button>
+    <button class="next" title="next page" data-role="next">
+      <span class="sprite"></span>
+    </button>
+
+    <div class="range">
+      <p class="nm-fs-md"><span><output name="ageOutputName" id="ageOutputId">0</output></span>%</p>
+      <input type="range" name="ageInputName" id="ageInputId" data-type="page" step="1" value="1" min="1"
+        {*oninput="ageOutputId.value = ageInputId.value" *}="" max="137"
+        style="background: linear-gradient(to right, rgb(36, 138, 178) 0%, rgb(36, 138, 178) 0.363636%, rgb(236, 236, 236) 0.363636%, rgb(236, 236, 236) 100%);">
+    </div>
+  </nav>
+
+  <div class="main" style="width:100%;height:100%;">
+    <main class="flex" style="width:100%;height:100%;">
+      <section class="flex">
+        <div id="pdf-container" style="width: calc(1190px); height: 840px; cursor: -webkit-grab;">
+          <div class="page right-page"><canvas id="right-canvas" height="841" width="595"></canvas></div>
+        </div>
+      </section>
+      <div id="outlineContainer" class="act">
+        <ul>
+          <li><a href="#" data-page="1">Cover Page</a></li>
+          <li><a href="#" data-page="2">Title Page</a></li>
+          <li><a href="#" data-page="3">Colophon</a></li>
+          <li><a href="#" data-page="4">Contents</a></li>
+          <li><a href="#" data-page="6">BOOK THE FIRST - RECALLED TO LIFE</a>
+            <ul>
+              <li><a href="#" data-page="7">1. The Period</a></li>
+              <li><a href="#" data-page="9">2. The Mail</a></li>
+              <li><a href="#" data-page="13">3. The Night Shadows</a></li>
+              <li><a href="#" data-page="16">4. The Preparation</a></li>
+              <li><a href="#" data-page="24">5. The Wine-Shop</a></li>
+              <li><a href="#" data-page="32">6. The Shoemaker</a></li>
+            </ul>
+          </li>
+          <li><a href="#" data-page="40">BOOK THE SECOND - THE GOLDEN THREAD</a>
+            <ul>
+              <li><a href="#" data-page="41">1. Five Years Later</a></li>
+              <li><a href="#" data-page="45">2. A Sight</a></li>
+              <li><a href="#" data-page="50">3. A Disappointment</a></li>
+              <li><a href="#" data-page="60">4. Congratulatory</a></li>
+              <li><a href="#" data-page="65">5. The Jackal</a></li>
+              <li><a href="#" data-page="70">6. Hundreds Of People</a></li>
+              <li><a href="#" data-page="79">7. Monseigneur In Town</a></li>
+              <li><a href="#" data-page="85">8. Monseigneur In The Country</a></li>
+              <li><a href="#" data-page="89">9. The Gorgon's Head</a></li>
+              <li><a href="#" data-page="97">10. Two Promises</a></li>
+              <li><a href="#" data-page="103">11. A Companion Picture</a></li>
+              <li><a href="#" data-page="106">12. The Fellow Of Delicacy</a></li>
+              <li><a href="#" data-page="111">13. The Fellow Of No Delicacy</a></li>
+              <li><a href="#" data-page="115">14. The Honest Tradesman</a></li>
+              <li><a href="#" data-page="122">15. Knitting</a></li>
+              <li><a href="#" data-page="130">16. Still Knitting</a></li>
+              <li><a href="#" data-page="138">17. One Night</a></li>
+              <li><a href="#" data-page="142">18. Nine Days</a></li>
+              <li><a href="#" data-page="147">19. An Opinion</a></li>
+              <li><a href="#" data-page="153">20. A Plea</a></li>
+              <li><a href="#" data-page="156">21. Echoing Footsteps</a></li>
+              <li><a href="#" data-page="164">22. The Sea Still Rises</a></li>
+              <li><a href="#" data-page="168">23. Fire Rises</a></li>
+              <li><a href="#" data-page="173">24. Drawn To The Loadstone Rock</a></li>
+            </ul>
+          </li>
+          <li><a href="#" data-page="181">BOOK THE THIRD - THE TRACK OF A STORM</a>
+            <ul>
+              <li><a href="#" data-page="182">1. In Secret</a></li>
+              <li><a href="#" data-page="190">2. The Grindstone</a></li>
+              <li><a href="#" data-page="195">3. The Shadow</a></li>
+              <li><a href="#" data-page="199">4. Calm In Storm</a></li>
+              <li><a href="#" data-page="203">5. The Wood-Sawyer</a></li>
+              <li><a href="#" data-page="207">6. Triumph</a></li>
+              <li><a href="#" data-page="212">7. A Knock At The Door</a></li>
+              <li><a href="#" data-page="216">8. A Hand At Cards</a></li>
+              <li><a href="#" data-page="225">9. The Game Made</a></li>
+              <li><a href="#" data-page="234">10. The Substance Of The Shadow</a></li>
+              <li><a href="#" data-page="244">11. Dusk</a></li>
+              <li><a href="#" data-page="247">12. Darkness</a></li>
+              <li><a href="#" data-page="253">13. Fifty-Two</a></li>
+              <li><a href="#" data-page="262">14. The Knitting Done</a></li>
+              <li><a href="#" data-page="271">15. The Footsteps Die Out For Ever</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div> <!-- 목차를 표시할 컨테이너 추가 -->
+    </main>
+  </div>
+
+  <div id="recommendPop"
+    style=" display:none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; margin: auto; z-index: 100000; overflow: hidden;">
+    <iframe id="assignRecomPopup" frameborder="0" scrolling="yes" style="overflow:hidden;"></iframe>
+  </div>
+
+
+
+  <script src="https://library.highlights.com/public_html/viewer-global-pc-plus/js/pdf.mjs" type="module"></script>
+  <script type="module" src="https://library.highlights.com/public_html/viewer-global-pc-plus/js/viewer.min.js?v=2025062601"></script>
+  <script>
+    // If absolute URL from the remote server is provided, configure the CORS
+    // header on that server.
+    document.getElementById('modal_transparent').style.display = 'none';
+
+    var SUPPORTS_TOUCH = 'ontouchstart' in window, SUPPORTS_POINTER_IE10 = window.navigator.msPointerEnabled && !window.navigator.pointerEnabled, SUPPORTS_POINTER = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
+
+    var eventType = (SUPPORTS_TOUCH == true) ? 'touchend' : 'click';
+
+    var url = 'https://content-cf-cdn.chungchy.com/Highlights_Content_Global/PlusBook/A%20Tale%20of%20Two%20Cities.pdf';
+
+    var bTest = 'F';
+
+    var sLetsReadType = 'normal';
+
+    var iBookNum = '3849';
+    var bReadComplete = 'N';
+    var iUserprojectCode = '';
+    var sRecommendYn = 'N';
+    var iRecommendCd = '0';
+
+    var iBookMarkNum = '';
+
+    if (iBookMarkNum === null || iBookMarkNum === undefined || iBookMarkNum.trim() === "") {
+      iBookMarkNum = 0;
+    } else {
+      iBookMarkNum = Number(iBookMarkNum);
+    }
+
+    var sAlertFast = 'off';
+    var sQuizYn = 'off';
+
+    var sDomainFull = 'http://library.highlights.com';
+
+    var aJsLang = JSON.parse('{"common_txt_1":"Do you want to take the quiz now?","common_ok":"OK","common_cancel":"Cancel","common_txt_2":"Reading Complete!","common_txt_3":"You just finished reading the book.","common_close":"Close","common_sysnotice":"System Notice","common_txt_4":"Word-by-word highlighting is not available<br>for this book.","common_txt_5":"Looks like you read this book too fast!<br\/>Are you sure you completed it?","common_yes":"Yes","common_no":"No","common_startover":"Start Over","common_txt_6":"Dictionary ID Now Available!","common_txt_7":"You can now show words available in the Highlights Library Dictionary! Select this icon in the Reader menu to try it now!","common_txt_8":"You were reading this book.<br>Do you want to continue reading here?","animationcommon_txt_1":"Video Complete!<br>Do you want to watch this video again?","animationcommon_yes":"Yes","animationcommon_no":"No","phonics_txt_1":"Complete!","phonics_txt_2":"Do you want to read this book again?","phonics_yes":"Yes","phonics_no":"No"}');
+
+    if (iBookMarkNum > 0) {
+      document.getElementById('btn-bookmark').classList.add('act');
+    }
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>highlights library</title>
+  <link rel="shortcut icon" href="image/highlights_library.ico">
+  <meta name="viewport"
+    content="width=device-width, viewport-fit=cover, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer-global-app-magazine/css/base.css?v=2025071001">
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer-global-app-magazine/css/style.css?v=2025091808">
+
+  <!-- Google Tag Manager -->
+  <script async="" src="https://scripts.clarity.ms/0.8.69-beta/clarity.js"></script>
+  <script type="text/javascript" async="" src="https://www.clarity.ms/tag/x7cea4llc7?ref=gtm"></script>
+  <script type="text/javascript" async=""
+    src="https://www.googletagmanager.com/gtag/js?id=G-M8BH51L0FM&amp;cx=c&amp;gtm=4e6992"></script>
+  <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NSZTX48X"></script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NSZTX48X');</script>
+  <!-- End Google Tag Manager -->
+
+</head>
+
+<body id="gray" class="act">
+  <div id="book-layer" style="display:none;"></div>
+  <div id="modal_transparent" class="modal_transparent" style="display: none;"></div>
+
+  <div class="loader_wrap" style="display: none;">
+    <div class="loader_box">
+      <div class="loader">Loading...</div>
+    </div>
+  </div>
+
+  <div class="leftCornerBtn off" style="top: 479.5px; display: block;" data-role="prev"></div>
+  <div class="rightCornerBtn off" style="top: 479.5px; display: block;" data-role="next"></div>
+
+  <nav id="top" class="clearFix">
+    <a href="#" id="btn-exit" class="back flex"><span></span></a>
+    <h1 class="nm-fs-44">Highlights Magazine</h1>
+    <!-- <a id="btn-fs" class="screen reduce"> </a> -->
+  </nav>
+
+  <nav id="bt">
+    <div class="bt-rw2 book">
+      <div class="inner">
+        <div class="range">
+          <p class="nm-fs-md">
+            <span>
+              <output name="ageOutputName" id="ageOutputId">31</output>
+            </span>%
+          </p>
+          <input type="range" name="ageInputName" id="ageInputId" data-type="page" step="1" value="1" min="1" max="44"
+            style="background: linear-gradient(to right, rgb(36, 138, 178) 0%, rgb(36, 138, 178) 31.8182%, rgb(236, 236, 236) 31.8182%, rgb(236, 236, 236) 100%);">
+        </div>
+      </div>
+      <div class="inner">
+        <ul>
+          <li>
+            <a href="#" id="goFirstPage" class="firstP"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-prev" class="prev"></a>
+          </li>
+          <li>
+            <a href="#" id="btn-next" class="next"></a>
+          </li>
+          <li>
+            <a href="#" id="zoom-out" class="zoom-out"></a>
+          </li>
+          <li>
+            <a href="#" id="zoom-in" class="zoom-in act"></a>
+          </li>
+          <li> <a href="#" id="page_rotate" class="rotate"><span></span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="main" id="main">
+    <main class="flex">
+      <section class="flex" id="section_flex">
+        <div class="rotate-container" style="height: 100%; overflow: auto; overscroll-behavior: contain; width: 100%;">
+          <div id="pdf-container"
+            style="display: flex; align-items: center; justify-content: center; flex-flow: row; gap: 0px; width: 100%; height: 669px;">
+            <div class="page left-page" style="flex: 0 0 auto; margin: 0px;"><canvas id="left-canvas" width="1018"
+                height="1338" style="width: 509px; height: 669px;"></canvas></div>
+            <div class="page right-page" style="flex: 0 0 auto; margin: 0px;"><canvas id="right-canvas" width="1018"
+                height="1338" style="width: 509px; height: 669px;"></canvas></div>
+          </div>
+        </div>
+      </section>
+      <div id="outlineContainer"></div> <!-- 목차를 표시할 컨테이너 추가 -->
+    </main>
+  </div>
+
+  <div id="recommendPop"
+    style=" display:none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; margin: auto; z-index: 100000; overflow: hidden;">
+    <iframe id="assignRecomPopup" frameborder="0" scrolling="yes" style="overflow:hidden;"></iframe>
+  </div>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSZTX48X" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <script src="https://library.highlights.com/public_html/viewer-global-app-magazine/js/pdf.mjs" type="module"></script>
+  <script type="module" src="https://library.highlights.com/public_html/viewer-global-app-magazine/js/viewer.min.js"></script>
+  <script>
+    // If absolute URL from the remote server is provided, configure the CORS
+    // header on that server.
+    document.getElementById('modal_transparent').style.display = 'none';
+
+    var SUPPORTS_TOUCH = 'ontouchstart' in window,
+      SUPPORTS_POINTER_IE10 = window.navigator.msPointerEnabled && !window.navigator.pointerEnabled,
+      SUPPORTS_POINTER = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
+
+    var eventType = (SUPPORTS_TOUCH == true) ? 'touchend' : 'click';
+
+    var url = 'https://content-cf-cdn.chungchy.com/Highlights_Content_Global/magazines/HL_202401.pdf';
+
+    var bTest = 'F';
+
+    var sLetsReadType = 'normal';
+
+    var iBookNum = '1';
+    var bReadComplete = 'N';
+    var iUserprojectCode = '';
+    var sRecommendYn = 'N';
+    var iRecommendCd = '0';
+
+    var iBookMarkNum = '';
+
+    var sAlertFast = 'off';
+    var sQuizYn = 'off';
+
+    var sDomainFull = 'http://library.highlights.com';
+
+    var aJsLang = JSON.parse('{"common_txt_1":"Do you want to take the quiz now?","common_ok":"OK","common_cancel":"Cancel","common_txt_2":"Reading Complete!","common_txt_3":"You just finished reading the book.","common_close":"Close","common_sysnotice":"System Notice","common_txt_4":"Word-by-word highlighting is not available<br>for this book.","common_txt_5":"Looks like you read this book too fast!<br\/>Are you sure you completed it?","common_yes":"Yes","common_no":"No","common_startover":"Start Over","common_txt_6":"Dictionary ID Now Available!","common_txt_7":"You can now show words available in the Highlights Library Dictionary! Select this icon in the Reader menu to try it now!","common_txt_8":"You were reading this book.<br>Do you want to continue reading here?","animationcommon_txt_1":"Video Complete!<br>Do you want to watch this video again?","animationcommon_yes":"Yes","animationcommon_no":"No","phonics_txt_1":"Complete!","phonics_txt_2":"Do you want to read this book again?","phonics_yes":"Yes","phonics_no":"No"}');
+
+    if (iBookMarkNum > 0) {
+      document.getElementById('btn-bookmark').classList.add('act');
+    }        
+  </script>
+
+
+  <script type="text/javascript" id=""
+    charset="">window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments) }; clarity("set", "Country", "VN"); clarity("set", "UserType", "Teacher");</script>
+</body>
+
+</html>

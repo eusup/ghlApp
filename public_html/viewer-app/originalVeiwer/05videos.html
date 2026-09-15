@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>highlights library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer_animation/css/base.css">
+  <link rel="stylesheet" href="https://library.highlights.com/public_html/viewer_animation/css/style.css?v=2026082802">
+
+  <!-- Google Tag Manager -->
+  <script async="" src="https://scripts.clarity.ms/0.8.69/clarity.js"></script>
+  <script type="text/javascript" async="" src="https://www.clarity.ms/tag/x7cea4llc7?ref=gtm"></script>
+  <script type="text/javascript" async=""
+    src="https://www.googletagmanager.com/gtag/js?id=G-M8BH51L0FM&amp;cx=c&amp;gtm=4e6992"></script>
+  <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NSZTX48X"></script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NSZTX48X');</script>
+  <!-- End Google Tag Manager -->
+
+  <script type="text/javascript">
+
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault()
+    });
+
+    var SUPPORTS_TOUCH = 'ontouchstart' in window,
+      SUPPORTS_POINTER_IE10 = window.navigator.msPointerEnabled && !window.navigator.pointerEnabled,
+      SUPPORTS_POINTER = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
+
+    // device
+    var device = 'computer';
+
+    // 특정 브라우저가 이벤트가 두번 발생하는 문제 때문에...
+    // ios9 문제 때문에 touchend로 http://qiita.com/uupaa/items/e5856e3cb2a9fc8c5507
+    //var eventType = (SUPPORTS_TOUCH == true) ? 'touchend' : 'click';
+    var eventType = 'click touchend';
+
+    //letsReadType의 종류 (free, normal, pTest)
+    var letsReadType = 'normal';
+    var contentUri = 'https://content-cf-cdn.chungchy.com/Highlights_Global_Files/Movie/1/';
+
+    var contentData = null;
+
+    var translationData = '[]';
+
+    var number = '11';
+
+    // Current timer position in milliseconds
+    var currentTime = 0;
+
+
+    // 책을 이미 다 읽었는지 여부
+    var bReadComplete = 'N';
+
+    // bReadComplete 이 'Y' 일때 nt_user_project_np 코드
+    var iUserAnimationCode = '';
+
+    //한번도 플레이 버튼을 누르지 않았을 경우(애플 정책)
+    var bPlayed = false;
+
+    var isOver = false;
+
+    // 줌 초기값
+    var zoom = 1;
+
+    // 줌 배율
+    var zoom_step = 0.06;
+
+    // 책을 감싸는 div 원래비율
+    var PAGE_DIV_HEIGHT = 900;
+    var PAGE_DIV_WIDTH = 1600;
+
+
+    var mp4_file = 'https://content-cf-cdn.chungchy.com/Highlights_Global_Files/Movie/1/00011_uBr5dJiwPJ/00011_uBr5dJiwPJ.mp4';
+    var poster_file = 'https://content-cf-cdn.chungchy.com/Highlights_Global_Files/Movie/1/00011_uBr5dJiwPJ/00011_uBr5dJiwPJ_v.png?v=2025071601';
+
+    var bSwipe = false;
+
+    var bookTop = 0;
+    var bookLeft = 0;
+
+    var bookNumber = '0';
+    var bookLevel = '';
+
+    var sDeviceType = ''; //진입시 받은 디바이스 타입
+
+    var aJsLang = JSON.parse('{"common_txt_1":"Do you want to take the quiz now?","common_ok":"OK","common_cancel":"Cancel","common_txt_2":"Reading Complete!","common_txt_3":"You just finished reading the book.","common_close":"Close","common_sysnotice":"System Notice","common_txt_4":"Word-by-word highlighting is not available<br>for this book.","common_txt_5":"Looks like you read this book too fast!<br\/>Are you sure you completed it?","common_yes":"Yes","common_no":"No","common_startover":"Start Over","common_txt_6":"Dictionary ID Now Available!","common_txt_7":"You can now show words available in the Highlights Library Dictionary! Select this icon in the Reader menu to try it now!","common_txt_8":"You were reading this book.<br>Do you want to continue reading here?","animationcommon_txt_1":"Video Complete!<br>Do you want to watch this video again?","animationcommon_yes":"Yes","animationcommon_no":"No","phonics_txt_1":"Complete!","phonics_txt_2":"Do you want to read this book again?","phonics_yes":"Yes","phonics_no":"No"}');
+
+    var sFromLms = 'N';
+
+    var recommend_yn = 'N';
+    var recommend_cd = '0';
+    var sAssignType = '';
+
+    var aSync = JSON.parse("[{\"sentence\":\"Can you figure out\",\"sync_start\":\"3.86\",\"sync_end\":\"4.71\"},{\"sentence\":\"who I am?\",\"sync_start\":\"4.71\",\"sync_end\":\"6.76\"},{\"sentence\":\"My uniform is tight and often shiny\",\"sync_start\":\"7.99\",\"sync_end\":\"11.49\"},{\"sentence\":\"You can learn my skill\",\"sync_start\":\"12.88\",\"sync_end\":\"14.62\"},{\"sentence\":\"starting at a very young age,\",\"sync_start\":\"14.62\",\"sync_end\":\"16.79\"},{\"sentence\":\"sometimes as young as toddlers\",\"sync_start\":\"16.79\",\"sync_end\":\"19.57\"},{\"sentence\":\"My job requires that I be very flexible\",\"sync_start\":\"21.13\",\"sync_end\":\"24.53\"},{\"sentence\":\"and also very strong\",\"sync_start\":\"24.53\",\"sync_end\":\"26.34\"},{\"sentence\":\"My sport takes place at the Summer Olympics\",\"sync_start\":\"28.61\",\"sync_end\":\"32.71\"},{\"sentence\":\"There are all kinds of different types of what I do,\",\"sync_start\":\"34.19\",\"sync_end\":\"37.43\"},{\"sentence\":\"including floor exercises,\",\"sync_start\":\"37.43\",\"sync_end\":\"39.43\"},{\"sentence\":\"steady rings, vaults, and balance beam\",\"sync_start\":\"39.43\",\"sync_end\":\"43.09\"},{\"sentence\":\"Who am I?\",\"sync_start\":\"45.64\",\"sync_end\":\"48.36\"},{\"sentence\":\"A gymnast\",\"sync_start\":\"51.39\",\"sync_end\":\"56.59\"}]");
+    var iCurrent = 0;
+    var sScriptStatus = ''
+
+  </script>
+
+</head>
+
+<body id="gray" class="animation" style="overflow: hidden;">
+
+  <div id="book-layer" style="display:none;"></div>
+  <div class="modal_transparent" style="display: none;"></div>
+
+  <nav id="top" class="a-cmm videos">
+
+    <h1>Who Am I? Episode 3</h1>
+    <div class="clearFix a-cmm">
+      <button id="btn-exit" class="home on" title="">
+        <span></span>
+      </button>
+      <button id="btn-fs" class="expand on" title="" style="float:right;">
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <nav id="bt" class="videos">
+
+    <div id="jp_container_1" class="jp-video-full jp-state-no-volume">
+      <!-- 플레이 관련 버튼  -->
+      <button id="play_stop" class="btn first on" title="Move to start"></button>
+      <button id="jump_prev_time" class="btn prev on" title="Forward 10s"> </button>
+      <button id="play_start" class="btn play on" title="Play"> </button>
+      <button id="pause" class="pause on" title="Pause" style="display:none;"></button>
+      <button id="jump_next_time" class="btn next on" title="Back 10s"></button>
+      <div class="range on">
+        <div class="flex">
+          <p id="jp-current-time" class="jp-current-time" role="timer" aria-label="time">00:00</p>
+          <span id="jp-time-slash"> / </span>
+          <p id="jp-duration" class="jp-duration" role="timer" aria-label="duration">01:01</p>
+        </div>
+        <input type="range" id="js-amount-range" step="0.1" value="0" min="0" max="61" data-rangeslider=""
+          style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+      </div>
+      <button id="script" class="btn script   act " title="Script"></button>
+      <!-- 속도 -->
+      <div class="speed" title="Speed Controller">
+        <p id="oCurSpeed">1.0X</p>
+        <ul class="option-wrap">
+          <li data-role="oSpeed" data-value="0.5">0.5</li>
+          <li data-role="oSpeed" data-value="0.75">0.75</li>
+          <li data-role="oSpeed" data-value="1.0">1.0</li>
+          <li data-role="oSpeed" data-value="1.25">1.25</li>
+          <li data-role="oSpeed" data-value="1.5">1.5</li>
+        </ul>
+      </div>
+      <div class="volume-range" title="Volume">
+        <button id="oBtnVolume" class="volume act"></button>
+        <div class="slider-wrapper">
+          <input type="range" min="0" max="1" step="0.1" value="1" class="vertical-slider" id="volumeRange">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="oScriptArea" class="script-area   act ">
+    <p id="oScript"></p>
+  </div>
+  <div class="main" style="width:100%;height:100%;">
+    <main class="flex" style="width:100%;height:100%;">
+      <section class="flex">
+        <!-- book_wrapper start -->
+        <div class="page_div_wrapper">
+          <div class="page_div" style="width: 1280px; height: 720px; top: 52px; left: 106.5px;">
+            <div id="jquery_jplayer_1" class="jp-jplayer" style="width: 100%; height: 100%;"><img id="jp_poster_0"
+                src="https://content-cf-cdn.chungchy.com/Highlights_Global_Files/Movie/1/00011_uBr5dJiwPJ/00011_uBr5dJiwPJ_v.png?v=2025071601"
+                style="width: 100%; height: 100%; display: inline;"><video id="jp_video_0" preload="metadata"
+                src="https://content-cf-cdn.chungchy.com/Highlights_Global_Files/Movie/1/00011_uBr5dJiwPJ/00011_uBr5dJiwPJ.mp4"
+                style="width: 0px; height: 0px;"></video></div>
+          </div>
+        </div>
+        <!-- book_wrapper end -->
+      </section>
+    </main>
+  </div>
+
+
+  <div class="bModal"
+    style="display:none;background-color: rgb(0, 0, 0); height: 100%; left: 0px; opacity: 0.7; position: fixed; top: 0px; width: 100%; z-index: 9998; overflow: hidden;">
+  </div>
+
+
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery-ui-1.11.4.min.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery.touchSwipe.min.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery.timer.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/rangeslider.min.js"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/org/common.js?v=2026072801"></script>
+  <script type="text/javascript" src="https://library.highlights.com/public_html/viewer_animation/js/org/event.js?v=2025062601"></script>
+
+  <script type="text/javascript">
+
+    var selector = '[data-rangeslider]';
+    var $element = $(selector);
+
+    // Basic rangeslider initialization
+    $element.rangeslider({
+      // Deactivate the feature detection
+      polyfill: false,
+      // Callback function
+      onInit: function () {
+      },
+      onSlide: function (position, value) {
+
+      },
+
+      // Callback function
+      onSlideEnd: function (position, value) {
+        if ($("#jquery_jplayer_1").data('jPlayer').status.paused == true) {
+          $("#jquery_jplayer_1").jPlayer("pause", this.value);		//계산한 앞쪽시간
+        } else {
+          $("#jquery_jplayer_1").jPlayer("play", this.value);		//계산한 앞쪽시간
+        }
+      }
+    })
+      .on("input", function () {
+
+      });
+
+
+    $(document).ready(function () {
+      $("body").css({
+        overflow: 'hidden'
+      }).bind('touchmove', function (e) {
+        e.preventDefault()
+      });
+
+      // 뷰어 프레임 사이즈 조정
+      setTimeout(function () {
+
+        init();
+
+      }, 500); // ios 크롬에서 $(window).height() 값이 맞지 않아서 0.5초 텀을 줌
+
+    });
+
+  </script>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSZTX48X" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+
+
+  <script type="text/javascript" id=""
+    charset="">window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments) }; clarity("set", "Country", "VN"); clarity("set", "UserType", "Teacher");</script>
+</body>
+
+</html>
