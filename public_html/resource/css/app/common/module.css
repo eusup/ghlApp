@@ -154,9 +154,9 @@ body.scroll-lock {
   font-size: 1.6rem;
 }
 
-.wrap > :first-child:not(.home) {
+/* .wrap > :first-child:not(.home) {
   padding-bottom: 36px;
-}
+} */
 
 ul,
 ol,
@@ -763,6 +763,7 @@ nav.nav-bottom ul li.act a{
   box-shadow: none;
   background: none;
   font-size: 1.4rem;
+  color: rgb(var(--color-font-gray));
 }
 
 .tabIntab ul li.act button.btn {
@@ -1542,7 +1543,7 @@ li.nothing > img {
 /** bookinfo end **/
 
 /** option pannel **/
-.dimmed:has(.popup.option) {
+.dimmed:has(.popup.option.act) {
   background-color: transparent;
   backdrop-filter: inherit;
 }
@@ -1608,6 +1609,7 @@ li.nothing > img {
 
 .popup.option .box .option-type-level .flex {
   gap: 4px;
+  transition: var(--duration);
 }
 
 .popup.option .box .option-type-level .range {
@@ -1617,6 +1619,7 @@ li.nothing > img {
   background-color: rgb(var(--color-main) / 0.1);
   border-radius: 100px;
   touch-action: none;
+  transition: var(--duration);
 }
 
 .popup.option .box .option-type-level .range .ui-slider-range {
@@ -1677,6 +1680,11 @@ li.nothing > img {
   transform: translateX(7px);
 }
 
+.popup.option .box .option-type-level:has(.check-box input:checked) > *:not(.check-box){
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .popup.option .box div[class*="option-type"] ul.flex {
   gap: 4px;
 }
@@ -1712,6 +1720,7 @@ li.nothing > img {
 }
 
 label[class*="category"] div {
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
   background: none;
@@ -1961,6 +1970,15 @@ nav.nav-top .con > .flex .menu-select .menu-wrap li a .new{
   border-bottom-left-radius: 3px;
   color: rgb( var(--color-white) );
 }
+
+nav.nav-top:not(:has(.menu-select)){
+  padding: 0;
+}
+
+nav.nav-top:not(:has(.menu-select)) .btn-wrap{
+  flex-direction: row-reverse;
+}
+
 /* nav top end */
 
 /* chara */
@@ -2084,6 +2102,44 @@ nav.nav-top .con > .flex .menu-select .menu-wrap li a .new{
   }
 }
 
+
+@keyframes resultBackgroundShake {
+  0%, 70%, 100% {
+    background-position: center bottom;
+  }
+  15% {
+    background-position: calc(50% - 4px) calc(100% + 3px);
+  }
+  30% {
+    background-position: calc(50% + 4px) calc(100% - 2px);
+  }
+  45% {
+    background-position: calc(50% - 2px) calc(100% + 1px);
+  }
+  60% {
+    background-position: calc(50% + 1px) bottom;
+  }
+}
+
+@keyframes resultStamp {
+  0% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.97);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 @keyframes favoriteBurst {
   0% {
     opacity: 0;
@@ -2152,5 +2208,20 @@ nav.nav-top .con > .flex .menu-select .menu-wrap li a .new{
   }
   to {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rewardTap {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  10%,
+  30% {
+    transform: translateY(5px) scale(0.9);
+  }
+  20% {
+    transform: translateY(0) scale(1);
   }
 }

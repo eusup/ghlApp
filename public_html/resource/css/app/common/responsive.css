@@ -11,7 +11,7 @@
     font-size: 1.4rem;
   }
 
-  .mypage.myprofile .my-interesting ul li{
+  .mypage.myprofile .my-interesting ul li {
     width: calc((100% - 18px) / 4);
   }
 
@@ -39,15 +39,15 @@
 }
 
 @media screen and (max-width: 768px) {
-  .levelTest .inner h2 img{
+  .levelTest .inner h2 img {
     height: auto;
   }
 
-  .levelTest .inner h2 p{
+  .levelTest .inner h2 p {
     font-size: 2.4rem;
   }
 
-  .popup.loadingCover p span{
+  .popup.loadingCover p span {
     font-size: 2.4rem;
   }
 
@@ -183,7 +183,7 @@
     font-size: 1.3rem;
   }
 
-  .mypage.myprofile.edit .color-box.calendar {
+  .mypage.myhistory .color-box.calendar {
     position: relative;
     margin-bottom: 48px;
   }
@@ -213,6 +213,13 @@
     align-items: center;
   }
 
+  .mypage.settings .con .terms {
+    flex-wrap: wrap;
+  }
+
+  .mypage.settings .con .terms li {
+    width: calc((100% - 4px) / 2);
+  }
   .popup.option {
     max-width: inherit;
     border-radius: 0;
@@ -224,10 +231,6 @@
 
   .reward .badge-list .badge-img {
     width: 120px;
-  }
-
-  .reward .tab-contents > div:last-child .badge-list .badge-img {
-    width: 84px;
   }
 
   .reward.rewardDetail .btn-wrap {
@@ -244,23 +247,23 @@
     width: calc((100% - 16px) / 3);
   }
 
-  .mypage.myprofile .my-interesting ul li{
+  .mypage.myprofile .my-interesting ul li {
     flex-direction: column;
     text-align: center;
     border-radius: 10px;
   }
 
-  .mypage.myprofile .my-interesting li::before{
+  .mypage.myprofile .my-interesting li::before {
     flex-shrink: 0;
   }
 
-  .mypage.myprofile .my-interesting li span{
+  .mypage.myprofile .my-interesting li span {
     display: block;
     height: 30px;
     align-content: center;
   }
 
-  .mypage.myprofile.edit > .con .box .myLevel .flex li span{
+  .mypage.myprofile.edit > .con .box .myLevel .flex li span {
     bottom: -6px;
     padding: 2px 6px;
     font-size: 1.2rem;
@@ -280,12 +283,25 @@
     width: calc((100% - 8px) / 2);
   }
 
-  .library.assignment .tab-wrap ul {
+  .tab-wrap ul {
     flex-wrap: wrap;
+    gap: 2px;
   }
 
-  .library.assignment .tab-wrap ul li {
-    width: 50%;
+  .tab-wrap ul li {
+    width: calc((100% - 2px) / 2);
+  }
+
+  .tabIntab ul li button.btn,
+  .tabIntab ul li.act button.btn {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(var(--color-shadow));
+  }
+
+  .tabIntab ul li.act button.btn {
+    padding: 10px;
+    background-color: rgb(var(--color-shadow));
   }
 
   .library.favorite li.add-contents .btn {
@@ -345,52 +361,34 @@
     font-size: 1.4rem;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a {
-    flex-direction: column;
-  }
-
-  .reward .tab-contents > div:last-child .badge-list li a .badge-img {
-    width: 54px;
-    height: 54px;
-  }
-
-  .reward .tab-contents > div:last-child .badge-list li a .badge-name {
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
   .reward .tab-contents > div:last-child .badge-list div {
     justify-content: space-between;
     width: 100%;
-  }
-
-  .reward .tab-contents > div:last-child .badge-list li a .detailList {
-    margin-bottom: 12px;
   }
 
   .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap {
     width: auto;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap:not(:last-child)::after {
-    display: none;
+  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap img{
+    width: 54px;
   }
 }
 
-@media screen and (max-height: 750px){
-  .levelTest.testing .indicator{
+@media screen and (max-height: 750px) {
+  .levelTest.testing .indicator {
     margin-bottom: 18px;
   }
-  .levelTest.testing .box > img{
+  .levelTest.testing .box > img {
     max-width: 160px;
     margin-top: 18px;
   }
-  .levelTest.testing .choice-wrap:has(span) .choice li .btn{
+  .levelTest.testing .choice-wrap:has(span) .choice li .btn {
     width: 36px;
     height: 36px;
   }
 
-  .levelTest.testing .box .btn-wrap{
+  .levelTest.testing .box .btn-wrap {
     padding: 12px 0;
   }
 }

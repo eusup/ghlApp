@@ -1,4 +1,40 @@
 $(document).ready(function () {
+  // 레벨테스트에서 음원 재생 버튼 <음원 시간을 임의로 1s 라고 작성하였습니다.>
+  $(".btn-sound").on("click", function () {
+    const $button = $(this);
+    window.clearTimeout($button.data("soundTimer"));
+    $button.addClass("act");
+    $button.data(
+      "soundTimer",
+      window.setTimeout(function () {
+        $button.removeClass("act").removeData("soundTimer");
+      }, 1000),
+    );
+  });
+
+  // 레벨테스트에서 results 페이지 2초 후 로딩 팝업과 해당 dimmed 삭제
+  const $loadingCovers = $(".popup.loadingCover");
+  if ($loadingCovers.length) {
+    window.setTimeout(function () {
+      for (let i = 0; i < $loadingCovers.length; i++) {
+        const $loadingCover = $loadingCovers.eq(i);
+        const $dimmed = $loadingCover.closest(".dimmed");
+        $dimmed.addClass("fadeOutRadial");
+      }
+    }, 2000);
+  }
+
+  // reward 페이지 로드 완료 3초 후 탭 안내 숨김
+  const hideTapInfo = function () {
+    window.setTimeout(function () {
+      $(".reward.rewardDetail .tap-info").removeClass("act");
+    }, 3000);
+  };
+  if ($(".reward.rewardDetail .tap-info").length) {
+    if (document.readyState === "complete") hideTapInfo();
+    else $(window).one("load", hideTapInfo);
+  }
+
   // 하단 메뉴 순서: Home, Library, My Profile, Reward
   $(".wrap").each(function () {
     const $wrap = $(this);
@@ -30,29 +66,6 @@ $(document).ready(function () {
       if (src) $image.attr("src", src.replace(/[^/]+$/, "icn-" + iconType + "-" + iconName + ".svg"));
     });
   });
-
-  // 2초 후 로딩 팝업과 해당 dimmed 삭제
-  const $loadingCovers = $(".popup.loadingCover");
-  if ($loadingCovers.length) {
-    window.setTimeout(function () {
-      for (let i = 0; i < $loadingCovers.length; i++) {
-        const $loadingCover = $loadingCovers.eq(i);
-        const $dimmed = $loadingCover.closest(".dimmed");
-        $dimmed.addClass("fadeOutRadial");
-      }
-    }, 2000);
-  }
-
-  // 로드 완료 3초 후 탭 안내 숨김
-  const hideTapInfo = function () {
-    window.setTimeout(function () {
-      $(".reward.rewardDetail .tap-info").removeClass("act");
-    }, 3000);
-  };
-  if ($(".reward.rewardDetail .tap-info").length) {
-    if (document.readyState === "complete") hideTapInfo();
-    else $(window).one("load", hideTapInfo);
-  }
 
   // 보상 카드: 클릭으로 앞뒤 전환
   $(".reward.rewardDetail .flip-card").on("click", function () {
@@ -212,6 +225,11 @@ $(document).ready(function () {
 
     if ($optionPopup.hasClass("act")) closeLayerPopup($optionPopup);
     else openLayerPopup($optionPopup);
+  });
+
+  // 카테고리 All: 현재 탭의 개별 항목만 체크 해제
+  $(".popup.option .option-type-category .category-wrap label.pill").on("click", function () {
+    $(this).closest(".category-wrap").find("input[type='checkbox']").prop("checked", false);
   });
 
   // 탭기능

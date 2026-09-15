@@ -789,12 +789,8 @@
   width: 62px;
 }
 
-.library.assignment.detail .nav-top .con div {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .library.assignment.detail .con .data-wrap {
+  padding: 0 15px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background: linear-gradient(rgb(var(--color-white)), rgb(var(--color-white) / 0));
@@ -803,6 +799,11 @@
 .library.assignment.detail .con .data-wrap .title,
 .library.assignment.detail .con .tabIntab {
   padding: 15px 0;
+}
+
+.library.assignment.detail .con .tabIntab{
+  margin-top: 15px;
+  border-top: 1px solid rgb(var(--color-border));
 }
 
 .library.assignment.detail .con .tab-contents ul {
@@ -831,16 +832,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 0 8px;
+  padding: 15px 0;
+  color: rgb(var(--color-main));
 }
 
 .library.assignment.detail .con .assignment-results .overall-result span {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.2;
 }
 
 .library.assignment.detail .con .assignment-results .overall-result strong {
-  font-size: 2.4rem;
+  font-size: 4.2rem;
 }
 
 .library.assignment.detail .con .tab-contents ul li {
@@ -1231,7 +1233,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: calc(var(--gap) * 2);
-  padding-top: 40px;
 }
 
 .mypage.myprofile.edit > .con > div.left {
@@ -1593,7 +1594,6 @@
 
 .mypage.settings .con .terms li a {
   display: block;
-  margin-bottom: 8px;
   padding: 15px;
   border-radius: 12px;
   background-color: rgb(var(--color-white));
@@ -1915,6 +1915,7 @@
   padding: 10px 20px;
   color: rgb(var(--color-font));
   box-shadow: 0px 6px 10px rgb(var(--color-shadow));
+  border: 1px solid transparent;
 }
 
 .levelTest.testing .box > img {
@@ -2057,6 +2058,12 @@
   color: rgb(var(--color-main));
   font-weight: 600;
 }
+
+.btn-sound.act{
+  background: linear-gradient( rgba(200,200,255,0), rgba(200,200,255,0.4) );
+  border: 1px solid rgb(var(--color-white));
+  box-shadow: inset 0px 4px 6px #D9D9F6, 0px 4px 6px rgb(var(--color-white));
+}
 /** 4 text choice end **/
 
 .levelTest.levelUP {
@@ -2150,6 +2157,26 @@
   box-shadow: 0px 10px 20px rgb(var(--color-font) / 0.2);
 }
 
+.wrap:has(> .dimmed.fadeOutRadial > .loadingCover) .levelTest.levelUP.result {
+  animation-name: resultBackgroundShake;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  animation-delay: 0.24s;
+  animation-iteration-count: 2;
+  overflow: hidden;
+}
+
+.wrap:has(> .dimmed.fadeOutRadial > .loadingCover) .levelTest.levelUP.result .inner > .box {
+  animation-name: resultStamp;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+.wrap:has(> .dimmed.fadeOutRadial > .loadingCover) .levelTest.levelUP.result .inner > .box:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
 .levelTest.result .student-info {
   justify-content: space-between;
   align-items: flex-start;
@@ -2230,38 +2257,6 @@
 /* level up test end */
 
 /* reward */
-.reward-info > p {
-  margin-bottom: 10px;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.reward-info .box {
-  margin-bottom: 20px;
-  padding: 12px;
-  border-radius: var(--radius);
-  background-color: rgb(var(--color-gray));
-}
-
-.reward-info .flex {
-  gap: 6px;
-}
-
-.reward-info .flex + .flex {
-  margin-top: 10px;
-}
-
-.reward-info .flex img {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-}
-
-.reward-info .flex p {
-  font-size: 1.4rem;
-  line-height: 1.3;
-}
-
 .reward .tab-wrap {
   margin-bottom: 12px;
 }
@@ -2281,10 +2276,12 @@
   background-color: rgb(var(--color-white));
   box-shadow: 0px 6px 10px rgb(var(--color-shadow));
   opacity: 0.4;
+  pointer-events: none;
 }
 
 .reward .badge-list > .box.act {
   opacity: 1;
+  pointer-events: auto;
 }
 .reward .badge-list .title {
   margin-bottom: 12px;
@@ -2294,7 +2291,7 @@
 }
 
 .reward .badge-list .badge-img {
-  width: 84px;
+  width: 160px;
   aspect-ratio: 1/1;
 }
 
@@ -2308,16 +2305,14 @@
 }
 
 .reward .badge-list .btn-wrap {
-  justify-content: space-between;
-  margin-top: auto;
+  justify-content: center;
 }
 
-.reward .badge-list .btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 100px;
-  background-color: rgb(var(--color-white));
-  box-shadow: 0px 4px 8px rgb(var(--color-shadow));
+.reward .badge-list .btn-wrap .btn{
+  gap: 2px;
+  padding: 10px 0;
+  font-size: 1.4rem;
+  color: rgb(var(--color-font-gray));
   pointer-events: none;
 }
 
@@ -2325,9 +2320,9 @@
   pointer-events: auto;
 }
 
-.reward .badge-list .btn img {
-  width: 32px;
-  height: 32px;
+.reward .badge-list .btn-wrap .btn img{
+  width: 20px;
+  height: 20px;
 }
 
 .reward .badge-list > .box:not(:has(.btn-wrap)) {
@@ -2361,7 +2356,7 @@
 
 .reward .tab-contents > div:last-child .badge-list li a .badge-name {
   margin-bottom: 4px;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: 700;
 }
 
@@ -2386,25 +2381,9 @@
   pointer-events: inherit;
 }
 /*- when Achievement Skill's badge has act end -*/
-
-.reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap:not(:last-child)::after {
-  content: "";
-  display: block;
-
-  width: 100%;
-  max-width: 52px;
-  min-width: 32px;
-  height: 4px;
-
-  background: radial-gradient(circle, #8c3cf0 0 2px, transparent 2px);
-
-  background-size: 8px 4px;
-  background-repeat: repeat-x;
-}
-
 .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap img {
-  width: 42px;
-  height: 42px;
+  width: 64px;
+  height: 64px;
 }
 
 .reward .tab-contents > div:last-child .badge-list li > a > img:last-child {
@@ -2511,7 +2490,7 @@
 
 .reward.rewardDetail .flip-card.turned .flip-inner {
   animation-name: rewardFlipFront;
-  animation-duration: 0.85s;
+  animation-duration: 0.9s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
 }
@@ -2524,15 +2503,6 @@
   0% {
     transform: translateX(0) rotateY(0deg) rotateZ(0deg) skewY(0deg) scale(1, 1);
   }
-  25% {
-    transform: translateX(-3%) rotateY(30deg) rotateZ(-3deg) skewY(-5deg) scale(0.97, 1.04);
-  }
-  55% {
-    transform: translateX(14%) rotateY(110deg) rotateZ(3deg) skewY(6deg) scale(1.03, 0.96);
-  }
-  80% {
-    transform: translateX(42%) rotateY(188deg) rotateZ(-2deg) skewY(-2deg) scale(1, 1.02);
-  }
   100% {
     transform: translateX(40%) rotateY(180deg) rotateZ(0deg) skewY(0deg) scale(1, 1);
   }
@@ -2541,15 +2511,6 @@
 @keyframes rewardFlipFront {
   0% {
     transform: translateX(40%) rotateY(180deg) rotateZ(0deg) skewY(0deg) scale(1, 1);
-  }
-  25% {
-    transform: translateX(43%) rotateY(150deg) rotateZ(3deg) skewY(5deg) scale(0.97, 1.04);
-  }
-  55% {
-    transform: translateX(14%) rotateY(70deg) rotateZ(-3deg) skewY(-6deg) scale(1.03, 0.96);
-  }
-  80% {
-    transform: translateX(-2%) rotateY(-8deg) rotateZ(2deg) skewY(2deg) scale(1, 1.02);
   }
   100% {
     transform: translateX(0) rotateY(0deg) rotateZ(0deg) skewY(0deg) scale(1, 1);
@@ -2560,6 +2521,7 @@
   min-height: 0;
   grid-column: 1;
   grid-row: 1;
+  transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   box-shadow: 0px 10px 20px rgb(var(--color-main) / 0.6);
@@ -2594,6 +2556,7 @@
   min-height: 0;
   flex-grow: 1;
   margin-bottom: 12px;
+  transform: translateZ(100px);
 }
 
 .reward.rewardDetail .box > :not(.chara-img) {
@@ -2659,21 +2622,6 @@
 .reward.certificate .flip-card {
   max-width: 840px;
   height: 100%;
-}
-
-@keyframes rewardTap {
-  0%,
-  40%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  10%,
-  30% {
-    transform: translateY(5px) scale(0.9);
-  }
-  20% {
-    transform: translateY(0) scale(1);
-  }
 }
 /** reward detail end **/
 /* reward end */
