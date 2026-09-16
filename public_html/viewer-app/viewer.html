@@ -1,20 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>통합뷰어</title>
 
-  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/jquery-1.11.1.min.js"></script>
+  <script src="./js/style.js"></script>
+
+  <link rel="stylesheet" href="./css/viewer_style.css">
 </head>
+
 <body>
   <div class="wrap">
-    <nav class="top">
-      <button id="btn-exit" class="btn btn-icnOnly">
-        <img src="./image/cmm/icn-back.svg" alt="back to page">
-      </button>
-      <h1>Bert, Beth, and the Snowman</h1>
+    <nav id="top" class="top">
+      <div class="con">
+        <button id="btn-exit" class="btn btn-icnOnly">
+          <img src="./image/cmm/icn-back.svg" alt="back to page">
+        </button>
+        <h1>Bert, Beth, and the Snowman</h1>
+        <button id="btn-dic" class="btn btn-icnOnly icn-dictinary">
+          <img src="./image/cmm/icn-dict.svg" alt="open the dictionary" class="act">
+          <img src="./image/cmm/icn-dict+act.svg" alt="close the dictionary">
+        </button>
+        <button id="btn-bookmark" class="btn btn-icnOnly icn-bookMark">
+          <img src="./image/cmm/icn-bookmark.svg" alt="marking" class="act">
+          <img src="./image/cmm/icn-bookmark+act.svg" alt="marking">
+        </button>
+      </div>
+    </nav>
+    <main>
+      <div class="inner">
+        <div class="flex">
+          <div class="page">
+            <img
+              src="https://content-cf-cdn.chungchy.com/Highlights_Content_Global/The%20Great%20Onion%20Search/SVG_Content/E827B4D6.png"
+              alt="">
+          </div>
+          <div class="page">
+            <img
+              src="https://content-cf-cdn.chungchy.com/Highlights_Content_Global/The%20Great%20Onion%20Search/SVG_Content/E827B4D6.png"
+              alt="">
+          </div>
+        </div>
+      </div>
+    </main>
+    <nav id="bt" class="bottom">
+      <div class="con">
+        <ul class="playOption-wrap">
+          <li class="first">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-first+white.svg" alt="#">
+            </button>
+          </li>
+          <li class="play">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-play.svg" alt="#" class="act">
+              <img src="./image/cmm/icn-pause.svg" alt="#">
+            </button>
+          </li>
+          <li class="range">
+            <div class="flex">
+              <input type="range" name="ageInputName" id="ageInputId" min="1" max="24" value="1">
+              <div class="rail">
+                <span class="ball"></span>
+              </div>
+            </div>
+            <span>0%</span>
+          </li>
+          <li class="autoPlay">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-autoPlay.svg" alt="#">
+            </button>
+          </li>
+          <li class="repeat">
+            <input type="checkbox">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-repeat+white.svg" alt="#">
+            </button>
+          </li>
+          <li class="speed">
+            <button class="btn btn-noStyle">
+              <span>1.0x</span>
+              <img src="./image/cmm/icn-dropDown+white.svg" alt="#">
+            </button>
+            <ul>
+              <li>
+                <button class="btn btn-noStyle">x0.5</button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle">x0.75</button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle">x1.0</button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle">x1.25</button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle">x1.5</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </nav>
   </div>
 </body>
+
 </html>

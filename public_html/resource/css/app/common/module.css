@@ -149,14 +149,10 @@ body.scroll-lock {
 
 .wrap {
   min-height: 100dvh;
-  padding-bottom: 36px;
+  padding-bottom: env(safe-area-inset-bottom);
   background-color: rgb(var(--color-BG));
   font-size: 1.6rem;
 }
-
-/* .wrap > :first-child:not(.home) {
-  padding-bottom: 36px;
-} */
 
 ul,
 ol,
@@ -180,6 +176,10 @@ a {
   text-decoration: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-size: inherit;
 }
 
 .btn-wrap {
