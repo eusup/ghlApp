@@ -1,21 +1,13 @@
 @media screen and (max-width: 1080px) {
   .library .right .book-list ul li:not(.nothing) {
-    width: calc((100% - ((var(--gap) / 2) * 3)) / 4);
-  }
-
-  .library.videos .right .book-list ul li:not(.nothing) {
-    width: calc((100% - (var(--gap) / 2)) / 2);
+    width: calc((100% - (var(--gap) * 3)) / 4);
   }
 
   .library.favorite li.add-contents .btn {
     font-size: 1.4rem;
   }
 
-  .mypage.myprofile .my-interesting ul li {
-    width: calc((100% - 18px) / 4);
-  }
-
-  .myLevel .flex li {
+  .mypage.reading-settings .myLevel .flex li {
     width: calc((100% - 16px) / 5);
   }
 
@@ -25,12 +17,16 @@
 }
 
 @media screen and (max-width: 920px) {
-  .myprofile.edit > .con .right .box .chara .flex li {
+  .mypage.reading-settings .chara .flex li {
     width: calc((100% - 12px) / 4);
   }
 
-  .mypage.myhistory .right .history-list li .text .btn-noStyle {
+  .mypage.myprofile .history-content .history-list li .text .btn-noStyle {
     position: static;
+  }
+
+  .mypage:not(.support) .box .category-wrap label {
+    width: calc((100% - 8px) / 3);
   }
 
   .reward .badge-list {
@@ -39,6 +35,38 @@
 }
 
 @media screen and (max-width: 768px) {
+  .wrap:has(> * > .con.half) {
+    height: auto;
+  }
+
+  .wrap > :has(> .con.half) {
+    height: auto;
+  }
+
+  .con.half {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+
+  .con.half > .color-box,
+  .con.half > .left {
+    max-width: none;
+  }
+
+  .con.half > .right {
+    margin-right: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+
+  .wrap:has(.home) {
+    height: auto;
+  }
+
   .levelTest .inner h2 img {
     height: auto;
   }
@@ -49,6 +77,10 @@
 
   .popup.loadingCover p span {
     font-size: 2.4rem;
+  }
+
+  .home .full-width .con ul li {
+    width: calc((100% - ((var(--gap) / 2) * 4)) / 5);
   }
 
   .wrap:has(> .reward.rewardDetail) > .reward.rewardDetail {
@@ -81,7 +113,7 @@
     max-width: 356px;
   }
 
-  .popup-box:not(.book-info) > .btn-wrap {
+  .popup-box > .btn-wrap {
     flex-direction: column;
   }
 
@@ -94,7 +126,7 @@
   }
 
   .library .right .book-list ul li:not(.nothing) {
-    width: calc((100% - ((var(--gap) / 2) * 2)) / 3);
+    width: calc((100% - (var(--gap) * 2)) / 3);
   }
 
   .library.videos .color-box {
@@ -114,7 +146,7 @@
 
   .library.videos .color-box .book-list ul li {
     flex-shrink: 0;
-    width: 240px;
+    width: 200px;
   }
 
   .library.videos .color-box .book-list ul li .btn.btn-noStyle {
@@ -133,84 +165,49 @@
     width: 100%;
   }
 
-  .mypage.myprofile .my-interesting ul li {
-    width: calc((100% - 12px) / 3);
+  .mypage.myprofile > .con {
+    display: block;
   }
 
-  .mypage.myprofile .quick-stats ul {
+  .mypage.myprofile .user-detail,
+  .mypage.myprofile .color-box.calendar {
+    width: 100%;
+  }
+
+  .mypage.myprofile > .con > .calendar,
+  .mypage.myprofile > .con > .history-content {
+    margin-top: 24px;
+  }
+
+  .mypage.myprofile .color-box.calendar .calendar-body ul.date li {
+    min-height: 52px;
+  }
+
+  .mypage.dashBoard .quick-stats ul {
     flex-direction: column;
     gap: 2px;
   }
-  .mypage.myprofile .quick-stats li {
-    flex-direction: row;
-    justify-content: space-between;
-    min-height: auto;
-  }
 
-  .mypage.myprofile .quick-stats li span {
+  .mypage.dashBoard .quick-stats li span {
     font-size: 1.6rem;
   }
 
-  .mypage.myprofile .quick-stats li span br {
+  .mypage.dashBoard .quick-stats li span br {
     display: none;
   }
 
-  .mypage.myprofile.edit > .con {
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .mypage.myprofile.edit > .con > div.left,
-  .mypage.myprofile.edit > .con .right {
-    position: relative;
-    width: 100%;
-  }
-
-  .mypage.myprofile.edit > .con .left::before {
-    content: "";
-    position: absolute;
-    bottom: -24px;
-    width: 100%;
-    height: 1px;
-    background-color: rgb(var(--color-border));
-  }
-
-  .myLevel .flex li {
+  .mypage.reading-settings .myLevel .flex li {
     width: calc((100% - 20px) / 6);
   }
 
-  .mypage.myprofile.edit > .con .box .myLevel .flex li span {
+  .mypage.reading-settings .myLevel .flex li span {
     font-size: 1.3rem;
   }
 
-  .mypage.myhistory .color-box.calendar {
-    position: relative;
-    margin-bottom: 48px;
-  }
-
-  .mypage.myhistory .color-box.calendar::before {
-    content: "";
-    position: absolute;
-    bottom: -24px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: rgb(var(--color-border));
-  }
-
-  .mypage.myhistory .color-box.calendar .calendar-body ul.date li {
+  .mypage.myprofile .color-box.calendar .calendar-body ul.date li {
     min-height: auto;
     padding: 6px;
     font-size: 1.4rem;
-  }
-
-  .mypage.myhistory .right .history-read {
-    flex-direction: row;
-  }
-
-  .mypage.myhistory .right .history-read li {
-    width: 100%;
-    align-items: center;
   }
 
   .mypage.settings .con .terms {
@@ -240,37 +237,38 @@
   .reward.rewardDetail .btn-wrap .btn {
     font-size: 1.6rem;
   }
+
+  .bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn {
+    width: 50%;
+    border-bottom: 1px solid rgb(var(--color-border));
+  }
+
+  .bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn:where(:nth-child(3), :nth-child(4)) {
+    border-bottom: none;
+  }
 }
 
 @media screen and (max-width: 560px) {
+  .home .full-width .con ul li {
+    width: calc((100% - ((var(--gap) / 2) * 2)) / 3);
+  }
+
   .library.favorite ul li:not(.nothing) {
     width: calc((100% - 16px) / 3);
   }
 
-  .mypage.myprofile .my-interesting ul li {
-    flex-direction: column;
-    text-align: center;
-    border-radius: 10px;
-  }
-
-  .mypage.myprofile .my-interesting li::before {
-    flex-shrink: 0;
-  }
-
-  .mypage.myprofile .my-interesting li span {
-    display: block;
-    height: 30px;
-    align-content: center;
-  }
-
-  .mypage.myprofile.edit > .con .box .myLevel .flex li span {
+  .mypage.reading-settings .myLevel .flex li span {
     bottom: -6px;
     padding: 2px 6px;
     font-size: 1.2rem;
   }
 
-  .myLevel .flex li {
+  .mypage.reading-settings .myLevel .flex li {
     width: calc((100% - 12px) / 4);
+  }
+
+  .mypage:not(.support) .box .category-wrap label {
+    width: calc((100% - 4px) / 2);
   }
 
   .reward .badge-list {
@@ -279,35 +277,32 @@
 }
 
 @media screen and (max-width: 420px) {
-  .library .right .book-list ul li:not(.nothing) {
-    width: calc((100% - 8px) / 2);
+  .library .right .book-list ul li:not(.nothing),
+  .library.videos .right .book-list ul li:not(.nothing) {
+    width: calc((100% - var(--gap)) / 2);
   }
 
-  .tab-wrap ul {
+  .tabIntab ul {
     flex-wrap: wrap;
     gap: 2px;
   }
 
-  .tab-wrap ul li {
+  .tabIntab li {
     width: calc((100% - 2px) / 2);
   }
 
   .tabIntab ul li button.btn,
   .tabIntab ul li.act button.btn {
     padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(var(--color-shadow));
-  }
-
-  .tabIntab ul li.act button.btn {
-    padding: 10px;
-    background-color: rgb(var(--color-shadow));
+    background-color: rgb(var(--color-white) / 0.2);
+    box-shadow: 0px 2px 6px rgb(var(--color-shadow));
   }
 
   .library.favorite li.add-contents .btn {
     position: relative;
     justify-content: center;
     text-align: center;
+    background-color: rgb(var(--color-white));
     font-size: 1.8rem;
   }
 
@@ -326,34 +321,31 @@
     mix-blend-mode: multiply;
   }
 
-  .myprofile .my-interesting ul li {
-    width: calc((100% - 6px) / 2);
-  }
-
-  .chara .flex li {
+  .chara .flex li,
+  .mypage.reading-settings .chara .flex li {
     width: calc((100% - 8px) / 3);
   }
 
-  .mypage.myhistory .right .history-read {
+  .mypage.myprofile .history-content .history-read {
     flex-direction: column;
     margin-bottom: 24px;
   }
 
-  .mypage.myhistory .right .history-read li {
+  .mypage.myprofile .history-content .history-read li {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
   }
 
-  .mypage.myhistory .right .history-read li .title {
+  .mypage.myprofile .history-content .history-read li .title {
     width: 100%;
   }
 
-  .mypage.myhistory .right .history-read li dl {
+  .mypage.myprofile .history-content .history-read li dl {
     width: calc((100% - 4px) / 2);
   }
 
-  .mypage.myhistory .right .history-list li .content-thumb img {
+  .mypage.myprofile .history-content .history-list li .content-thumb img {
     width: 72px;
   }
 
@@ -370,8 +362,14 @@
     width: auto;
   }
 
-  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap img{
+  .reward .tab-contents > div:last-child .badge-list li a .detailList .badge-wrap img {
     width: 54px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .bookinfo .inner .flex .right ul li.description dd {
+    max-height: 120px;
   }
 }
 
@@ -379,10 +377,12 @@
   .levelTest.testing .indicator {
     margin-bottom: 18px;
   }
+
   .levelTest.testing .box > img {
     max-width: 160px;
     margin-top: 18px;
   }
+
   .levelTest.testing .choice-wrap:has(span) .choice li .btn {
     width: 36px;
     height: 36px;
@@ -390,5 +390,13 @@
 
   .levelTest.testing .box .btn-wrap {
     padding: 12px 0;
+  }
+
+  .bookinfo .inner .flex {
+    margin-bottom: 0;
+  }
+
+  .bookinfo .inner .flex .right ul li.description dd {
+    max-height: 100px;
   }
 }

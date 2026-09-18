@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>My History</title>
+  <title>Dashboard</title>
 
   <script src="./public_html/resource/js/jquery-1.11.1.min.js"></script>
   <script src="./public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./public_html/resource/js/highcharts.js"></script>
   <script src="./public_html/resource/js/style.js"></script>
 
   <link rel="stylesheet" href="./public_html/resource/css/app/common/module.css">
@@ -18,14 +19,14 @@
 
 <body>
   <div class="wrap lv21_26">
-    <div class="mypage myhistory">
+    <div class="mypage dashBoard">
       <nav class="nav-top">
         <div class="con">
           <div class="flex">
             <h2>My Page</h2>
             <div class="menu-select">
               <button class="btn btn-noStyle">
-                <p>My History</p>
+                <p>Dashboard</p>
                 <img src="./public_html/resource/images/icn-menuArrow.svg" alt="#">
               </button>
               <ul class="menu-wrap">
@@ -40,9 +41,47 @@
           </div>
         </div>
       </nav>
+
       <div class="con">
+
+        <section class="dashboard-section dashboard-categories">
+          <h3 class="dashboard-section-title">
+            <span>Categories</span>
+            <small>Data of this month</small>
+          </h3>
+          <div id="categoryChart" class="dashboard-chart category-chart"></div>
+        </section>
+        <section class="dashboard-section quick-stats">
+          <h3 class="dashboard-section-title">Quick Stats for this month</h3>
+          <ul>
+            <li>
+              <span>Number of books read</span>
+              <strong>13</strong>
+            </li>
+            <li>
+              <span>Minutes Read</span>
+              <strong>13</strong>
+            </li>
+            <li>
+              <span>Number of activities<br>completed</span>
+              <strong>13</strong>
+            </li>
+          </ul>
+        </section>
+        <section class="dashboard-section dashboard-trend">
+          <h3 class="dashboard-section-title">
+            <span>Trend</span>
+            <small>Data of the last 12 months</small>
+          </h3>
+          <div class="trend-chart-wrap">
+            <div id="booksTrendChart" class="dashboard-chart trend-chart"></div>
+            <div id="minutesTrendChart" class="dashboard-chart trend-chart"></div>
+            <div id="activitiesTrendChart" class="dashboard-chart trend-chart"></div>
+          </div>
+        </section>
       </div>
     </div>
+
     <nav class="nav-bottom">
       <ul>
         <li>
@@ -78,6 +117,7 @@
       </ul>
     </nav>
   </div>
+
 </body>
 
 </html>

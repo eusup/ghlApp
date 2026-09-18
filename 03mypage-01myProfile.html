@@ -5,11 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>My Favorite</title>
+  <title>My Profile</title>
 
   <script src="./public_html/resource/js/jquery-1.11.1.min.js"></script>
   <script src="./public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
-  <script src="./public_html/resource/js/highcharts.js"></script>
   <script src="./public_html/resource/js/style.js"></script>
 
   <link rel="stylesheet" href="./public_html/resource/css/app/common/module.css">
@@ -22,11 +21,6 @@
     <div class="mypage myprofile">
       <nav class="nav-top">
         <div class="con">
-          <div>
-            <a href="./01main.html" class="btn btn-icnOnly btn-back">
-              <img src="./public_html/resource/images/icn-back.svg" alt="back">
-            </a>
-          </div>
           <div class="flex">
             <h2>My Page</h2>
             <div class="menu-select">
@@ -36,7 +30,8 @@
               </button>
               <ul class="menu-wrap">
                 <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
-                <li><a href="./03mypage-02myhistory.html">My History</a></li>
+                <li><a href="./03mypage-03dashBoard.html">Dashboard</a></li>
+                <li><a href="./03mypage-04myStatus.html">My Status</a></li>
                 <li><a href="./03mypage-03emailUs.html">E-mail Us</a></li>
                 <li><a href="./03mypage-04settings.html">Settings</a></li>
                 <li><a href="./03mypage-05support.html">Support</a></li>
@@ -45,7 +40,6 @@
           </div>
         </div>
       </nav>
-
       <div class="con">
         <div class="user-detail">
           <div class="user-data-wrap">
@@ -79,80 +73,299 @@
             <button class="btn btn-noStyle">Logout</button>
           </div>
         </div>
-        <section class="profile-section my-interesting">
-          <h3 class="profile-section-title">My Interesting</h3>
-          <ul>
-            <li class="category-school">
-              <span>School</span>
-            </li>
-            <li class="category-animals">
-              <span>Animals</span>
-            </li>
-            <li class="category-people">
-              <span>People&amp;<br>Places</span>
-            </li>
-            <li class="category-sports">
-              <span>Sports</span>
-            </li>
-            <li class="category-art">
-              <span>Art &amp; Culture</span>
-            </li>
-            <li class="category-family">
-              <span>Family&amp;<br>Friends</span>
-            </li>
-            <li class="category-science">
-              <span>Science &amp;<br>Nature</span>
-            </li>
-            <li class="category-community">
-              <span>Community</span>
-            </li>
-            <li class="category-health">
-              <span>Health&amp;<br>Wellness</span>
-            </li>
-            <li class="category-fun">
-              <span>Fun<br>Stories</span>
-            </li>
-            <li class="category-phonics"><span>Phonics</span>
-            </li>
-            <li class="category-classics"><span>Classics</span>
-            </li>
-          </ul>
-        </section>
-        <section class="profile-section profile-categories">
-          <h3 class="profile-section-title">
-            <span>Categories</span>
-            <small>Data of this month</small>
-          </h3>
-          <div id="categoryChart" class="profile-chart category-chart"></div>
-        </section>
-        <section class="profile-section quick-stats">
-          <h3 class="profile-section-title">Quick Stats for this month</h3>
-          <ul>
-            <li>
-              <span>Number of books read</span>
-              <strong>13</strong>
-            </li>
-            <li>
-              <span>Minutes Read</span>
-              <strong>13</strong>
-            </li>
-            <li>
-              <span>Number of activities<br>completed</span>
-              <strong>13</strong>
-            </li>
-          </ul>
-        </section>
-        <section class="profile-section profile-trend">
-          <h3 class="profile-section-title">
-            <span>Trend</span>
-            <small>Data of the last 12 months</small>
-          </h3>
-          <div class="trend-chart-wrap">
-            <div id="booksTrendChart" class="profile-chart trend-chart"></div>
-            <div id="minutesTrendChart" class="profile-chart trend-chart"></div>
-            <div id="activitiesTrendChart" class="profile-chart trend-chart"></div>
+
+        <div class="color-box calendar">
+          <div class="flex calendar-head">
+            <button class="btn btn-icnOnly">
+              <img src="./public_html/resource/images/icn-arrow.svg" alt="#">
+            </button>
+            <p class="date">2099.99</p>
+            <button class="btn btn-icnOnly">
+              <img src="./public_html/resource/images/icn-arrow.svg" alt="#">
+            </button>
           </div>
-        </section>
+          <div class="calendar-body">
+            <ul>
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+            <ul class="date">
+              <li class="prev-month">29</li>
+              <li class="prev-month">30</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li class="act">9</li>
+              <li>10</li>
+              <li class="act">11</li>
+              <li>12</li>
+              <li>13</li>
+              <li>14</li>
+              <li>15</li>
+              <li>16</li>
+              <li class="act">17</li>
+              <li>18</li>
+              <li>19</li>
+              <li>20</li>
+              <li>21</li>
+              <li>22</li>
+              <li>23</li>
+              <li>24</li>
+              <li>25</li>
+              <li>26</li>
+              <li>27</li>
+              <li>28</li>
+              <li>29</li>
+              <li>30</li>
+              <li>31</li>
+            </ul>
+          </div>
+        </div>
+        <div class="history-content">
+          <div class="tab-wrap">
+            <ul>
+              <li class="act">
+                <button class="btn">Reading</button>
+              </li>
+              <li>
+                <button class="btn">Videos</button>
+              </li>
+              <li>
+                <button class="btn">Activity</button>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-contents">
+            <div>
+              <ul class="history-read">
+                <li>
+                  <p class="title">This Week</p>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-read.svg" alt="#">
+                      <span>Reading</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-time.svg" alt="#">
+                      <span>Minutes</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                </li>
+                <li>
+                  <p class="title">This Month</p>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-read.svg" alt="#">
+                      <span>Reading</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-time.svg" alt="#">
+                      <span>Minutes</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                </li>
+                <li>
+                  <p class="title">All-Time</p>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-read.svg" alt="#">
+                      <span>Reading</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <img src="./public_html/resource/images/icn-time.svg" alt="#">
+                      <span>Minutes</span>
+                    </dt>
+                    <dd>0</dd>
+                  </dl>
+                </li>
+              </ul>
+              <ul class="history-list">
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Series</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Level</dt>
+                      <dd>28</dd>
+                    </dl>
+                    <dl>
+                      <dt>Read</dt>
+                      <dd>2099</dd>
+                    </dl>
+                    <p class="status green">Completed</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Series</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Level</dt>
+                      <dd>28</dd>
+                    </dl>
+                    <dl>
+                      <dt>Read</dt>
+                      <dd>2099</dd>
+                    </dl>
+                    <p class="status red">Still reading</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Series</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>General</dd>
+                    </dl>
+                    <dl>
+                      <dt>Level</dt>
+                      <dd>28</dd>
+                    </dl>
+                    <dl>
+                      <dt>Read</dt>
+                      <dd>2099</dd>
+                    </dl>
+                    <p class="status green">Completed</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul class="history-list">
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/videoimg01.png" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>Assignment</dd>
+                    </dl>
+                    <dl>
+                      <dt>Date</dt>
+                      <dd>2026.03.Sep</dd>
+                    </dl>
+                    <p class="status green">Completed</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/videoimg01.png" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>Assignment</dd>
+                    </dl>
+                    <dl>
+                      <dt>Date</dt>
+                      <dd>2026.03.Sep</dd>
+                    </dl>
+                    <p class="status red">Still reading</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <ul class="history-list">
+                <li>
+                  <a href="./99bookInfo.html" class="btn btn-noStyle">
+                    <div class="content-thumb">
+                      <img src="./public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                    </div>
+                  </a>
+                  <div class="text">
+                    <p class="title">The Adventures of Spot: Sleigh Ride</p>
+                    <dl>
+                      <dt>Date</dt>
+                      <dd>2026.03.Sep</dd>
+                    </dl>
+                    <dl>
+                      <dt>Series</dt>
+                      <dd>Books</dd>
+                    </dl>
+                    <dl>
+                      <dt>Type</dt>
+                      <dd>Assignment</dd>
+                    </dl>
+                    <dl>
+                      <dt>Quiz</dt>
+                      <dd>-</dd>
+                    </dl>
+                    <dl class="long">
+                      <dt>Book Report</dt>
+                      <dd>Submitted!</dd>
+                    </dl>
+                    <a href="./02library-06Assignment+01detail.html" class="btn btn-noStyle">
+                      <span>Detail</span>
+                      <img src="./public_html/resource/images/icn-menuArrow.svg" alt="#">
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -190,53 +403,6 @@
         </li>
       </ul>
     </nav>
-    <div class="dimmed">
-      <div class="popup option">
-        <button class="btn btn-icnOnly btn-close">
-          <img src="./public_html/resource/images/icn-close-black.svg" alt="close the option">
-        </button>
-        <div class="inner">
-          <div class="box">
-            <div class="option-type-level">
-              <div class="flex">
-                <p class="option-title">Level</p>
-                <div class="flex">
-                  <input type="number" value="1">
-                  <span>~</span>
-                  <input type="number" value="30">
-                </div>
-              </div>
-              <div class="range"></div>
-              <div class="flex number"><span>1</span><span>30</span></div>
-            </div>
-          </div>
-          <div class="box">
-            <div class="option-type-genre">
-              <p class="option-title">Genre</p>
-              <div class="flex">
-                <label for="favorite-genre-all" class="check-box pill">
-                  <input type="radio" id="favorite-genre-all" name="favorite-genre" checked>
-                  <div></div>
-                  <p>All</p>
-                </label>
-                <label for="favorite-fiction" class="check-box pill">
-                  <input type="radio" id="favorite-fiction" name="favorite-genre">
-                  <p>Fiction</p>
-                </label>
-                <label for="favorite-nonfiction" class="check-box pill">
-                  <input type="radio" id="favorite-nonfiction" name="favorite-genre">
-                  <p>Non-Fiction</p>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="btn-wrap">
-          <button class="btn btn-white">Reset Filters</button>
-          <button class="btn">Save</button>
-        </div>
-      </div>
-    </div>
   </div>
 
 </body>
