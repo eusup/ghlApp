@@ -161,7 +161,7 @@ body {
 }
 
 .wrap {
-  min-height: 100dvh;
+  position: relative;
   background-color: rgb(var(--color-BG));
   font-size: 1.6rem;
 }
@@ -271,8 +271,14 @@ button,
 }
 
 nav.top {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 10px 0;
   border-bottom: 1px solid rgb(var(--color-border));
+  background-color: rgb(var(--color-BG));
+  transition-property: top;
+  transition-duration: 0.5s;
 }
 
 nav.top .con {
@@ -285,7 +291,7 @@ nav.top .con {
 
 nav.top .con .icn-dictinary,
 nav.top .con .icn-bookMark {
-  padding: 4px;
+  padding: 6px;
   border-radius: 8px;
   background-color: rgb(var(--color-white));
 }
@@ -312,6 +318,7 @@ main {
   scrollbar-width: none;
   touch-action: none;
   cursor: grab;
+  transition: 0.5s;
 }
 
 main::-webkit-scrollbar {
@@ -347,17 +354,41 @@ main .inner .flex .page > * {
   width: 100%;
 }
 
+main > .btn.btn-icnOnly{
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 15px;
+  width: 42px;
+  height: 42px;
+  border-radius: 100px;
+  background-color: rgb(var(--color-font) / 0.8);
+  transition-property: left, right;
+  transition-duration: 0.5s;
+}
+
+main > .btn-icnOnly.btn-prev{
+  transform: translateY(-50%) scale(-1);
+}
+
+main > .btn-icnOnly.btn-next{
+  transform: translateY(-50%);
+  left: auto;
+  right: 15px;
+}
+
 .bottom {
   position: absolute;
   transform: translateX(-50%);
   bottom: 15px;
   left: 50%;
   width: 100%;
+  transition-property: bottom;
+  transition-duration: 0.5s;
 }
 
-.bottom .con .playOption-wrap{
+.bottom .con .playOption-wrap {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
   padding: 15px;
@@ -366,7 +397,7 @@ main .inner .flex .page > * {
   color: rgb(var(--color-white));
 }
 
-.bottom .con .playOption-wrap li input{
+.bottom .con .playOption-wrap li input {
   position: absolute;
   width: 0;
   height: 0;
@@ -374,12 +405,51 @@ main .inner .flex .page > * {
   pointer-events: none;
 }
 
-.bottom .con .playOption-wrap li > .btn{
+.bottom .con .playOption-wrap li > .btn {
   width: 36px;
   aspect-ratio: 1/1;
 }
 
-.bottom .con .playOption-wrap li.play{
+.bottom .con .playOption-wrap li.disibled > .btn {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bottom .con .playOption-wrap li.play > .btn.scaleUp {
+  animation-name: scaleUp;
+  animation-duration: 250ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes scaleUp {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.bottom .con .playOption-wrap li.repeat > .btn.btnRotate {
+  animation-name: btnRotate;
+  animation-duration: 250ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes btnRotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+.bottom .con .playOption-wrap li.play {
   margin-right: 8px;
   background-color: rgb(var(--color-white));
   border-radius: 100px;
@@ -393,28 +463,20 @@ main .inner .flex .page > * {
   display: block;
 }
 
-.bottom .con .playOption-wrap li.autoPlay {
-  opacity: 0.5;
-}
-
-.bottom .con .playOption-wrap li.autoPlay.act {
-  opacity: 1;
-}
-
-.bottom .con .playOption-wrap li.range{
+.bottom .con .playOption-wrap li.range {
   display: flex;
   align-items: center;
   gap: 8px;
   width: calc(100% - 24px - 72px);
 }
 
-.bottom .con .playOption-wrap li.range > span{
+.bottom .con .playOption-wrap li.range > span {
   display: block;
   flex-shrink: 0;
   width: 34px;
 }
 
-.bottom .con .playOption-wrap li.range .flex{
+.bottom .con .playOption-wrap li.range .flex {
   width: 100%;
   height: 4px;
   border-radius: 100px;
@@ -423,7 +485,7 @@ main .inner .flex .page > * {
   cursor: pointer;
 }
 
-.bottom .con .playOption-wrap li.range .flex .rail{
+.bottom .con .playOption-wrap li.range .flex .rail {
   position: relative;
   width: 45%;
   height: 100%;
@@ -432,7 +494,7 @@ main .inner .flex .page > * {
   transition-property: none;
 }
 
-.bottom .con .playOption-wrap li.range .flex .rail .ball{
+.bottom .con .playOption-wrap li.range .flex .rail .ball {
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
@@ -444,19 +506,30 @@ main .inner .flex .page > * {
   transition-property: none;
 }
 
-.bottom .con .playOption-wrap li.range .flex .rail .ball::before{
+.bottom .con .playOption-wrap li.range .flex .rail .ball::before {
   content: "";
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   width: 20px;
   height: 20px;
 }
 
-.bottom .con .playOption-wrap li.speed{
-  position: relative;
+.bottom .con .playOption-wrap li.autoPlay {
+  opacity: 0.5;
+}
+
+.bottom .con .playOption-wrap li.autoPlay.act {
+  opacity: 1;
+}
+
+.bottom .con .playOption-wrap li.leftAuto{
   margin-left: auto;
+}
+
+.bottom .con .playOption-wrap li.speed {
+  position: relative;
 }
 
 .bottom .con .playOption-wrap li.speed button {
@@ -504,4 +577,16 @@ main .inner .flex .page > * {
 
 .bottom .con .playOption-wrap li.speed > ul > li > .btn.act {
   background-color: rgb(var(--color-font) / 0.8);
+}
+
+@media screen and (max-width: 1080px) {
+  .bottom .con .playOption-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main .inner .flex .page:nth-child(2) {
+    display: none;
+  }
 }
