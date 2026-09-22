@@ -1787,7 +1787,7 @@
 .firstLogin .box {
   position: relative;
   margin-bottom: 24px;
-  padding: 4px;
+  padding: 8px;
   border-radius: var(--radius);
   background-color: rgb(var(--color-white));
   box-shadow: 0px 2px 6px rgb(var(--color-shadow));
@@ -1804,7 +1804,7 @@
   font-weight: 600;
 }
 
-.firstLogin .box label:not(:last-child) {
+.firstLogin .box:nth-child(1) label {
   margin-bottom: 12px;
 }
 
@@ -2537,3 +2537,170 @@
   box-shadow: 0px 4px 8px rgba(61, 61, 124, 0.2);
 }
 /* bookinfo end */
+
+/* download */
+.download .nav-top {
+  padding-bottom: 24px;
+}
+
+.download .nav-top .con > .flex h2 {
+  font-size: 2.4rem;
+}
+
+.download .nav-top .con > .flex .menu-select {
+  padding: 0;
+  border-width: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.download .menu-select select {
+  width: auto;
+  padding: 10px 16px 10px 0;
+  background-image: url("../../../images/icn-menuArrow.svg");
+  background-position: right center;
+  background-size: 10px auto;
+  cursor: pointer;
+}
+
+.download > .con {
+  padding-bottom: 24px;
+}
+
+.download .search-wrap {
+  margin: 10px 0 22px;
+}
+
+.download .search-wrap > .btn-wrap {
+  flex-shrink: 0;
+  width: auto;
+}
+
+.download .download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.download .download-list:has(.box.act) {
+  padding-bottom: 40px;
+}
+
+.download .download-list .box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 14px;
+  background-color: rgb(var(--color-white));
+}
+
+.download .download-list .box.act {
+  border-color: rgb(var(--color-red));
+  background-image: linear-gradient(rgba(var(--color-red), 0.24), rgba(var(--color-red), 0));
+}
+
+.download .download-list .content-thumb {
+  flex-shrink: 0;
+  width: 62px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.download .download-list .content-thumb img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.download .download-list .data-wrap {
+  flex-grow: 1;
+  min-width: 0;
+  color: rgb(var(--color-font-gray));
+  font-size: 1.4rem;
+}
+
+.download .download-list .title {
+  overflow: hidden;
+  color: rgb(var(--color-font));
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.download .download-list .category,
+.download .download-list .date {
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+.download .download-list .date span {
+  color: rgb(var(--color-font));
+}
+
+.download .download-list .box > .btn-wrap {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: auto;
+}
+
+.download .btn-trash {
+  padding: 6px;
+}
+
+.download .btn-trash img {
+  width: 20px;
+  height: 20px;
+}
+
+.download .btn-trash img:last-child,
+.download .box.act .btn-trash img:first-child {
+  display: none;
+}
+
+.download .box.act .btn-trash img:last-child {
+  display: block;
+}
+
+.download .download-buttons {
+  position: fixed;
+  bottom: 80px;
+  left: 15px;
+  display: none;
+  width: calc(100% - 30px);
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.download:has(.download-list .box.act) .download-buttons {
+  display: flex;
+}
+
+.download .download-buttons .btn {
+  width: 100%;
+  box-shadow: 0px 0px 8px rgb(var(--color-main) / 0.3);
+}
+
+.download .download-buttons .btn-white {
+  color: rgb(var(--color-font));
+  background: rgb(var(--color-white));
+}
+
+.download .download-buttons .btn-remove {
+  gap: 6px;
+}
+
+.download .btn-remove img {
+  width: 20px;
+  height: 20px;
+}
+
+.wrap:has(> .download) .nav-bottom ul {
+  max-width: 1280px;
+}
+/* download end */

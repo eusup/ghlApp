@@ -1,4 +1,18 @@
 $(document).ready(function () {
+  // 목차와 사전 팝업 열기
+  $(".bottom .con .playOption-wrap li.indexList > .btn").on("click", function () {
+    $(".list-popup").addClass("act").closest(".dimmed").addClass("act");
+  });
+
+  $(".top .icn-dictionary").on("click", function () {
+    $("#dic-layer").addClass("act").closest(".dimmed").addClass("act");
+  });
+
+  // 각 팝업의 닫기 버튼으로 팝업과 배경 닫기
+  $(".popup .btn-closed").on("click", function () {
+    $(this).closest(".popup").removeClass("act").closest(".dimmed").removeClass("act");
+  });
+
   // 뷰어 크기에 맞춰 메뉴 위치와 페이지 영역 설정
   const $viewer = $("main").first();
 
@@ -8,6 +22,8 @@ $(document).ready(function () {
     const $top = $wrap.children("nav#top");
     const $bottom = $wrap.children("nav#bt");
     const $pages = $viewer.find(".inner .flex > .page");
+    const $pageWrap = $pages.parent();
+    const $rotateWrap = $pageWrap.parent(".rotate-wrap");
     const $prev = $viewer.children(".btn-prev");
     const $next = $viewer.children(".btn-next");
     const $pageRange = $bottom.find("li.range input[type='range']");
@@ -15,9 +31,12 @@ $(document).ready(function () {
     const $pagePercent = $pageRange.closest("li.range").children("span");
     const $zoomUp = $bottom.find("li.zoomUp");
     const $zoomDown = $bottom.find("li.zoomDown");
+    const $rotate = $bottom.find("li.rotate");
     const totalPages = 10;
     const scales = [0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6];
     let zoomIndex = 3;
+    let zoomButtonStep = 0;
+    let rotationIndex = 0;
     let pageIndex = 0;
     let startX = 0;
     let startY = 0;
@@ -29,10 +48,18 @@ $(document).ready(function () {
     let pointerMoved = false;
     let multiTouch = false;
     let controlsHidden = false;
+    let zoomFrame = null;
+
+    // 초기 크기가 0이어도 CSS로 표시된 페이지를 확인
+    const getVisiblePages = function () {
+      return $pages.filter(function () {
+        return $(this).css("display") !== "none";
+      });
+    };
 
     const updateControls = function () {
       const topHeight = $top.outerHeight();
-      $top.css("top", controlsHidden ? -topHeight : 0);
+      $top.css("top", controlsHidden ? -topHeight : 15);
       $bottom.css("bottom", controlsHidden ? -($bottom.outerHeight() + 15) : 15);
       $viewer.css("padding-top", controlsHidden ? 0 : topHeight);
       $viewer.css("padding-bottom", controlsHidden ? 0 : $bottom.outerHeight() + 15);
@@ -44,8 +71,9 @@ $(document).ready(function () {
     $(window).on("load resize", updateControls);
 
     // 최초 로드 시 상하단 메뉴를 제외한 공간에 페이지만 맞춤
-    const fitPages = function () {
-      const $visiblePages = $pages.filter(":visible");
+    const fitPages = function (centerZoom) {
+      cancelAnimationFrame(zoomFrame);
+      const $visiblePages = getVisiblePages();
       if (!$visiblePages.length || !viewer.clientWidth || !viewer.clientHeight) return;
 
       const pageSizes = [];
@@ -79,24 +107,53 @@ $(document).ready(function () {
 
         if (!width || !height) return;
 
-        pageSizes.push({ page: $page, width: width, height: height });
+        pageSizes.push({ page: $page, width: width });
         totalWidth += width;
         maxHeight = Math.max(maxHeight, height);
       });
 
       if (pageSizes.length !== $visiblePages.length || !totalWidth || !maxHeight) return;
 
-      const gap = parseFloat($pages.parent().css("column-gap")) || parseFloat($pages.parent().css("gap")) || 0;
-      const scale = Math.min(
-        (viewer.clientWidth - gap * ($visiblePages.length - 1)) / totalWidth,
-        Math.max(1, viewer.clientHeight - $top.outerHeight() - $bottom.outerHeight() - 15) / maxHeight,
-      );
+      const gap = parseFloat($pageWrap.css("column-gap")) || parseFloat($pageWrap.css("gap")) || 0;
+      const totalGap = gap * ($visiblePages.length - 1);
+      const availableHeight = Math.max(1, viewer.clientHeight - $top.outerHeight() - $bottom.outerHeight() - 15);
+      const scale = rotationIndex % 2
+        ? Math.min(viewer.clientWidth / maxHeight, (availableHeight - totalGap) / totalWidth)
+        : Math.min((viewer.clientWidth - totalGap) / totalWidth, availableHeight / maxHeight);
+      const pageScale = scale * scales[zoomIndex];
+      const wrapWidth = totalWidth * pageScale + totalGap;
+      const wrapHeight = maxHeight * pageScale;
 
       pageSizes.forEach(function (pageSize) {
-        pageSize.page.css("width", pageSize.width * scale * scales[zoomIndex] + "px");
+        pageSize.page.css("width", pageSize.width * pageScale + "px");
+      });
+      $pageWrap
+        .removeClass("rotate90 rotate180 rotate270 rotate360")
+        .addClass(rotationIndex ? "rotate" + rotationIndex * 90 : "")
+        .css({ width: wrapWidth - 30 + "px", height: wrapHeight - 30 + "px" });
+      $rotateWrap.css({
+        width: (rotationIndex % 2 ? wrapHeight : wrapWidth) + "px",
+        height: (rotationIndex % 2 ? wrapWidth : wrapHeight) + "px",
       });
 
-      $viewer.scrollLeft(0).scrollTop(0);
+      if (centerZoom === true) {
+        // 크기 전환 중에도 회전 영역의 중앙을 뷰어 중앙에 유지
+        const centerPages = function () {
+          const viewerRect = viewer.getBoundingClientRect();
+          const rotateRect = $rotateWrap[0].getBoundingClientRect();
+          const paddingTop = parseFloat($viewer.css("padding-top")) || 0;
+          const paddingBottom = parseFloat($viewer.css("padding-bottom")) || 0;
+          viewer.scrollLeft += rotateRect.left + rotateRect.width / 2 - viewerRect.left - viewer.clientWidth / 2;
+          viewer.scrollTop += rotateRect.top + rotateRect.height / 2 - viewerRect.top - (viewer.clientHeight + paddingTop - paddingBottom) / 2;
+          if (Math.abs(rotateRect.width - (rotationIndex % 2 ? wrapHeight : wrapWidth)) > 0.5 ||
+              Math.abs(rotateRect.height - (rotationIndex % 2 ? wrapWidth : wrapHeight)) > 0.5) {
+            zoomFrame = requestAnimationFrame(centerPages);
+          }
+        };
+        centerPages();
+      } else {
+        $viewer.scrollLeft(0).scrollTop(0);
+      }
     };
 
     if (document.readyState === "complete") fitPages();
@@ -104,15 +161,39 @@ $(document).ready(function () {
 
     // 확대·축소를 각 3단계로 제한하고 끝 단계의 버튼 비활성화
     $zoomUp.add($zoomDown).children(".btn").on("click", function () {
-      zoomIndex = Math.max(0, Math.min(scales.length - 1, zoomIndex + ($(this).parent().hasClass("zoomUp") ? 1 : -1)));
+      const direction = $(this).parent().hasClass("zoomUp") ? 1 : -1;
+      // 버튼 크기는 반대 방향 클릭 시 기존 단계를 되돌린 뒤 전환
+      zoomButtonStep = Math.max(-3, Math.min(3, zoomButtonStep + direction));
+      if (zoomButtonStep === 0) zoomButtonStep = direction;
+      $zoomUp.removeClass("up1 up2 up3");
+      $zoomDown.removeClass("down1 down2 down3");
+      if (zoomButtonStep > 0) $zoomUp.addClass("up" + zoomButtonStep);
+      else $zoomDown.addClass("down" + Math.abs(zoomButtonStep));
+      zoomIndex = Math.max(0, Math.min(scales.length - 1, zoomIndex + direction));
       $zoomUp.toggleClass("disibled", zoomIndex === scales.length - 1);
       $zoomDown.toggleClass("disibled", zoomIndex === 0);
+      fitPages(true);
+    });
+
+    // 클릭할 때마다 보이는 모든 페이지를 시계 방향으로 90도 회전
+    $rotate.children(".btn").on("click", function () {
+      if (rotationIndex === 4) return;
+      rotationIndex += 1;
       fitPages();
+    });
+
+    // 360도 회전이 끝나면 전환 효과 없이 0도로 초기화
+    $pageWrap.on("transitionend", function (event) {
+      if (event.target !== this || event.originalEvent.propertyName !== "transform" || rotationIndex !== 4) return;
+      rotationIndex = 0;
+      $pageWrap.addClass("rotate-reset").removeClass("rotate360");
+      void this.offsetWidth;
+      $pageWrap.removeClass("rotate-reset");
     });
 
     // 보이는 페이지 수만큼 앞뒤 이미지를 교체
     const turnPages = function (direction, targetIndex) {
-      const count = $pages.filter(":visible").length;
+      const count = getVisiblePages().length;
       if (!count) return;
       pageIndex = Math.max(0, Math.min(targetIndex === undefined ? pageIndex + direction * count : targetIndex, totalPages - count));
       $pages.each(function (index) {
@@ -130,18 +211,20 @@ $(document).ready(function () {
 
     // 보이는 페이지 수에 따라 슬라이더 범위와 단위 조정
     const updatePageRange = function () {
-      const count = $pages.filter(":visible").length;
+      const count = getVisiblePages().length;
       $pageRange.attr({ min: 1, max: totalPages - count + 1, step: count });
     };
 
     updatePageRange();
     $prev.on("click", function () { turnPages(-1); });
     $next.on("click", function () { turnPages(1); });
+    // 처음 버튼 클릭 시 첫 페이지와 진행률로 복귀
+    $bottom.find("li.first > .btn").on("click", function () { turnPages(0, 0); });
     $pageRange.on("input", function () { turnPages(0, Number(this.value) - 1); });
     turnPages(0);
 
     $(window).on("resize", function () {
-      const count = $pages.filter(":visible").length;
+      const count = getVisiblePages().length;
       pageIndex = Math.floor(pageIndex / count) * count;
       updatePageRange();
       turnPages(0);
@@ -223,7 +306,7 @@ $(document).ready(function () {
   }
 
   // 사전·북마크 버튼의 아이콘 상태 전환
-  $(".top .icn-dictinary, .top .icn-bookMark").on("click", function () {
+  $(".top .icn-dictionary, .top .icn-bookMark").on("click", function () {
     $(this).children("img").toggleClass("act");
   });
 
@@ -232,17 +315,20 @@ $(document).ready(function () {
     $(this).children("img").toggleClass("act");
   });
 
-  // 재생·반복 버튼 클릭 애니메이션 재생
-  $(".bottom .con .playOption-wrap li.play > .btn, .bottom .con .playOption-wrap li.repeat > .btn")
+  // 처음·재생·반복 버튼 클릭 애니메이션 재생
+  $(".bottom .con .playOption-wrap li.first > .btn, .bottom .con .playOption-wrap li.play > .btn, .bottom .con .playOption-wrap li.repeat > .btn")
     .on("click", function () {
-      const animationClass = this.parentElement.classList.contains("repeat") ? "btnRotate" : "scaleUp";
-      this.classList.remove(animationClass);
-      void this.offsetWidth;
-      this.classList.add(animationClass);
+      const isFirst = this.parentElement.classList.contains("first");
+      const animationTarget = isFirst ? this.parentElement : this;
+      const animationClass = isFirst ? "btnFirst" : this.parentElement.classList.contains("repeat") ? "btnRotate" : "scaleUp";
+      animationTarget.classList.remove(animationClass);
+      void animationTarget.offsetWidth;
+      animationTarget.classList.add(animationClass);
     })
+    .add(".bottom .con .playOption-wrap li.first")
     .on("animationend", function (event) {
       const animationName = event.originalEvent.animationName;
-      if (animationName === "scaleUp" || animationName === "btnRotate") this.classList.remove(animationName);
+      if (animationName === "scaleUp" || animationName === "btnRotate" || animationName === "btnFirst") this.classList.remove(animationName);
     });
 
   // 자동 재생 버튼 선택 상태 전환

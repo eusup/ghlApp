@@ -35,11 +35,11 @@ $(document).ready(function () {
     else $(window).one("load", hideTapInfo);
   }
 
-  // 하단 메뉴 순서: Home, Library, My Profile, Reward
+  // 하단 메뉴 순서: Home, Library, My Profile, Reward, Download
   $(".wrap").each(function () {
     const $wrap = $(this);
     const $navItems = $wrap.children("nav.nav-bottom").children("ul").children("li");
-    const pageClasses = ["home", "library", "mypage", "reward"];
+    const pageClasses = ["home", "library", "mypage", "reward", "download"];
 
     $navItems.removeClass("act");
     for (let i = 0; i < pageClasses.length; i++) {
@@ -64,6 +64,24 @@ $(document).ready(function () {
       const iconName = isActive ? activeIconNames[index] : navIconNames[index];
       const src = $image.attr("src");
       if (src) $image.attr("src", src.replace(/[^/]+$/, "icn-" + iconType + "-" + iconName + ".svg"));
+    });
+  });
+
+  // Download: 삭제 항목 선택과 취소, 삭제 확인 팝업 열기
+  $(".download").each(function () {
+    const $download = $(this);
+    $download.find(".btn-trash").on("click", function () {
+      const $box = $(this).closest(".box");
+      $box.toggleClass("act");
+      $(this).attr("aria-pressed", $box.hasClass("act") ? "true" : "false");
+    });
+
+    $download.find(".btn-cancel").on("click", function () {
+      $download.find(".download-list .box.act").removeClass("act").find(".btn-trash").attr("aria-pressed", "false");
+    });
+
+    $download.find(".btn-remove").on("click", function () {
+      openLayerPopup($download.siblings(".dimmed").children(".popup"));
     });
   });
 
@@ -383,7 +401,6 @@ $(document).ready(function () {
     })
     .trigger("scroll");
 
-  // 탭
   // 팝업오픈시 스크롤 작동 금지하기위한 변수
   let layerPopupScrollTop = 0;
   let isLayerPopupScrollLocked = false;
