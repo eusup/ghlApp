@@ -980,6 +980,8 @@ nav.nav-top .con > .flex {
 nav.nav-top .con > .flex h2 {
   font-size: 2rem;
   transition: 0.3s;
+  min-height: 46px;
+  align-content: center;
 }
 
 nav.nav-top.act .con > .flex h2 {
