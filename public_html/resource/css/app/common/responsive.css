@@ -7,7 +7,7 @@
     font-size: 1.4rem;
   }
 
-  .mypage.reading-settings .myLevel .flex li {
+  .mypage.myprofile .profile-options .myLevel .flex li {
     width: calc((100% - 16px) / 5);
   }
 
@@ -17,11 +17,23 @@
 }
 
 @media screen and (max-width: 920px) {
-  .mypage.reading-settings .chara .flex li {
+  .mypage.myprofile .profile-options .chara .flex li {
     width: calc((100% - 12px) / 4);
   }
 
-  .mypage.myprofile .history-content .history-list li .text .btn-noStyle {
+  .mypage.myhistory .con {
+    gap: var(--gap);
+  }
+
+  .mypage.myhistory .color-box.calendar {
+    max-width: 340px;
+  }
+
+  .mypage.myhistory > .con > .history-content {
+    width: calc(100% - var(--gap) - 340px);
+  }
+
+  .mypage.myhistory .history-content .history-list li .text .btn-noStyle {
     position: static;
   }
 
@@ -133,12 +145,6 @@
     height: auto;
   }
 
-  .library.books .color-box > .flex {
-    grid-template-areas:
-      "image title"
-      "image description";
-  }
-
   .library.videos .color-box .book-list ul {
     flex-direction: row;
     overflow-y: hidden;
@@ -165,21 +171,28 @@
     width: 100%;
   }
 
-  .mypage.myprofile > .con {
+  .mypage.myprofile > .con,
+  .mypage.myhistory > .con {
     display: block;
   }
 
-  .mypage.myprofile .user-detail,
-  .mypage.myprofile .color-box.calendar {
+  .mypage.myprofile .profile-options {
+    margin-top: calc(var(--gap) * 2);
+  }
+
+  .mypage.myhistory .color-box.calendar {
+    position: relative;
+    top: 0;
+    max-width: inherit;
     width: 100%;
   }
 
-  .mypage.myprofile > .con > .calendar,
-  .mypage.myprofile > .con > .history-content {
+  .mypage.myhistory > .con > .history-content {
+    width: 100%;
     margin-top: 24px;
   }
 
-  .mypage.myprofile .color-box.calendar .calendar-body ul.date li {
+  .mypage.myhistory .color-box.calendar .calendar-body ul.date li {
     min-height: 52px;
   }
 
@@ -196,15 +209,15 @@
     display: none;
   }
 
-  .mypage.reading-settings .myLevel .flex li {
+  .mypage.myprofile .profile-options .myLevel .flex li {
     width: calc((100% - 20px) / 6);
   }
 
-  .mypage.reading-settings .myLevel .flex li span {
+  .mypage.myprofile .profile-options .myLevel .flex li span {
     font-size: 1.3rem;
   }
 
-  .mypage.myprofile .color-box.calendar .calendar-body ul.date li {
+  .mypage.myhistory .color-box.calendar .calendar-body ul.date li {
     min-height: auto;
     padding: 6px;
     font-size: 1.4rem;
@@ -239,12 +252,7 @@
   }
 
   .bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn {
-    width: 50%;
-    border-bottom: 1px solid rgb(var(--color-border));
-  }
-
-  .bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn:where(:nth-child(3), :nth-child(4)) {
-    border-bottom: none;
+    width: calc((100% - ((var(--gap) / 4) * 1)) / 2);
   }
 }
 
@@ -257,13 +265,13 @@
     width: calc((100% - 16px) / 3);
   }
 
-  .mypage.reading-settings .myLevel .flex li span {
+  .mypage.myprofile .profile-options .myLevel .flex li span {
     bottom: -6px;
     padding: 2px 6px;
     font-size: 1.2rem;
   }
 
-  .mypage.reading-settings .myLevel .flex li {
+  .mypage.myprofile .profile-options .myLevel .flex li {
     width: calc((100% - 12px) / 4);
   }
 
@@ -322,30 +330,30 @@
   }
 
   .chara .flex li,
-  .mypage.reading-settings .chara .flex li {
+  .mypage.myprofile .profile-options .chara .flex li {
     width: calc((100% - 8px) / 3);
   }
 
-  .mypage.myprofile .history-content .history-read {
+  .mypage.myhistory .history-content .history-read {
     flex-direction: column;
     margin-bottom: 24px;
   }
 
-  .mypage.myprofile .history-content .history-read li {
+  .mypage.myhistory .history-content .history-read li {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
   }
 
-  .mypage.myprofile .history-content .history-read li .title {
+  .mypage.myhistory .history-content .history-read li .title {
     width: 100%;
   }
 
-  .mypage.myprofile .history-content .history-read li dl {
+  .mypage.myhistory .history-content .history-read li dl {
     width: calc((100% - 4px) / 2);
   }
 
-  .mypage.myprofile .history-content .history-list li .content-thumb img {
+  .mypage.myhistory .history-content .history-list li .content-thumb img {
     width: 72px;
   }
 
@@ -368,8 +376,32 @@
 }
 
 @media screen and (max-width: 380px) {
+  .bookinfo .inner .flex .right ul li dl {
+    border-radius: 10px;
+  }
+  .bookinfo .inner .flex .right ul li.category dl {
+    flex-direction: column;
+  }
+
   .bookinfo .inner .flex .right ul li.description dd {
     max-height: 120px;
+  }
+
+  .library.assignment.itemList .box-list ul li .btn-detail {
+    position: relative;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 369px) {
+  .reward .badge-list .btn-wrap .btn {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 356px) {
+  .reward .badge-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
@@ -392,11 +424,17 @@
     padding: 12px 0;
   }
 
+  .bookinfo > .con {
+    overflow: auto;
+  }
+
   .bookinfo .inner .flex {
     margin-bottom: 0;
   }
+}
 
-  .bookinfo .inner .flex .right ul li.description dd {
-    max-height: 100px;
+@media screen and (max-height: 750px) and (max-width: 360px) {
+  .bookinfo .inner .flex :where(.left .thumb, .thumb > img) {
+    max-width: 100px;
   }
 }
