@@ -67,9 +67,10 @@ $(document).ready(function () {
     });
   });
 
-  // Download: 삭제 항목 선택과 취소, 삭제 확인 팝업 열기
+  // Download: 삭제 항목 선택과 취소, 확인 후 선택 항목 제거
   $(".download").each(function () {
     const $download = $(this);
+    const $removePopup = $download.siblings(".dimmed").children(".popup-box");
     $download.find(".btn-trash").on("click", function () {
       const $box = $(this).closest(".box");
       $box.toggleClass("act");
@@ -81,7 +82,12 @@ $(document).ready(function () {
     });
 
     $download.find(".btn-remove").on("click", function () {
-      openLayerPopup($download.siblings(".dimmed").children(".popup"));
+      openLayerPopup($removePopup);
+    });
+
+    $removePopup.find(".btn-remove").on("click", function () {
+      $download.find(".download-list .box.act").remove();
+      closeLayerPopup($removePopup);
     });
   });
 

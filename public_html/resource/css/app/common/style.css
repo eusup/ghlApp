@@ -2088,10 +2088,13 @@ body:has(.certificate-view) {
   color: rgb(var(--color-font-gray));
 }
 
-.levelTest.testing .box .epilogue .black {
+.levelTest.testing .box .epilogue .blank {
+  display: inline-block;
   padding: 1px 30px;
+  height: 1.2em;
   margin: 0px 4px;
   border: 1px solid rgb(var(--color-border));
+  vertical-align: middle;
 }
 
 .levelTest.testing .box > img {
