@@ -1301,11 +1301,12 @@ nav.nav-bottom ul li a img {
   text-align: left;
 }
 
-li.nothing {
+ul > li.nothing {
   width: 100%;
   padding: 84px 0;
   text-align: center;
   color: rgb(var(--color-font-gray));
+  background-color: inherit;
 }
 
 li.nothing > img {
@@ -1677,9 +1678,9 @@ li.nothing > img {
 }
 
 .popup.home-userData-info .user-detail-clone .range .bubble:not(.rail .bubble){
-  left: 70%;
-  max-width: 100%;
-  width: auto;
+  right: 30%;
+  max-width: 200px;
+  width: 100dvw;
   white-space: normal;
   word-break: keep-all;
   white-space: wrap;

@@ -1,0 +1,609 @@
+.menual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.menual .explanation {
+  position: absolute;
+  padding: 10px;
+  padding-right: 30px;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+  background-color: #ffd4af;
+  color: #333333;
+  font-family: "Malgun Gothic", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+}
+.menual .explanation::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 2rem;
+  width: 1.6rem;
+  height: 1.2rem;
+  background-color: #ffd4af;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.menual .left::before {
+  top: 46px;
+  left: -16px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+.menual .right::before {
+  top: 12px;
+  left: 100%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.menual .top::before {
+  top: -1.2rem;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* 00first-login+step1.html - 1920 x 1080 */
+.menual .explanation-login-title {
+  top: 36px;
+  left: 140px;
+}
+
+.menual .explanation-login-title::before {
+  top: 50%;
+}
+
+.menual .explanation > .btn-wrap {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+}
+
+.menual .btn-explanation-close,
+.menual .btn-explanation-close img {
+  width: 12px;
+  height: 12px;
+}
+
+.menual .explanation-login-name {
+  top: 180px;
+  left: 130px;
+}
+
+.menual .explanation-login-profile {
+  top: 470px;
+  left: 150px;
+}
+.menual .explanation-login-name::before,
+.menual .explanation-login-profile::before {
+  top: 50%;
+}
+
+.menual .explanation-login-next {
+  top: 865px;
+  left: 1600px;
+}
+.menual .explanation-login-next::before {
+  top: 50%;
+}
+
+/* 00first-login+step2.html - 1920 x 1080 */
+.menual .explanation-login-categories {
+  top: 106px;
+  left: 640px;
+}
+.menual .explanation-login-categories::before {
+  top: 50%;
+}
+
+.menual .explanation-login-step2-next {
+  top: 390px;
+  left: 1130px;
+}
+.menual .explanation-login-step2-next::before {
+  top: 26px;
+}
+
+/* 00placementTest+문제.html - 1920 x 1080 */
+.menual .explanation-placement-audio {
+  top: 120px;
+  left: 1030px;
+}
+.menual .explanation-placement-audio::before {
+  top: 28px;
+}
+
+.menual .explanation-placement-choice {
+  top: 550px;
+  left: 1330px;
+}
+.menual .explanation-placement-choice::before {
+  top: 50%;
+}
+
+.menual .explanation-placement-next {
+  top: 805px;
+  left: 1150px;
+}
+.menual .explanation-placement-next::before {
+  top: 70%;
+}
+
+.menual .explanation-placement-progress {
+  top: 4px;
+  left: 1280px;
+}
+.menual .explanation-placement-progress::before {
+  top: 23px;
+}
+
+/* 00placementTest+결과.html - 1920 x 1080 */
+.menual .explanation-placement-result {
+  top: 410px;
+  left: 640px;
+}
+.menual .explanation-placement-result::before {
+  left: calc(50% - 0.8rem);
+}
+
+/* 01main.html - 1920 x 1080 */
+.menual-home .explanation-home-notice {
+  top: 20px;
+  left: 35px;
+  width: 280px;
+}
+
+.menual-home .explanation-home-today {
+  top: 270px;
+  left: 35px;
+  width: 280px;
+}
+
+.menual-home .explanation-home-info {
+  top: 70px;
+  left: 1600px;
+  width: auto;
+}
+
+.menual-home .explanation-home-counts {
+  top: 368px;
+  left: 1030px;
+  width: auto;
+}
+
+.menual-home .explanation-home-recommend {
+  top: 470px;
+  left: 610px;
+  width: 370px;
+}
+
+.menual-home .explanation-home-tags {
+  top: 545px;
+  left: 35px;
+  width: 280px;
+}
+
+.menual-home .explanation-home-books {
+  top: 620px;
+  left: 335px;
+  width: auto;
+}
+
+.menual-home .explanation-home-nav {
+  top: 785px;
+  left: 960px;
+  width: auto;
+}
+.menual-home .explanation-home-notice::before,
+.menual-home .explanation-home-today::before,
+.menual-home .explanation-home-tags::before {
+  top: 28px;
+}
+
+.menual-home .explanation-home-progress::before {
+  top: 48px;
+}
+.menual-home .explanation-home-counts::before {
+  left: 240px;
+}
+.menual-home .explanation-home-books::before {
+  left: 60px;
+  bottom: -10px;
+  top: auto;
+}
+.menual-home .explanation-home-nav::before {
+  top: 100%;
+  left: 80px;
+}
+
+.menual-home .explanation-home-popup-info,
+.menual-home .explanation-home-popup-badge,
+.menual-home .explanation-home-popup-assignment {
+  display: none;
+  position: fixed;
+  top: 400px;
+  left: 1175px;
+  width: 450px;
+}
+
+body:where(:has(.home + .nav-bottom + .dimmed > .popup.act)) .menual-home > .explanation {
+  display: none;
+}
+
+body:has(.home-userData-info.act) .menual-home .explanation-home-popup-info,
+body:has(.badge-layer.act) .menual-home .explanation-home-popup-badge,
+body:has(.home + .nav-bottom + .dimmed > .popup-box.act) .menual-home .explanation-home-popup-assignment {
+  display: block;
+}
+
+.menual-home .explanation-home-popup-info {
+  top: 380px;
+  left: 1060px;
+}
+.menual-home .explanation-home-popup-badge::before,
+.menual-home .explanation-home-popup-assignment::before {
+  top: 40px;
+}
+.menual-home .explanation-home-info::before {
+  top: 74px;
+}
+
+.menual-home .explanation-home-popup-assignment {
+  top: 460px;
+}
+
+/* 99bookInfo.html - 1920 x 1080 */
+.menual .explanation-bookinfo-back {
+  top: 52px;
+  left: 335px;
+  width: 260px;
+}
+.menual .explanation-bookinfo-back::before {
+  left: 10px;
+}
+
+/* Library Books / Videos / Phonics - 1920 x 1080 */
+.menual-library .explanation-library-favorite {
+  top: 166px;
+  left: 1240px;
+  width: 340px;
+}
+.menual-library .explanation-library-favorite::before {
+  left: 290px;
+}
+
+.menual-library .explanation-library-level {
+  display: none;
+  position: fixed;
+  top: 45px;
+  left: 195px;
+  width: 300px;
+}
+.menual-library .explanation-library-level::before {
+  top: 26px;
+}
+
+.menual-library .explanation-library-dimmed {
+  display: none;
+  position: fixed;
+  top: 260px;
+  left: 1605px;
+  width: 290px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-library-favorite {
+  display: none;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-library-dimmed,
+body:has(.library ~ .dimmed.act > .option.act) .menual-library .explanation-library-level {
+  display: block;
+}
+
+/* 02library-01phonics.html - metadata */
+.menual-library .explanation-phonics-metadata {
+  top: 225px;
+  left: 470px;
+  width: 300px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-phonics-metadata {
+  display: none;
+}
+
+/* Magazines / Extensive Books - thumbnails */
+.menual-library .explanation-library-viewer {
+  left: 970px;
+  width: 340px;
+}
+
+.menual-library .explanation-magazine-viewer {
+  top: 290px;
+}
+
+.menual-library .explanation-extensive-viewer {
+  top: 190px;
+}
+.menual-library .explanation-library-viewer::before {
+  top: 30px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-library-viewer {
+  display: none;
+}
+
+/* 02library-06Assignment.html - progress */
+.menual-library .explanation-assignment-progress {
+  top: 205px;
+  left: 975px;
+  width: 610px;
+}
+.menual-library .explanation-assignment-progress::before {
+  top: 26px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-assignment-progress {
+  display: none;
+}
+
+.menual-library .explanation-assignment-thumbnail {
+  top: 100px;
+  left: 35px;
+  width: 290px;
+}
+.menual-library .explanation-assignment-thumbnail::before {
+  top: 30px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-library .explanation-assignment-thumbnail {
+  display: none;
+}
+
+/* 02library-06Assignment-01itemList.html */
+.menual-assignment-items .explanation-assignment-item-status {
+  top: 60px;
+  left: 525px;
+  width: 330px;
+}
+.menual-assignment-items .explanation-assignment-item-status::before {
+  top: 18px;
+}
+
+.menual-assignment-items .explanation-assignment-item-detail-empty {
+  top: 235px;
+  left: 685px;
+  width: 300px;
+}
+.menual-assignment-items .explanation-assignment-item-detail-empty::before {
+  left: 210px;
+}
+
+.menual-assignment-items .explanation-assignment-item-detail-link {
+  top: 235px;
+  left: 1230px;
+  width: 350px;
+}
+.menual-assignment-items .explanation-assignment-item-detail-link::before {
+  left: 290px;
+}
+
+body:has(.library ~ .dimmed.act) .menual-assignment-items > .explanation {
+  display: none;
+}
+
+/* 02library-06Assignment-01itemList+detail.html - answer states */
+.menual-assignment-detail .explanation-assignment-correct,
+.menual-assignment-detail .explanation-assignment-wrong {
+  display: none;
+  left: 1190px;
+  width: 330px;
+}
+
+.menual-assignment-detail .explanation-assignment-correct {
+  top: 334px;
+}
+
+.menual-assignment-detail .explanation-assignment-wrong {
+  top: 449px;
+}
+.menual-assignment-detail .explanation-assignment-correct::before,
+.menual-assignment-detail .explanation-assignment-wrong::before {
+  top: 18px;
+}
+
+body:has(.assignment-results > .tab-panel.act li.correct) .menual-assignment-detail .explanation-assignment-correct,
+body:has(.assignment-results > .tab-panel.act li.wrong) .menual-assignment-detail .explanation-assignment-wrong {
+  display: block;
+}
+
+body:has(.assignment-results > .tab-panel.act > .listening) .menual-assignment-detail .explanation-assignment-wrong {
+  top: 418px;
+}
+
+body:has(.library.assignment.detail ~ .dimmed.act) .menual-assignment-detail > .explanation {
+  display: none;
+}
+
+.menual .explanation-code {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.menual-assignment-detail .explanation-assignment-quiz-empty {
+  display: none;
+  top: 565px;
+  left: 1010px;
+  width: 530px;
+}
+.menual-assignment-detail .explanation-assignment-quiz-empty::before {
+  top: 28px;
+}
+
+body:has(.assignment-results > .tab-panel.act > .quiz) .menual-assignment-detail .explanation-assignment-quiz-empty {
+  display: block;
+}
+
+/* 03mypage-01myPage.html */
+.menual .explanation-mypage-preferences {
+  top: 300px;
+  left: 550px;
+  width: 560px;
+}
+.menual .explanation-mypage-preferences::before {
+  top: 46px;
+}
+
+.menual .explanation-mypage-settings {
+  top: 150px;
+  left: 1235px;
+  width: 340px;
+}
+.menual .explanation-mypage-settings::before {
+  left: 308px;
+}
+
+.menual .explanation-mypage-friend {
+  top: 365px;
+  left: 20px;
+  width: 290px;
+}
+.menual .explanation-mypage-friend::before {
+  top: 12px;
+}
+
+.menual .explanation-input {
+  top: 250px;
+  left: 400px;
+}
+
+.menual .explanation-id-input {
+  top: 80px;
+  left: 430px;
+}
+.menual .explanation-id-input::before {
+  top: 40px;
+}
+
+.menual .explanation-pwview {
+  top: 510px;
+  left: 1220px;
+}
+.menual .explanation-pwview::before {
+  top: 28px;
+}
+
+/* 03mypage-01hisroty.html */
+.menual .explanation-myprofile-cal {
+  left: 100px;
+  top: 200px;
+}
+
+.menual .explanation-myprofile-cal::before {
+  top: 25px;
+}
+
+.menual .explanation-myprofile-read-tatus {
+  left: 700px;
+}
+
+/* 03mypage-01myPage+01edit.html - moved preferences */
+.menual .explanation-myprofile-read-status {
+  top: 325px;
+  left: 990px;
+}
+
+.menual .explanation-myprofile-read-status::before {
+  top: 20px;
+}
+
+/* 03mypage-05support.html */
+.menual .explanation-faq-tab {
+  top: 80px;
+  left: 90px;
+}
+
+.menual .explanation-faq-tab::before {
+  top: 20px;
+}
+
+/* reward */
+.menual .explanation-reward-badge{
+  left: 520px;
+  top: 200px;
+}
+
+.menual .explanation-reward-badge::before{
+  top: 30px;
+}
+
+.menual .explanation-reward-hiddenPic{
+  left: 520px;
+  top: 300px;
+}
+
+.menual .explanation-reward-diabled{
+  left: 520px;
+  top: 500px;
+}
+body:has(.reward > .con > .tab-contents > div:nth-child(2).act) .menual .explanation-reward-hiddenPic,
+body:has(.reward > .con > .tab-contents > div:nth-child(2).act) .menual .explanation-reward-diabled,
+body:has(.reward > .con > .tab-contents > div:nth-child(2).act) .menual .explanation-reward-badge {
+  display: none;
+}
+
+.menual .explanation-reward-newchara {
+  display: none;
+}
+
+body:has(.reward > .con > .tab-contents > div:nth-child(2).act) .menual .explanation-reward-newchara {
+  display: block;
+}
+
+.menual .explanation-reward-newchara{
+  top: 200px;
+  left: 750px;
+}
+
+.menual .explanation-reward-newchara::before{
+  top: 20px;
+}
+
+.menual .explanation-reward-card{
+  left: 200px;
+  top: 200px;
+}
+
+.menual .explanation-reward-card::before{
+  top: 20px;
+}
+
+.menual .explanation-view-certi{
+  top: 770px;
+  left: 620px;
+}
+
+.menual .explanation-view-certi::before{
+  top: 20px;
+}

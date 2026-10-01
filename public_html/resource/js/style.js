@@ -174,15 +174,7 @@ $(document).ready(function () {
   $(".select ul.selectBorn li").click(function () {
     $(this).parent("ul.selectBorn").siblings(".val").text($(this).text());
     $(this).parent("ul.selectBorn").removeClass("act");
-  });
-
-  // 임시: 99popup.html 클릭 시 기본 팝업 확인. 확인 후 제거.
-  if (window.location.pathname.split("/").pop() === "99popup.html") {
-    $("body").click(function (event) {
-      if ($(event.target).closest(".dimmed").length) return;
-      openLayerPopup($(".popup-box"));
-    });
-  }
+  }); 
 
   // 프로필 캐릭터 변경
   $(".chara .flex li .btn")

@@ -806,6 +806,13 @@
   height: 20px;
 }
 
+.library.assignment.detail .con .tab-contents ul li.nothing{
+  border: none;
+  border-radius: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
 .library.assignment.detail .con .tab-contents ul.listening li {
   padding: 14px 8px;
 }
@@ -869,13 +876,6 @@
 
 /* mypage */
 /** mypage - my profile **/
-.mypage.myprofile .con {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  row-gap: calc(var(--gap) * 2);
-}
-
 .mypage.myprofile .user-detail {
   padding: 10px;
   background-color: rgb(var(--color-gray));
@@ -1124,6 +1124,9 @@
   padding: 8px 0;
 }
 
+.mypage.myprofile.edit .box:last-child {
+  margin-bottom: 24px;
+}
 /*** mypage - my profile - edit end ***/
 /** mypage - my profile end **/
 
@@ -2024,6 +2027,7 @@ body:has(.certificate-view) {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: 15px;
 }
 
 .levelTest .inner h2 img {
@@ -2120,7 +2124,7 @@ body:has(.certificate-view) {
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 18px;
+  margin: 18px 0;
   padding-top: 18px;
   border-top: 1px solid rgb(var(--color-border));
 }
@@ -2368,8 +2372,8 @@ body:has(.certificate-view) {
 
 .levelTest.result > .inner {
   flex-grow: 1;
-  height: auto;
   row-gap: 10px;
+  height: auto;
 }
 
 .levelTest.result .student-info {
@@ -2453,7 +2457,6 @@ body:has(.certificate-view) {
 }
 
 .levelTest.result > .inner > .btn-wrap .btn {
-  margin-bottom: calc(24px + env(safe-area-inset-bottom));
   padding: 24px;
   font-size: 2.4rem;
   font-weight: 600;
