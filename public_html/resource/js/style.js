@@ -67,9 +67,10 @@ $(document).ready(function () {
     });
   });
 
-  // Download: 삭제 항목 선택과 취소, 삭제 확인 팝업 열기
+  // Download: 삭제 항목 선택과 취소, 확인 후 선택 항목 제거
   $(".download").each(function () {
     const $download = $(this);
+    const $removePopup = $download.siblings(".dimmed").children(".popup-box");
     $download.find(".btn-trash").on("click", function () {
       const $box = $(this).closest(".box");
       $box.toggleClass("act");
@@ -81,12 +82,18 @@ $(document).ready(function () {
     });
 
     $download.find(".btn-remove").on("click", function () {
-      openLayerPopup($download.siblings(".dimmed").children(".popup"));
+      openLayerPopup($removePopup);
+    });
+
+    $removePopup.find(".btn-remove").on("click", function () {
+      $download.find(".download-list .box.act").remove();
+      closeLayerPopup($removePopup);
     });
   });
 
   // 보상 카드: 클릭으로 앞뒤 전환
   $(".reward.rewardDetail .flip-card").on("click", function () {
+    if (!$(this).children(".flip-inner").children(".box.card-back").length) return;
     $(this).find(".tap-info").removeClass("act");
     if ($(this).hasClass("flipping")) return;
     $(this)
@@ -96,6 +103,54 @@ $(document).ready(function () {
         $(this).parent().removeClass("flipping");
       });
     $(this).addClass("turned").toggleClass("flipped");
+  });
+
+  // 인증서: 카드 위치에서 전체 화면으로 확대 후 원래 위치로 복귀
+  $(".reward.certificate .btn-certificate").on("click", function () {
+    const $certificate = $(this).closest(".certificate");
+    const $card = $certificate.find(".flip-card");
+    const $source = $card.find(".card-back .chara-img");
+    if ($certificate.hasClass("certificate-open") || $card.hasClass("flipping") || !$source[0].naturalWidth) return;
+
+    $certificate.addClass("certificate-open");
+    const $view = $('<div class="certificate-view"></div>').appendTo($certificate.closest(".wrap"));
+    const $image = $source.clone().attr("class", "certificate-image").appendTo($view);
+    const image = $image[0];
+    const cardTransform = function () {
+      const rect = ($card.hasClass("flipped") ? $card[0] : $source[0]).getBoundingClientRect();
+      const width = image.clientWidth;
+      const height = image.clientHeight;
+      const cardScale = Math.min(rect.width / image.naturalWidth, rect.height / image.naturalHeight);
+      const fullScale = Math.min(width / image.naturalWidth, height / image.naturalHeight);
+      return "translate(" + (rect.left + rect.width / 2 - width / 2) + "px, " + (rect.top + rect.height / 2 - height / 2) + "px) scale(" + cardScale / fullScale + ")";
+    };
+    let animation = image.animate([{ transform: cardTransform() }, { transform: "none" }], {
+      duration: 500,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+    });
+    $view[0].getBoundingClientRect();
+    $view.addClass("act");
+
+    const closeCertificate = function () {
+      if ($view.hasClass("closing")) return;
+      $view.addClass("closing").removeClass("act");
+      const transform = window.getComputedStyle(image).transform;
+      animation.cancel();
+      animation = image.animate([{ transform: transform }, { transform: cardTransform() }], {
+        duration: 450,
+        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        fill: "forwards",
+      });
+      animation.onfinish = function () {
+        $view.remove();
+        $certificate.removeClass("certificate-open");
+        $(document).off("keydown.certificateView");
+      };
+    };
+    $image.on("click", closeCertificate);
+    $(document).on("keydown.certificateView", function (event) {
+      if (event.key === "Escape") closeCertificate();
+    });
   });
 
   // 새 캐릭터 선택 상태 확인용
@@ -119,15 +174,7 @@ $(document).ready(function () {
   $(".select ul.selectBorn li").click(function () {
     $(this).parent("ul.selectBorn").siblings(".val").text($(this).text());
     $(this).parent("ul.selectBorn").removeClass("act");
-  });
-
-  // 임시: 99popup.html 클릭 시 기본 팝업 확인. 확인 후 제거.
-  if (window.location.pathname.split("/").pop() === "99popup.html") {
-    $("body").click(function (event) {
-      if ($(event.target).closest(".dimmed").length) return;
-      openLayerPopup($(".popup-box"));
-    });
-  }
+  }); 
 
   // 프로필 캐릭터 변경
   $(".chara .flex li .btn")
@@ -167,6 +214,17 @@ $(document).ready(function () {
     $(this).closest(".flex").find("li > button").removeClass("act");
     $(this).closest(".flex").find("li > button + span").remove();
     $(this).addClass("act").after("<span>Now</span>");
+  });
+
+  // My Profile: 최초 선택 항목 외의 항목 클릭 후 Save 버튼 고정 노출
+  $(".mypage.myprofile .profile-options").each(function () {
+    const $options = $(this);
+    const $initialSelection = $options.find('.chara .flex li.act .btn, .category-wrap label[class*="category-"]:has(:checked), .myLevel .flex li.act button');
+
+    $options.on("click", '.chara .flex li .btn, .category-wrap label[class*="category-"], .myLevel .flex li button', function () {
+      if ($initialSelection.is(this)) return;
+      $options.siblings(".profile-save").addClass("act");
+    });
   });
 
   // 팝업 닫기 기능 -dimmed 영역 클릭시에도 닫힘

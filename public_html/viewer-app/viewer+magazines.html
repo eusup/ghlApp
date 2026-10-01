@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>통합뷰어</title>
+
+  <script src="./js/jquery-1.11.1.min.js"></script>
+  <script src="./js/style.js"></script>
+
+  <link rel="stylesheet" href="./css/viewer_style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <nav id="top" class="top">
+      <div class="con">
+        <button id="btn-exit" class="btn btn-icnOnly btn-back">
+          <img src="./image/cmm/icn-back.svg" alt="back to page">
+        </button>
+        <h1><span class="title-text">Bert, Beth, and the Snowman Bert, Beth, and the Snowman Bert, Beth, and the Snowman Bert, Beth, and the Snowman</span></h1>
+      </div>
+    </nav>
+    <main>
+      <div class="inner">
+        <div class="rotate-wrap">
+          <div class="flex">
+            <div class="page">
+              <img src="./image/dump/01.png" alt="">
+            </div>
+            <div class="page">
+              <img src="./image/dump/02.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-icnOnly btn-prev">
+        <img src="./image/cmm/icn-arrow+white.svg" alt="prev">
+      </button>
+      <button class="btn btn-icnOnly btn-next">
+        <img src="./image/cmm/icn-arrow+white.svg" alt="next">
+      </button>
+    </main>
+    <nav id="bt" class="bottom">
+      <div class="con">
+        <ul class="playOption-wrap">
+          <li class="first">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-first+white.svg" alt="#">
+            </button>
+          </li>
+          <li class="play">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-play.svg" alt="#" class="act">
+              <img src="./image/cmm/icn-pause.svg" alt="#">
+            </button>
+          </li>
+          <li class="range">
+            <div class="flex">
+              <input type="range" name="ageInputName" id="ageInputId" min="1" max="9" step="2" value="1">
+              <div class="rail">
+                <span class="ball"></span>
+              </div>
+            </div>
+            <span>0%</span>
+          </li>
+          <li class="rotate leftAuto">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-rotate.svg" alt="">
+            </button>
+          </li>
+          <li class="zoomUp">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-zoomUp.svg" alt="">
+            </button>
+          </li>
+          <li class="zoomDown">
+            <button class="btn btn-icnOnly">
+              <img src="./image/cmm/icn-zoomDown.svg" alt="">
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="dimmed">
+      <div id="outlineContainer" class="popup list-popup">
+        <ul>
+          <li>
+            <a href="#" data-page="1">Cover Page</a>
+          </li>
+          <li><a href="#" data-page="2">Title Page</a></li>
+          <li><a href="#" data-page="3">Colophon</a></li>
+          <li><a href="#" data-page="4">Contents</a></li>
+          <li><a href="#" data-page="6">BOOK THE FIRST - RECALLED TO LIFE</a>
+            <ul>
+              <li><a href="#" data-page="7">1. The Period</a></li>
+              <li><a href="#" data-page="9">2. The Mail</a></li>
+              <li><a href="#" data-page="13">3. The Night Shadows</a></li>
+              <li><a href="#" data-page="16">4. The Preparation</a></li>
+              <li><a href="#" data-page="24">5. The Wine-Shop</a></li>
+              <li><a href="#" data-page="32">6. The Shoemaker</a></li>
+            </ul>
+          </li>
+          <li><a href="#" data-page="40">BOOK THE SECOND - THE GOLDEN THREAD</a>
+            <ul>
+              <li><a href="#" data-page="41">1. Five Years Later</a></li>
+              <li><a href="#" data-page="45">2. A Sight</a></li>
+              <li><a href="#" data-page="50">3. A Disappointment</a></li>
+              <li><a href="#" data-page="60">4. Congratulatory</a></li>
+              <li><a href="#" data-page="65">5. The Jackal</a></li>
+              <li><a href="#" data-page="70">6. Hundreds Of People</a></li>
+              <li><a href="#" data-page="79">7. Monseigneur In Town</a></li>
+              <li><a href="#" data-page="85">8. Monseigneur In The Country</a></li>
+              <li><a href="#" data-page="89">9. The Gorgon's Head</a></li>
+              <li><a href="#" data-page="97">10. Two Promises</a></li>
+              <li><a href="#" data-page="103">11. A Companion Picture</a></li>
+              <li><a href="#" data-page="106">12. The Fellow Of Delicacy</a></li>
+              <li><a href="#" data-page="111">13. The Fellow Of No Delicacy</a></li>
+              <li><a href="#" data-page="115">14. The Honest Tradesman</a></li>
+              <li><a href="#" data-page="122">15. Knitting</a></li>
+              <li><a href="#" data-page="130">16. Still Knitting</a></li>
+              <li><a href="#" data-page="138">17. One Night</a></li>
+              <li><a href="#" data-page="142">18. Nine Days</a></li>
+              <li><a href="#" data-page="147">19. An Opinion</a></li>
+              <li><a href="#" data-page="153">20. A Plea</a></li>
+              <li><a href="#" data-page="156">21. Echoing Footsteps</a></li>
+              <li><a href="#" data-page="164">22. The Sea Still Rises</a></li>
+              <li><a href="#" data-page="168">23. Fire Rises</a></li>
+              <li><a href="#" data-page="173">24. Drawn To The Loadstone Rock</a></li>
+            </ul>
+          </li>
+          <li><a href="#" data-page="181">BOOK THE THIRD - THE TRACK OF A STORM</a>
+            <ul>
+              <li><a href="#" data-page="182">1. In Secret</a></li>
+              <li><a href="#" data-page="190">2. The Grindstone</a></li>
+              <li><a href="#" data-page="195">3. The Shadow</a></li>
+              <li><a href="#" data-page="199">4. Calm In Storm</a></li>
+              <li><a href="#" data-page="203">5. The Wood-Sawyer</a></li>
+              <li><a href="#" data-page="207">6. Triumph</a></li>
+              <li><a href="#" data-page="212">7. A Knock At The Door</a></li>
+              <li><a href="#" data-page="216">8. A Hand At Cards</a></li>
+              <li><a href="#" data-page="225">9. The Game Made</a></li>
+              <li><a href="#" data-page="234">10. The Substance Of The Shadow</a></li>
+              <li><a href="#" data-page="244">11. Dusk</a></li>
+              <li><a href="#" data-page="247">12. Darkness</a></li>
+              <li><a href="#" data-page="253">13. Fifty-Two</a></li>
+              <li><a href="#" data-page="262">14. The Knitting Done</a></li>
+              <li><a href="#" data-page="271">15. The Footsteps Die Out For Ever</a></li>
+            </ul>
+          </li>
+        </ul>
+        <button class="btn btn-icnOnly btn-closed">
+          <img src="./image/cmm/icn-close+white.svg" alt="#">
+        </button>
+      </div>
+
+      <div id="dic-layer" class="popup">
+        <div class="dic_layer">
+          <div class="layer dictionary definition">
+            <button class="btn btn-icnOnly btn-closed">
+              <img src="./image/cmm/icn-close+white.svg" alt="dictionary pop up closed">
+            </button>
+            <section>
+              <div class="con">
+                <div class="headword">basketball</div>
+                <p class="text2">
+                  1 : A game played between two teams who score points by shooting a ball through a high
+                  hoop<br> Ex: The boys are playing
+                  <span>basketball</span>
+                  on the school court.
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="control">
+        <a href="./viewer+phonics.html">phonics</a>
+        <a href="./viewer+books.html">books</a>
+        <a href="./viewer+magazines.html">magazines</a>
+        <a href="./viewer+extensive.html">extensive</a>
+        <a href="./viewer+videos.html">videos</a>
+      </div>
+  </div>
+</body>
+
+<style>
+  .control{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #ddd;
+  }
+
+  .control a{
+    display: block;
+    padding: 10px;
+  }
+</style>
+
+</html>

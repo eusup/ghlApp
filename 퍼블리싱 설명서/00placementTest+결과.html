@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>home</title>
+
+  <script src="../public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="../public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="../public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/responsive.css">
+  <link rel="stylesheet" href="./menual.css">
+  <script src="./menual.js"></script>
+</head>
+
+<body>
+  <div class="wrap lv15_20">
+    <div class="levelTest levelUP result">
+      <div class="con inner">
+        <div class="box flex student-info">
+          <div>
+            <h3 class="result-title">Student Information</h3>
+            <dl>
+              <dt>Name</dt>
+              <dd>user Name</dd>
+              <dt>Date</dt>
+              <dd>99-99-99</dd>
+            </dl>
+          </div>
+          <span class="mylevel-number">99</span>
+        </div>
+        <div class="box">
+          <h3 class="result-title">Result</h3>
+          <dl>
+            <dt>Score</dt>
+            <dd class="score"><strong>99</strong><span>/99</span></dd>
+            <dt>Level</dt>
+            <dd>99</dd>
+            <dt>Lexile reading range for Level</dt>
+            <dd>99-99</dd>
+          </dl>
+        </div>
+        <div class="btn-wrap">
+          <a href="./01main.html" class="btn">Start Reading!</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dimmed act">
+      <div class="popup loadingCover act">
+        <p>
+          <span>Almost done checking</span>
+          <span>your answers, Bokja!</span>
+        </p>
+        <div class="loading-wrap">
+          <img src="../public_html/resource/images/img-loading01.svg" alt="#">
+          <img src="../public_html/resource/images/img-loading02.svg" alt="#">
+          <img src="../public_html/resource/images/img-loading03.svg" alt="#">
+          <img src="../public_html/resource/images/img-loading04.svg" alt="#">
+          <img src="../public_html/resource/images/img-loading05.svg" alt="#">
+          <img src="../public_html/resource/images/img-loading06.svg" alt="#">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menual">
+    <div class="explanation explanation-placement-result top">
+      방금 진행한 테스트를 기준으로 학생의 레벨이 평가됩니다.<br>
+      각 레벨 구간별로 div.wrap에 아래 클래스 추가 부탁드립니다.<br>
+      .lv1_2<br>
+      .lv3_8<br>
+      .lv9_14<br>
+      .lv15_20<br>
+      .lv21_26<br>
+      .lv27_30
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Popup</title>
+
+  <script src="../public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="../public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/responsive.css">
+  <link rel="stylesheet" href="./menual.css">
+  <script src="./menual.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="firstLogin step2">
+      <div class="con">
+        <h2>
+          <span>Welcome to</span>
+          <p>Highlights Library!</p>
+        </h2>
+        <div class="box">
+          <div class="flex column-title">
+            <img src="../public_html/resource/images/img-step04.svg" alt="step 4">
+            <p>Choose your favorite categories</p>
+          </div>
+          <div class="chara">
+            <ul class="flex">
+              <li>
+                <button class="btn btn-noStyle" data-type="category_1">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-school.png" alt="#">
+                  <p>School</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_2">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-animal.png" alt="#">
+                  <p>Animals</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_3">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-world.png" alt="#">
+                  <p>People & Places</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_4">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-sno.png" alt="#">
+                  <p>Sports</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_5">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-art.png" alt="#">
+                  <p>Art & Culture</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_6">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-ff.png" alt="#">
+                  <p>Family & Friends</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_7">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-snn.png" alt="#">
+                  <p>Science & Nature</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_8">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-neighbor.png" alt="#">
+                  <p>Community</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_9">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contents-hnw.png" alt="#">
+                  <p>Health & Wellness</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn btn-noStyle" data-type="category_10">
+                  <img src="https://web-cf-cdn.chungchy.com/Highlights_Global_V10/library/public_html/resource/images/library/contets-fun.png" alt="#">
+                  <p>Fun Stories</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <a href="./00placementTest.html" class="btn">
+            <span>Next</span>
+            <img src="../public_html/resource/images/icn-StrokeArrow+white.svg" alt="#">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="dimmed">
+      <div class="popup popup-box">
+        <p>Do you want to change your level?<br>"Level-up Test" to take a 20-minute test.<br>"Cancel" to stay at your
+          current level.</p>
+        <div class="btn-wrap">
+          <button type="button" class="btn btn-white btn-close">No</button>
+          <button type="button" class="btn">Level-Up Test</button>
+        </div>
+      </div>
+      <div class="popup home-userData-info popupAni">
+        <button class="btn btn-icnOnly btn-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="close">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="menual">
+    <div class="explanation explanation-login-categories left">
+      관심 카테고리를 선택합니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-login-step2-next right">
+      다음 페이지로 이동합니다.<br>
+      관심 카테고리를 아무것도 선택하지 않은경우<br>
+      .disabled 클래스 추가 부탁드립니다.<br>
+      (해당 클래스가 있으면 선택되지 않습니다)
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

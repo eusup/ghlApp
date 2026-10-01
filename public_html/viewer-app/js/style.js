@@ -1,11 +1,47 @@
 $(document).ready(function () {
+  // 긴 책 제목: 처음과 끝에서 각각 1초 대기 후 반복 롤링
+  $("nav.top h1 .title-text").each(function () {
+    const text = this;
+    const title = text.parentElement;
+    let animation = null;
+    let previousDistance = -1;
+    const updateTitle = function () {
+      const distance = Math.max(0, Math.ceil(text.getBoundingClientRect().width - title.clientWidth));
+      if (distance === previousDistance) return;
+      previousDistance = distance;
+      if (animation) animation.cancel();
+      if (!distance) return;
+
+      const travelTime = Math.max(1000, distance / 60 * 1000);
+      const duration = travelTime + 2000;
+      animation = text.animate([
+        { transform: "translateX(0)", offset: 0 },
+        { transform: "translateX(0)", offset: 1000 / duration },
+        { transform: "translateX(-" + distance + "px)", offset: (1000 + travelTime) / duration },
+        { transform: "translateX(-" + distance + "px)", offset: 1 },
+      ], {
+        duration: duration,
+        iterations: Infinity,
+        easing: "linear",
+      });
+    };
+    const titleObserver = new ResizeObserver(updateTitle);
+    titleObserver.observe(title);
+    titleObserver.observe(text);
+    document.fonts.ready.then(updateTitle);
+  });
+
   // 목차와 사전 팝업 열기
   $(".bottom .con .playOption-wrap li.indexList > .btn").on("click", function () {
-    $(".list-popup").addClass("act").closest(".dimmed").addClass("act");
+    const $dimmed = $(this).closest(".wrap").find(".dimmed");
+    $dimmed.removeClass("act").children(".popup").removeClass("act");
+    $dimmed.children(".list-popup").addClass("act").closest(".dimmed").addClass("act");
   });
 
   $(".top .icn-dictionary").on("click", function () {
-    $("#dic-layer").addClass("act").closest(".dimmed").addClass("act");
+    const $dimmed = $(this).closest(".wrap").find(".dimmed");
+    $dimmed.removeClass("act").children(".popup").removeClass("act");
+    $dimmed.children(".popup").has(".dic_layer").addClass("act").closest(".dimmed").addClass("act");
   });
 
   // 각 팝업의 닫기 버튼으로 팝업과 배경 닫기
@@ -305,8 +341,8 @@ $(document).ready(function () {
     });
   }
 
-  // 사전·북마크 버튼의 아이콘 상태 전환
-  $(".top .icn-dictionary, .top .icn-bookMark").on("click", function () {
+  // 북마크 버튼의 아이콘 상태 전환
+  $(".top .icn-bookMark").on("click", function () {
     $(this).children("img").toggleClass("act");
   });
 
@@ -377,6 +413,24 @@ $(document).ready(function () {
       activePointerId = null;
     });
   });
+
+  // 전체화면 전환: Esc 등으로 해제한 경우에도 실제 상태에 맞춰 아이콘 동기화
+  const $fullscreenButton = $(".bottom .con .playOption-wrap li.fullscreen > .btn");
+  const updateFullscreen = function () {
+    const isFullscreen = !!document.fullscreenElement;
+    $fullscreenButton.children("img").eq(0).toggleClass("act", !isFullscreen);
+    $fullscreenButton.children("img").eq(1).toggleClass("act", isFullscreen);
+  };
+  $fullscreenButton.prop("disabled", !document.fullscreenEnabled);
+  $fullscreenButton.on("click", function () {
+    const request = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    request.catch(function (error) {
+      console.warn("Fullscreen could not be changed:", error);
+      updateFullscreen();
+    });
+  });
+  $(document).on("fullscreenchange", updateFullscreen);
+  updateFullscreen();
 
   // 재생 속도 메뉴 열기와 선택값 표시
   $(".bottom .con .playOption-wrap li.speed").each(function () {
