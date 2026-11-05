@@ -7,23 +7,25 @@
   <meta name="theme-color" content="#ffffff">
   <title>Edit My Profile</title>
 
-  <script src="./public_html/resource/js/jquery-1.11.1.min.js"></script>
-  <script src="./public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
-  <script src="./public_html/resource/js/style.js"></script>
+  <script src="../public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="../public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="../public_html/resource/js/style.js"></script>
 
-  <link rel="stylesheet" href="./public_html/resource/css/app/common/module.css">
-  <link rel="stylesheet" href="./public_html/resource/css/app/common/style.css">
-  <link rel="stylesheet" href="./public_html/resource/css/app/common/responsive.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/responsive.css">
+  <link rel="stylesheet" href="./menual.css">
+  <script src="./menual.js"></script>
 </head>
 
 <body>
-  <div class="wrap lv21_26">
+  <div class="wrap lv15_20">
     <div class="mypage myprofile edit">
       <nav class="nav-top">
         <div class="con">
           <div>
-            <a href="./03mypage-01myProfile.html" class="btn btn-icnOnly btn-back">
-              <img src="./public_html/resource/images/icn-back.svg" alt="back">
+            <a href="./03mypage-01myPage.html" class="btn btn-icnOnly btn-back">
+              <img src="../public_html/resource/images/icn-back.svg" alt="back">
             </a>
             <h2>Edit My Profile</h2>
           </div>
@@ -54,8 +56,8 @@
               <div class="search-wrap password-wrap btn-wrap">
                 <input type="password" value="Password">
                 <button type="button" class="btn btn-icnOnly btn-pw">
-                  <img src="./public_html/resource/images/icn-pw.svg" alt="Show password">
-                  <img src="./public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                  <img src="../public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="../public_html/resource/images/icn-pw+act.svg" alt="Hide password">
                 </button>
               </div>
             </label>
@@ -64,8 +66,8 @@
               <div class="search-wrap password-wrap btn-wrap">
                 <input type="password" value="Confirm Password">
                 <button type="button" class="btn btn-icnOnly btn-pw">
-                  <img src="./public_html/resource/images/icn-pw.svg" alt="Show password">
-                  <img src="./public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                  <img src="../public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="../public_html/resource/images/icn-pw+act.svg" alt="Hide password">
                 </button>
               </div>
             </label>
@@ -114,36 +116,71 @@
       <ul>
         <li>
           <a href="./01main.html">
-            <img src="./public_html/resource/images/icn-nav-home.svg" alt="#">
+            <img src="../public_html/resource/images/icn-nav-home.svg" alt="#">
             <span>Home</span>
           </a>
         </li>
         <li>
           <a href="./02library-02books.html">
-            <img src="./public_html/resource/images/icn-nav-library.svg" alt="#">
+            <img src="../public_html/resource/images/icn-nav-library.svg" alt="#">
             <span>Library</span>
           </a>
         </li>
         <li>
-          <a href="./03mypage-01myProfile.html">
-            <img src="./public_html/resource/images/icn-nav-user.svg" alt="#">
+          <a href="./03mypage-01myPage.html">
+            <img src="../public_html/resource/images/icn-nav-user.svg" alt="#">
             <span>My Profile</span>
           </a>
         </li>
         <li>
           <a href="./04reward-01ReadingMap.html">
-            <img src="./public_html/resource/images/icn-nav-reward.svg" alt="#">
+            <img src="../public_html/resource/images/icn-nav-reward.svg" alt="#">
             <span>Reward</span>
           </a>
         </li>
         <li>
           <a href="./download.html">
-            <img src="./public_html/resource/images/icn-nav-down.svg" alt="#">
+            <img src="../public_html/resource/images/icn-nav-down.svg" alt="#">
             <span>Download</span>
           </a>
         </li>
       </ul>
     </nav>
+  </div>
+  <div class="menual">
+    <div class="explanation explanation-edit-relocated top">
+      기존 앱페이지인 myinterests.html 과 mylevel.html 과 editprofile 하단의 프로필 캐릭터 변경 영역이<br>
+      my profile 메뉴의 하단 영역으로 이동되었습니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-id-input left">
+      ID값은 변경할 수 없으므로 disabled 처리 부탁드립니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-input top">
+      사용자의 정보가 value 값으로 들어가있습니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-pwview right">
+      비밀번호 보기/숨김 버튼이 추가되었습니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
   </div>
 </body>
 

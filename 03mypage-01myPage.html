@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>My Status</title>
+  <title>My Profile</title>
 
   <script src="./public_html/resource/js/jquery-1.11.1.min.js"></script>
   <script src="./public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
@@ -17,21 +17,21 @@
 </head>
 
 <body>
-  <div class="wrap lv21_26">
-    <div class="mypage myStatus">
+  <div class="wrap lv15_20">
+    <div class="mypage myprofile">
       <nav class="nav-top">
         <div class="con">
           <div class="flex">
-            <h2>My Page</h2>
+            <h2>My Profile</h2>
             <div class="menu-select">
               <button class="btn btn-noStyle">
-                <p>My Status</p>
+                <p>My Page</p>
                 <img src="./public_html/resource/images/icn-menuArrow.svg" alt="#">
               </button>
               <ul class="menu-wrap">
-                <li><a href="./03mypage-01myProfile.html">My Profile</a></li>
+                <li><a href="./03mypage-01myPage.html">My Page</a></li>
+                <li><a href="./03mypage-02myHistory.html">My History</a></li>
                 <li><a href="./03mypage-03dashBoard.html">Dashboard</a></li>
-                <li><a href="./03mypage-04myStatus.html">My Status</a></li>
                 <li><a href="./03mypage-03emailUs.html">E-mail Us</a></li>
                 <li><a href="./03mypage-04settings.html">Settings</a></li>
                 <li><a href="./03mypage-05support.html">Support</a></li>
@@ -40,9 +40,37 @@
           </div>
         </div>
       </nav>
-
       <div class="con">
-        <div class="profile-options">
+        <div class="user-detail">
+          <div class="user-data-wrap">
+            <div class="user-profile">
+              <img src="./public_html/resource/images/img-profile-spot.png" alt="my profile image is Spot">
+            </div>
+            <div class="inner">
+              <p class="user-class">Lux Class</p>
+              <p class="user-mail">email@highlights.com</p>
+              <p class="user-name">User Name</p>
+            </div>
+            <a href="./03mypage-01myPage+01edit.html" class="btn btn-icnOnly btn-userSetting">
+              <img src="./public_html/resource/images/icn-setting.svg" alt="#">
+            </a>
+          </div>
+          <div class="dl-wrap">
+            <dl>
+              <dt>Level</dt>
+              <dd>1</dd>
+            </dl>
+            <dl>
+              <dt>Lexile reading range for Level</dt>
+              <dd>BR-120</dd>
+            </dl>
+            <dl>
+              <dt>Valid until</dt>
+              <dd>2099-08-01</dd>
+            </dl>
+          </div>
+        </div>
+        <div id="chara" class="profile-options">
           <div class="box">
             <p class="title">Reading Preferences</p>
             <div class="chara">
@@ -284,7 +312,7 @@
             </div>
           </div>
         </div>
-        <div class="btn-wrap">
+        <div class="btn-wrap profile-save">
           <button class="btn">Save</button>
         </div>
       </div>
@@ -305,7 +333,7 @@
           </a>
         </li>
         <li>
-          <a href="./03mypage-01myProfile.html">
+          <a href="./03mypage-01myPage.html">
             <img src="./public_html/resource/images/icn-nav-user.svg" alt="#">
             <span>My Profile</span>
           </a>

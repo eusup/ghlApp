@@ -443,6 +443,24 @@ button,
 .btn-pw.act img[src$="icn-pw.svg"] {
   display: none;
 }
+
+.btn-noStyle.btn-detail {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 8px 6px;
+  padding-left: 10px;
+  border-radius: 100px;
+  background-color: rgb(var(--color-white));
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(var(--color-border));
+  font-size: 1.4rem;
+}
+
+.btn-noStyle.btn-detail img {
+  transform: rotate(-90deg);
+}
 /* buttons end */
 
 /* form */
@@ -675,6 +693,7 @@ label.check-box.pill:has(input:checked) {
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
+  opacity: 0.5;
 }
 
 label.check-box.pill div {
@@ -690,6 +709,7 @@ label.check-box.pill div {
 
 .check-box:not([class*="category"]):has(input:checked) div::before {
   background-image: url(../../../images/icn-check+act.svg);
+  opacity: 1;
 }
 
 label.check-box.pill:has(input:checked) div {
@@ -955,6 +975,7 @@ nav.nav-top:not(:has(.menu-select)) .btn-wrap{
 nav.nav-top .con > div:first-child {
   display: flex;
   align-items: center;
+  gap: calc(var(--gap) / 4);
   padding: 10px 0;
   transition: 0.3s;
 }
@@ -973,11 +994,11 @@ nav.nav-top .btn-back img{
   height: 28px;
 }
 
-nav.nav-top .con > .flex {
-  justify-content: space-between;
-}
-
 nav.nav-top .con > .flex h2 {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 2rem;
   transition: 0.3s;
   min-height: 46px;
@@ -990,6 +1011,7 @@ nav.nav-top.act .con > .flex h2 {
 
 nav.nav-top .con > .flex .menu-select {
   position: relative;
+  margin-left: auto;
   padding: 6px 16px;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -1279,11 +1301,12 @@ nav.nav-bottom ul li a img {
   text-align: left;
 }
 
-li.nothing {
+ul > li.nothing {
   width: 100%;
   padding: 84px 0;
   text-align: center;
   color: rgb(var(--color-font-gray));
+  background-color: inherit;
 }
 
 li.nothing > img {
@@ -1642,12 +1665,44 @@ li.nothing > img {
 .popup.home-userData-info .user-detail-clone .bubble {
   display: block;
   transform: translate(-50%, 0);
-  left: 50%;
+  left: 70%;
   bottom: 30px;
 
   animation-name: bounce;
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
+}
+
+.popup.home-userData-info .user-detail-clone .checkPoint.bubble {
+  display: none;
+}
+
+.popup.home-userData-info .user-detail-clone .range .bubble:not(.rail .bubble){
+  right: 30%;
+  max-width: 200px;
+  width: 100dvw;
+  white-space: normal;
+  word-break: keep-all;
+  white-space: wrap;
+}
+
+.popup.home-userData-info .user-detail-clone .range .rail .bubble{
+  transform: translate(-50%, 0);
+  top: calc(100% + 60px);
+  right: auto;
+  bottom: auto;
+  left: 100%;
+  max-width: 100%;
+  width: max-content;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.popup.home-userData-info .user-detail-clone .range .rail .bubble::before{
+  bottom: auto;
+  top: -8px;
+  transform: translate(-50%, 0) rotate(180deg);
 }
 
 .popup.home-userData-info .btn-icnOnly {

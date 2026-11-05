@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Edit My Profile</title>
+
+  <script src="./public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="./public_html/resource/js/jquery-ui-1.9.1.min.js"></script>
+  <script src="./public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="./public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="./public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="./public_html/resource/css/app/common/responsive.css">
+</head>
+
+<body>
+  <div class="wrap lv15_20">
+    <div class="mypage myprofile edit">
+      <nav class="nav-top">
+        <div class="con">
+          <div>
+            <a href="./03mypage-01myPage.html" class="btn btn-icnOnly btn-back">
+              <img src="./public_html/resource/images/icn-back.svg" alt="back">
+            </a>
+            <h2>Edit My Profile</h2>
+          </div>
+        </div>
+      </nav>
+      <div class="con">
+        <div class="profile-data">
+          <div class="box">
+            <p class="title">Profile</p>
+            <label for="#">
+              <span class="label-text">ID</span>
+              <input type="text" disabled value="User ID">
+            </label>
+            <label for="#">
+              <span class="label-text">Last Name</span>
+              <input type="text" value="Last Name">
+            </label>
+            <label for="#">
+              <span class="label-text">first Name</span>
+              <input type="text" value="first Name">
+            </label>
+            <label for="#">
+              <span class="label-text">E-mail</span>
+              <input type="text" value="E-mail">
+            </label>
+            <label for="#">
+              <span class="label-text">Password</span>
+              <div class="search-wrap password-wrap btn-wrap">
+                <input type="password" value="Password">
+                <button type="button" class="btn btn-icnOnly btn-pw">
+                  <img src="./public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="./public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                </button>
+              </div>
+            </label>
+            <label for="#">
+              <span class="label-text">Confirm Password</span>
+              <div class="search-wrap password-wrap btn-wrap">
+                <input type="password" value="Confirm Password">
+                <button type="button" class="btn btn-icnOnly btn-pw">
+                  <img src="./public_html/resource/images/icn-pw.svg" alt="Show password">
+                  <img src="./public_html/resource/images/icn-pw+act.svg" alt="Hide password">
+                </button>
+              </div>
+            </label>
+          </div>
+          <div class="box">
+            <p class="title">Parent Report Setting</p>
+            <label for="#">
+              <span class="label-text">E-mail</span>
+              <input type="text" value="User Email">
+            </label>
+            <div>
+              <span>Report Setting</span>
+              <div class="flex">
+                <label for="subscribe" class="check-box pill">
+                  <input type="radio" id="subscribe" name="subscribe" checked>
+                  <div></div>
+                  <p>Subscribe</p>
+                </label>
+                <label for="unSubscribe" class="check-box pill">
+                  <input type="radio" id="unSubscribe" name="subscribe">
+                  <div></div>
+                  <p>Unsubscribe</p>
+                </label>
+              </div>
+              <div class="box-white">
+                <label for="week" class="check-box">
+                  <input type="radio" name="report" id="week">
+                  <div></div>
+                  <p>Weekly Report</p>
+                </label>
+                <label for="month" class="check-box">
+                  <input type="radio" name="report" id="month">
+                  <div></div>
+                  <p>Monthly Report</p>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap">
+          <button class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="./public_html/resource/images/icn-nav-home.svg" alt="#">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="./public_html/resource/images/icn-nav-library.svg" alt="#">
+            <span>Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="./03mypage-01myPage.html">
+            <img src="./public_html/resource/images/icn-nav-user.svg" alt="#">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="./04reward-01ReadingMap.html">
+            <img src="./public_html/resource/images/icn-nav-reward.svg" alt="#">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="./download.html">
+            <img src="./public_html/resource/images/icn-nav-down.svg" alt="#">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+
+</html>

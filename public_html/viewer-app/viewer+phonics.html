@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>통합뷰어</title>
+  <title>파닉스뷰어</title>
 
   <script src="./js/jquery-1.11.1.min.js"></script>
   <script src="./js/style.js"></script>
@@ -19,10 +19,11 @@
         <button id="btn-exit" class="btn btn-icnOnly btn-back">
           <img src="./image/cmm/icn-back.svg" alt="back to page">
         </button>
-        <h1>Bert, Beth, and the Snowman</h1>
+        <h1><span class="title-text">Bert, Beth, and the Snowman Bert, Beth, and the Snowman Bert, Beth, and the Snowman
+            Bert, Beth, and the Snowman</span></h1>
         <button id="btn-dic" class="btn btn-icnOnly icn-dictionary">
-          <img src="./image/cmm/icn-dict.svg" alt="open the dictionary" class="act">
-          <img src="./image/cmm/icn-dict+act.svg" alt="close the dictionary">
+          <img src="./image/cmm/icn-dict.svg" alt="open the dictionary" class="">
+          <img src="./image/cmm/icn-dict.svg" alt="close the dictionary" class="act">
         </button>
         <button id="btn-bookmark" class="btn btn-icnOnly icn-bookMark">
           <img src="./image/cmm/icn-bookmark.svg" alt="marking" class="act">
@@ -53,11 +54,6 @@
     <nav id="bt" class="bottom">
       <div class="con">
         <ul class="playOption-wrap">
-          <li class="indexList">
-            <button class="btn btn-icnOnly">
-              <img src="./image/cmm/icn-list.svg" alt="#">
-            </button>
-          </li>
           <li class="first">
             <button class="btn btn-icnOnly">
               <img src="./image/cmm/icn-first+white.svg" alt="#">
@@ -89,12 +85,8 @@
               <img src="./image/cmm/icn-repeat+white.svg" alt="#">
             </button>
           </li>
-          <li class="rotate leftAuto">
-            <button class="btn btn-icnOnly">
-              <img src="./image/cmm/icn-rotate.svg" alt="">
-            </button>
-          </li>
-          <li class="zoomUp">
+
+          <li class="zoomUp leftAuto">
             <button class="btn btn-icnOnly">
               <img src="./image/cmm/icn-zoomUp.svg" alt="">
             </button>
@@ -206,7 +198,7 @@
         <div class="dic_layer">
           <div class="layer dictionary definition">
             <button class="btn btn-icnOnly btn-closed">
-              <img src="./image/cmm/icn-close+white.svg" alt="dictinaly pop up closded">
+              <img src="./image/cmm/icn-close+white.svg" alt="dictionary pop up closed">
             </button>
             <section>
               <div class="con">
@@ -223,7 +215,31 @@
         </div>
       </div>
     </div>
+    <div class="control">
+      <a href="./viewer+phonics.html">phonics</a>
+      <a href="./viewer+books.html">books</a>
+      <a href="./viewer+magazines.html">magazines</a>
+      <a href="./viewer+extensive.html">extensive</a>
+      <a href="./viewer+videos.html">videos</a>
+    </div>
   </div>
 </body>
+
+<style>
+  .control {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #ddd;
+  }
+
+  .control a {
+    display: block;
+    padding: 10px;
+  }
+</style>
 
 </html>

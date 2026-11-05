@@ -293,15 +293,39 @@ nav.top .con {
   font-size: 2.2rem;
 }
 
+nav.top .con h1 {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+nav.top .con h1 .title-text {
+  display: inline-block;
+  transition-property: none;
+}
+
+nav.top .con > button {
+  flex-shrink: 0;
+}
+
+nav.top .con .btn-icnOnly{
+  width: 36px;
+  height: 36px;
+}
+
+nav.top .con .btn-icnOnly img{
+  width: 24px;
+  height: 24px;
+}
+
 nav.top .con .icn-dictionary,
-nav.top .con .icn-bookMark {
+nav.top .con .icn-bookMark,
+nav.top .con .icn-book {
   padding: 6px;
   border-radius: 8px;
   background-color: rgb(var(--color-white) / 0.2);
-}
-
-nav.top .con .icn-dictionary {
-  margin-left: auto;
 }
 
 nav.top .con .icn-dictionary img,
@@ -312,11 +336,6 @@ nav.top .con .icn-bookMark img {
 nav.top .con .icn-dictionary img.act,
 nav.top .con .icn-bookMark img.act {
   display: block;
-}
-
-nav.top .con .btn-back{
-  width: 36px;
-  height: 36px;
 }
 
 main {
@@ -456,6 +475,14 @@ main > .btn-icnOnly.btn-next {
   pointer-events: none;
 }
 
+.bottom .con .playOption-wrap li.fullscreen > .btn > img {
+  display: none;
+}
+
+.bottom .con .playOption-wrap li.fullscreen > .btn > img.act {
+  display: block;
+}
+
 .bottom .con .playOption-wrap li.zoomUp > .btn,
 .bottom .con .playOption-wrap li.zoomDown > .btn {
   scale: 1;
@@ -555,6 +582,15 @@ main > .btn-icnOnly.btn-next {
   align-items: center;
   gap: 8px;
   width: calc(100% - 24px - 72px);
+}
+
+.bottom .con .playOption-wrap:has(li.fullscreen) li.range{
+  width: calc(100% - 24px - 104px);
+}
+
+.bottom .con .playOption-wrap:not(:has(li.play)) li.range{
+  width: 100%;
+  padding-left: 8px;
 }
 
 .bottom .con .playOption-wrap li.range > span {
@@ -675,6 +711,10 @@ main > .btn-icnOnly.btn-next {
   z-index: 10;
 }
 
+.popup {
+  display: none;
+}
+
 .dimmed.act,
 .popup.act {
   display: block;
@@ -682,7 +722,6 @@ main > .btn-icnOnly.btn-next {
 
 /** extensive books index list popup **/
 .list-popup {
-  display: none;
   position: absolute;
   width: 50dvw;
   height: 100dvh;
@@ -825,6 +864,10 @@ main > .btn-icnOnly.btn-next {
 
   .bottom .con .playOption-wrap li.speed {
     order: 10;
+  }
+
+  .bottom .con .playOption-wrap li.fullscreen {
+    order: 11;
   }
 }
 

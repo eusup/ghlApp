@@ -213,10 +213,18 @@
 
 .user-detail .range {
   position: relative;
-  height: 4px;
-  margin: 12px 0;
+  height: 8px;
+  margin: 42px 0;
   border-radius: 100px;
   background-color: rgb(var(--color-main) / 0.2);
+}
+
+.user-detail .range .checkPoint {
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 70%;
+  bottom: calc(100% + 12px);
+  display: block;
 }
 
 .user-detail .range .rail {
@@ -225,15 +233,29 @@
   height: 100%;
   border-radius: 100px;
   background-color: rgb(var(--color-main));
+  z-index: 1;
 }
 
 .user-detail .range .rail img {
   position: absolute;
   transform: translate(0, -50%);
   top: 50%;
-  right: -18px;
+  right: -26px;
   width: 52px;
   height: 52px;
+}
+
+.user-detail .range .rail .goal-length {
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: calc(100% + 30px);
+  right: 0;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background-color: rgb(var(--color-main) / 0.1);
+  border: 1px solid rgb(var(--color-main));
+  text-align: center;
+  font-size: 1.4rem;
 }
 
 .user-detail .books-count {
@@ -284,7 +306,7 @@
 /** home - user detail end **/
 
 /** home - book list **/
-.home .assigned-list {
+.home .color-list {
   position: relative;
   margin: 15px 0;
   border-top: px solid rgb(var(--color-white));
@@ -301,11 +323,11 @@
   font-weight: 700;
 }
 
-.home .assigned-list .list-name {
+.home .color-list .list-name {
   color: rgb(var(--color-main));
 }
 
-.home .assigned-list ul li {
+.home .color-list ul li {
   --color-shadow: var(--color-main);
 }
 
@@ -354,9 +376,8 @@
   background-color: rgb(var(--color-gray));
 }
 
-.library .color-box .flex {
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+.library .color-box .flex .content-thumb {
+  flex-shrink: 0;
 }
 
 .library .right .book-list ul {
@@ -534,11 +555,24 @@
 }
 
 .library.assignment .box-list ul li .thumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--gap) / 4);
   flex-shrink: 0;
+  max-width: 62px;
+  overflow: hidden;
 }
 
 .library.assignment .box-list ul li .thumb img {
-  width: 62px;
+  width: 100%;
+}
+
+.library.assignment .box-list ul li .thumb:has(img:nth-child(2)) img {
+  width: calc((100% - (var(--gap) / 4)) / 2);
+}
+
+.library.assignment .box-list ul li .thumb img:nth-child(n + 5) {
+  display: none;
 }
 
 .library.assignment .data-wrap {
@@ -573,6 +607,40 @@
 .library.assignment .data-wrap dl dt {
   color: rgb(var(--color-font-gray));
 }
+
+/*** library - assignment itemList ***/
+.library.assignment.itemList .box-list ul li > .flex {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: rgb(var(--color-white));
+  box-shadow: 0px 2px 6px rgb(var(--color-shadow));
+}
+
+.library.assignment.itemList .box-list ul li a:has(.thumb) {
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+  background-color: inherit;
+}
+
+.library.assignment.itemList .box-list ul li .thumb {
+  max-width: 86px;
+}
+
+.library.assignment.itemList .box-list ul li .btn-detail {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: auto;
+  border-radius: 100px;
+  gap: 0;
+}
+/*** library - assignment itemList end ***/
 
 /*** library - assignment - detail ***/
 .library.assignment.detail .con .data-wrap {
@@ -720,6 +788,31 @@
   color: rgb(var(--color-font));
 }
 
+.library.assignment.detail .con .tab-contents ul li .flex.answer:has(.btn-sound) {
+  padding: 0;
+}
+
+.library.assignment.detail .con .tab-contents ul li .flex.answer .btn-sound {
+  gap: 4px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px solid transparent;
+  font-size: 1.4rem;
+  box-shadow: 0px 2px 6px rgb(var(--color-shadow));
+}
+
+.library.assignment.detail .con .tab-contents ul li .flex.answer .btn-sound img {
+  width: 20px;
+  height: 20px;
+}
+
+.library.assignment.detail .con .tab-contents ul li.nothing{
+  border: none;
+  border-radius: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
 .library.assignment.detail .con .tab-contents ul.listening li {
   padding: 14px 8px;
 }
@@ -825,215 +918,15 @@
   font-weight: 700;
 }
 
-.mypage.myprofile .user-detail .btn-wrap .btn-noStyle {
-  margin-left: auto;
-  font-size: 1.4rem;
-  color: rgb(var(--color-font-gray));
-}
-
-.mypage.myprofile .user-detail,
-.mypage.myprofile .color-box.calendar {
-  width: calc((100% - var(--gap)) / 2);
+.mypage.myhistory .color-box.calendar {
+  max-width: 420px;
   margin: 0;
 }
 
-.mypage.myprofile > .con > .history-content {
-  width: 100%;
+.mypage.myhistory > .con > .history-content {
+  width: calc(100% - (var(--gap) * 2) - 420px);
 }
 
-/*** mypage - my profile - history ***/
-.mypage.myprofile .con{
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  row-gap: calc(var(--gap) * 2);
-}
-
-.mypage.myprofile .con .profile-data{
-  width: 100%;
-}
-
-.mypage.myprofile .color-box.calendar {
-  padding: 15px;
-  border-radius: var(--radius);
-  background-color: rgb(var(--color-gray));
-}
-
-.mypage.myprofile .color-box.calendar .calendar-head {
-  justify-content: center;
-  gap: 12px;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.mypage.myprofile .color-box.calendar .calendar-head button {
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 100px;
-  background-image: linear-gradient(rgb(var(--color-white) / 0), rgb(var(--color-white) / 0.4));
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: rgb(var(--color-white));
-  box-shadow: 0px 6px 10px rgb(var(--color-shadow));
-}
-
-.mypage.myprofile .color-box.calendar .calendar-head button:last-child img {
-  transform: rotate(180deg);
-}
-
-.mypage.myprofile .color-box.calendar .calendar-body ul {
-  display: flex;
-  gap: 2px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.mypage.myprofile .color-box.calendar .calendar-body ul li {
-  width: calc((100% - 12px) / 7);
-  margin-top: 4px;
-  color: rgb(var(--color-font-gray));
-  font-size: 1.4rem;
-}
-
-.mypage.myprofile .color-box.calendar .calendar-body ul.date li {
-  padding: 8px 4px;
-  border-radius: 4px;
-  background-color: rgb(var(--color-white));
-  font-size: 1.6rem;
-  color: rgb(var(--color-font));
-}
-
-.mypage.myprofile .color-box.calendar .calendar-body ul.date li.prev-month {
-  opacity: 0.6;
-}
-
-.mypage.myprofile .color-box.calendar .calendar-body ul.date li.act {
-  background-color: rgb(var(--color-main) / 0.2);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(var(--color-main));
-}
-
-.mypage.myprofile .history-content .history-read {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 12px;
-}
-
-.mypage.myprofile .history-content .history-read li {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  width: 100%;
-  padding: 14px;
-  border-radius: var(--radius);
-  background-color: rgb(var(--color-gray));
-}
-
-.mypage.myprofile .history-content .history-read li .title {
-  font-size: 1.4rem;
-  color: rgb(var(--color-font-gray));
-}
-
-.mypage.myprofile .history-content .history-read li :where(dl, dt, dd) {
-  display: flex;
-  align-items: center;
-}
-
-.mypage.myprofile .history-content .history-read li dl {
-  gap: 4px;
-}
-
-.mypage.myprofile .history-content .history-read li dl dt span {
-  display: inline-block;
-  width: 65px;
-}
-
-.mypage.myprofile .history-content .history-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.mypage.myprofile .history-content .history-list li {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--gap);
-  width: 100%;
-}
-
-.mypage.myprofile .history-content .history-list li .content-thumb {
-  flex-shrink: 0;
-}
-
-.mypage.myprofile .history-content .history-list li .content-thumb img {
-  width: 84px;
-}
-
-.mypage.myprofile .history-content .history-list li .text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  width: 100%;
-}
-
-.mypage.myprofile .history-content .history-list li .text .title {
-  font-weight: 700;
-}
-
-.mypage.myprofile .history-content .history-list li .text dl {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  font-size: 1.4rem;
-  color: rgb(var(--color-font-gray));
-}
-
-.mypage.myprofile .history-content .history-list li .text dl dt {
-  width: 40px;
-  font-weight: 600;
-}
-
-.mypage.myprofile .history-content .history-list li .text .status {
-  font-weight: 600;
-}
-
-.mypage.myprofile .history-content .history-list li .text .status.green {
-  color: #00a878;
-}
-
-.mypage.myprofile .history-content .history-list li .text .status.red {
-  color: #ff936c;
-}
-
-.mypage.myprofile .history-content .history-list li .text dl.long dt {
-  width: auto;
-  margin-right: 4px;
-}
-
-.mypage.myprofile .history-content .history-list li .text .btn-noStyle {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 8px 6px;
-  padding-left: 10px;
-  border-radius: 100px;
-  background-color: rgb(var(--color-white));
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(var(--color-border));
-  font-size: 1.4rem;
-}
-
-.mypage.myprofile .history-content .history-list li .text .btn-noStyle img {
-  transform: rotate(-90deg);
-}
-/*** mypage - my profile - history end ***/
-
-/*** mypage - my profile - edit ***/
 .mypage:not(.support) .box {
   position: relative;
   display: flex;
@@ -1046,7 +939,7 @@
   margin-bottom: 0;
 }
 
-.mypage:not(.support) .box:not(:last-child)::before{
+.mypage:not(.support) .box:not(:last-child)::before {
   content: "";
   position: absolute;
   bottom: -24px;
@@ -1056,7 +949,7 @@
   background-color: rgb(var(--color-border));
 }
 
-.mypage:is(.myprofile.edit, .myStatus) > .con .title{
+.mypage.myprofile > .con .title {
   margin-bottom: -24px;
   font-weight: 700;
   font-size: 1.8rem;
@@ -1066,15 +959,145 @@
   display: block;
 }
 
-.mypage:not(.support) .box .flex{
+.mypage:not(.support) .box .flex {
   gap: 4px;
   margin-top: 4px;
 }
 
-.mypage:not(.support) .box .category-wrap label{
+.mypage:not(.support) .box .category-wrap label {
   width: calc((100% - 16px) / 5);
 }
 
+.mypage.myprofile .profile-options {
+  width: 100%;
+}
+
+.mypage.myprofile .profile-options .myLevel .flex {
+  flex-wrap: wrap;
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li {
+  position: relative;
+  width: calc((100% - 28px) / 8);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li button {
+  transition-property: transform, opacity;
+  transition-duration: var(--duration);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-size: 100%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgb(var(--color-white));
+  opacity: 0.8;
+  transform: scale(0.8);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li:has(span) button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv1_2 button {
+  background-image: url(../../../images/icn-level1-2.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv3_8 button {
+  background-image: url(../../../images/icn-level3-8.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv9_14 button {
+  background-image: url(../../../images/icn-level9-14.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv15_20 button {
+  background-image: url(../../../images/icn-level15-20.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv21_26 button {
+  background-image: url(../../../images/icn-level21-26.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li.lv27_30 button {
+  background-image: url(../../../images/icn-level27-30.svg);
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li[class*="lv"] > button:disabled {
+  background-image: url(../../../images/icn-level-gray.svg);
+  opacity: 0.5;
+}
+
+.mypage.myprofile .profile-options .myLevel .flex li span {
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 0px;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background-color: #ff0000;
+  color: rgb(var(--color-white));
+  font-weight: 600;
+}
+
+.mypage.myprofile > .con > div.btn-wrap .btn {
+  width: 100%;
+  font-size: 2rem;
+}
+
+.mypage.myprofile .profile-save {
+  position: fixed;
+  right: 0;
+  bottom: calc(86px + env(safe-area-inset-bottom));
+  left: 0;
+  z-index: 10;
+  max-width: 1250px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(calc(54px + env(safe-area-inset-bottom)));
+}
+
+.mypage.myprofile .profile-save.act {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  animation-name: toastUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes toastUp {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(34px + env(safe-area-inset-bottom)));
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  70% {
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mypage.myprofile:has(.profile-save.act) .profile-options {
+  padding-bottom: 80px;
+}
+
+/*** mypage - my profile - edit ***/
 .mypage.myprofile.edit > .con .box .flex label.check-box.pill:has(div)::before {
   display: none;
 }
@@ -1101,82 +1124,189 @@
   padding: 8px 0;
 }
 
-.mypage.myStatus .myLevel .flex {
-  flex-wrap: wrap;
-}
-
-.mypage.myStatus .myLevel .flex li {
-  position: relative;
-  width: calc((100% - 28px) / 8);
-}
-
-.mypage.myStatus .myLevel .flex li button {
-  transition-property: transform, opacity;
-  transition-duration: var(--duration);
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-size: 100%;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: rgb(var(--color-white));
-  opacity: 0.8;
-  transform: scale(0.8);
-}
-
-.mypage.myStatus .myLevel .flex li:has(span) button {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.mypage.myStatus .myLevel .flex li.lv1_2 button {
-  background-image: url(../../../images/icn-level1-2.svg);
-}
-
-.mypage.myStatus .myLevel .flex li.lv3_8 button {
-  background-image: url(../../../images/icn-level3-8.svg);
-}
-
-.mypage.myStatus .myLevel .flex li.lv9_14 button {
-  background-image: url(../../../images/icn-level9-14.svg);
-}
-
-.mypage.myStatus .myLevel .flex li.lv15_20 button {
-  background-image: url(../../../images/icn-level15-20.svg);
-}
-
-.mypage.myStatus .myLevel .flex li.lv21_26 button {
-  background-image: url(../../../images/icn-level21-26.svg);
-}
-
-.mypage.myStatus .myLevel .flex li.lv27_30 button {
-  background-image: url(../../../images/icn-level27-30.svg);
-}
-
-.mypage.myStatus .myLevel .flex li[class*="lv"] > button:disabled {
-  background-image: url(../../../images/icn-level-gray.svg);
-  opacity: 0.5;
-}
-
-.mypage.myStatus .myLevel .flex li span {
-  position: absolute;
-  transform: translateX(-50%);
-  bottom: 0px;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  padding: 6px 12px;
-  border-radius: 100px;
-  background-color: #ff0000;
-  color: rgb(var(--color-white));
-  font-weight: 600;
-}
-
-.mypage:is(.myprofile.edit, .myStatus) > .con > div.btn-wrap .btn{
-  width: 100%;
-  font-size: 2rem;
+.mypage.myprofile.edit .box:last-child {
+  margin-bottom: 24px;
 }
 /*** mypage - my profile - edit end ***/
 /** mypage - my profile end **/
+
+/*** mypage - my profile - history ***/
+.mypage.myhistory .con {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: calc(var(--gap) * 2);
+}
+
+.mypage.myhistory .con .profile-data {
+  width: 100%;
+}
+
+.mypage.myhistory .color-box.calendar {
+  position: sticky;
+  top: 80px;
+  left: 0;
+  padding: 15px;
+  border-radius: var(--radius);
+  background-color: rgb(var(--color-gray));
+}
+
+.mypage.myhistory .color-box.calendar .calendar-head {
+  justify-content: center;
+  gap: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.mypage.myhistory .color-box.calendar .calendar-head button {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 100px;
+  background-image: linear-gradient(rgb(var(--color-white) / 0), rgb(var(--color-white) / 0.4));
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(var(--color-white));
+  box-shadow: 0px 6px 10px rgb(var(--color-shadow));
+}
+
+.mypage.myhistory .color-box.calendar .calendar-head button:last-child img {
+  transform: rotate(180deg);
+}
+
+.mypage.myhistory .color-box.calendar .calendar-body ul {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.mypage.myhistory .color-box.calendar .calendar-body ul li {
+  width: calc((100% - 12px) / 7);
+  margin-top: 4px;
+  color: rgb(var(--color-font-gray));
+  font-size: 1.4rem;
+}
+
+.mypage.myhistory .color-box.calendar .calendar-body ul.date li {
+  padding: 8px 4px;
+  border-radius: 4px;
+  background-color: rgb(var(--color-white));
+  font-size: 1.6rem;
+  color: rgb(var(--color-font));
+}
+
+.mypage.myhistory .color-box.calendar .calendar-body ul.date li.prev-month {
+  opacity: 0.6;
+}
+
+.mypage.myhistory .color-box.calendar .calendar-body ul.date li.act {
+  background-color: rgb(var(--color-main) / 0.2);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(var(--color-main));
+}
+
+.mypage.myhistory .history-content .history-read {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.mypage.myhistory .history-content .history-read li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius);
+  background-color: rgb(var(--color-gray));
+}
+
+.mypage.myhistory .history-content .history-read li .title {
+  font-size: 1.4rem;
+  color: rgb(var(--color-font-gray));
+}
+
+.mypage.myhistory .history-content .history-read li :where(dl, dt, dd) {
+  display: flex;
+  align-items: center;
+}
+
+.mypage.myhistory .history-content .history-read li dl {
+  gap: 4px;
+}
+
+.mypage.myhistory .history-content .history-read li dl dt span {
+  display: inline-block;
+  width: 65px;
+}
+
+.mypage.myhistory .history-content .history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mypage.myhistory .history-content .history-list li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  width: 100%;
+}
+
+.mypage.myhistory .history-content .history-list li .content-thumb {
+  flex-shrink: 0;
+}
+
+.mypage.myhistory .history-content .history-list li .content-thumb img {
+  width: 84px;
+}
+
+.mypage.myhistory .history-content .history-list li .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.mypage.myhistory .history-content .history-list li .text .title {
+  font-weight: 700;
+}
+
+.mypage.myhistory .history-content .history-list li .text dl {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 1.4rem;
+  color: rgb(var(--color-font-gray));
+}
+
+.mypage.myhistory .history-content .history-list li .text dl dt {
+  width: 40px;
+  font-weight: 600;
+}
+
+.mypage.myhistory .history-content .history-list li .text .status {
+  font-weight: 600;
+}
+
+.mypage.myhistory .history-content .history-list li .text .status.green {
+  color: #00a878;
+}
+
+.mypage.myhistory .history-content .history-list li .text .status.red {
+  color: #ff936c;
+}
+
+.mypage.myhistory .history-content .history-list li .text dl.long dt {
+  width: auto;
+  margin-right: 4px;
+}
+/*** mypage - my profile - history end ***/
 
 /** mypage - dashboard **/
 .mypage.dashBoard .dashboard-section {
@@ -1766,6 +1896,43 @@
   max-width: 840px;
   height: 100%;
 }
+
+.reward.certificate.certificate-open .flip-card {
+  animation-play-state: paused;
+}
+
+.reward.certificate.certificate-open .card-front .chara-img {
+  visibility: hidden;
+}
+
+body:has(.certificate-view) {
+  overflow: hidden;
+}
+
+.certificate-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: 0.45s;
+}
+
+.certificate-view.act {
+  background-color: rgb(var(--color-font) / 0.8);
+}
+
+.certificate-view .certificate-image {
+  display: block;
+  width: 100dvw;
+  height: 100dvh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
 /** reward - detail end **/
 /* reward end */
 
@@ -1860,6 +2027,7 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: 15px;
 }
 
 .levelTest .inner h2 img {
@@ -1924,11 +2092,30 @@
   color: rgb(var(--color-font-gray));
 }
 
+.levelTest.testing .box .epilogue .blank {
+  display: inline-block;
+  padding: 1px 30px;
+  height: 1.2em;
+  margin: 0px 4px;
+  border: 1px solid rgb(var(--color-border));
+  vertical-align: middle;
+}
+
 .levelTest.testing .box > img {
   max-width: 200px;
   margin: 0 auto;
   margin-top: 24px;
   border-radius: var(--radius);
+}
+
+.levelTest.testing .box:has(:not(img)) {
+  height: 100%;
+  text-align: left;
+}
+
+.levelTest.testing .box:not(:has(img)):not(:has(.btn-wrap)) .epilogue {
+  line-height: 1.4;
+  font-size: 1.6rem;
 }
 
 .levelTest.testing .choice-wrap {
@@ -1937,7 +2124,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 18px;
+  margin: 18px 0;
   padding-top: 18px;
   border-top: 1px solid rgb(var(--color-border));
 }
@@ -2068,6 +2255,11 @@
   font-weight: 600;
 }
 
+.levelTest.testing .choice-wrap:not(:has(input:checked)) + .btn-wrap .btn {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .levelTest.testing .box .btn-wrap {
   justify-content: center;
   padding: 20px 0;
@@ -2180,8 +2372,8 @@
 
 .levelTest.result > .inner {
   flex-grow: 1;
-  height: auto;
   row-gap: 10px;
+  height: auto;
 }
 
 .levelTest.result .student-info {
@@ -2265,7 +2457,6 @@
 }
 
 .levelTest.result > .inner > .btn-wrap .btn {
-  margin-bottom: calc(24px + env(safe-area-inset-bottom));
   padding: 24px;
   font-size: 2.4rem;
   font-weight: 600;
@@ -2289,7 +2480,7 @@
   position: relative;
 }
 
-.wrap:has(.bookinfo .btn-favorite.act)::before{
+.wrap:has(.bookinfo .btn-favorite.act)::before {
   content: "";
   position: absolute;
   top: 0;
@@ -2306,14 +2497,13 @@
 }
 
 @keyframes wrapFav {
-  0%{
-  top: -20dvh;
+  0% {
+    top: -20dvh;
   }
-  
-  100%{
-  top: 0;
+
+  100% {
+    top: 0;
   }
-  
 }
 
 .bookinfo {
@@ -2331,7 +2521,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 20px;
 }
 
 .bookinfo .inner .flex {
@@ -2387,7 +2576,7 @@
   width: 100%;
   margin-top: 12px;
   padding: 14px 0;
-  place-items: 16px;
+  font-size: 1.4rem;
   background-color: rgb(var(--color-white));
   color: rgb(var(--color-font-gray));
   box-shadow: 0px 4px 8px rgba(61, 61, 124, 0.2);
@@ -2395,7 +2584,7 @@
 
 .bookinfo .inner .flex .right {
   width: 100%;
-  padding: 12px 0;
+  padding-top: 12px;
 }
 
 .bookinfo .inner .flex .right .title {
@@ -2408,6 +2597,7 @@
   display: flex;
   gap: 4px;
   flex-wrap: wrap;
+  margin-bottom: 0;
 }
 
 .bookinfo .inner .flex .right ul.meta-data li::before {
@@ -2437,6 +2627,7 @@
 
 .bookinfo .inner .flex .right ul li.description dl {
   flex-direction: column;
+  width: 100%;
   margin-top: 6px;
   padding: 0;
   padding-top: 10px;
@@ -2446,7 +2637,7 @@
 }
 
 .bookinfo .inner .flex .right ul li.description dd {
-  max-height: 180px;
+  max-height: 120px;
   overflow: auto;
 }
 
@@ -2455,72 +2646,85 @@
 }
 
 .bookinfo .inner .activity-wrap .activity-title {
-  margin-bottom: 12px;
-  font-size: 2.4rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
 }
 
 .bookinfo .inner .activity-wrap .btn-wrap {
-  gap: 0;
+  gap: calc(var(--gap) / 4);
   flex-wrap: wrap;
   width: auto;
   overflow: hidden;
-  border: 1px solid rgb(var(--color-border));
-  border-radius: var(--radius);
-  background-color: rgb(var(--color-white));
 }
 
 .bookinfo .inner .activity-wrap .btn-wrap .btn {
-  padding: 20px 8px;
   align-self: stretch;
-  border-left: 1px solid rgb(var(--color-border));
+  width: 100%;
+  padding: 20px 8px;
+  border-radius: var(--radius);
   font-size: 1.4rem;
-  border-radius: 0;
   color: rgb(var(--color-font-gray));
   background: none;
   box-shadow: none;
-}
-
-.bookinfo .inner .activity-wrap .btn-wrap .btn:first-child {
-  border-left: none;
-}
-
-.bookinfo .inner .activity-wrap .btn-wrap .btn.btn-speaking {
-  color: #ff6a6a;
-}
-
-.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(2)) .btn {
-  width: calc(100% / 2);
-}
-
-.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(3)) .btn {
-  width: calc(100% / 3);
-}
-
-.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn {
-  width: calc(100% / 4);
 }
 
 .bookinfo .inner .activity-wrap .btn-wrap .btn.btn-noStyle {
   padding: 4px;
 }
 
+.bookinfo .inner .activity-wrap .btn-wrap .btn.btn-read {
+  background-color: rgb(var(--color-main));
+  color: rgb(var(--color-white));
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap .btn.btn-quiz {
+  background-color: #974dff;
+  color: rgb(var(--color-white));
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap .btn.btn-video {
+  background-color: #ffa246;
+  color: rgb(var(--color-white));
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap .btn.btn-speaking {
+  background-color: #ff6a6a;
+  color: rgb(var(--color-white));
+}
+
 .bookinfo .inner .activity-wrap .btn-wrap .btn.btn-listening {
-  color: #ffc32b;
+  background-color: #ffc32b;
+  color: rgb(var(--color-white));
 }
 
 .bookinfo .inner .activity-wrap .btn-wrap .btn.btn-thinking {
-  color: #6db274;
+  background-color: #6db274;
+  color: rgb(var(--color-white));
 }
 
 .bookinfo .inner .activity-wrap .btn-wrap .btn.btn-bookReport {
-  color: #559eff;
+  background-color: #559eff;
+  color: rgb(var(--color-white));
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(2)) .btn {
+  width: calc((100% - ((var(--gap) / 4) * 1)) / 2);
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(3)) .btn {
+  width: calc((100% - ((var(--gap) / 4) * 2)) / 3);
+}
+
+.bookinfo .inner .activity-wrap .btn-wrap:has(.btn:nth-child(4)) .btn {
+  width: calc((100% - ((var(--gap) / 4) * 3)) / 4);
 }
 
 .bookinfo .inner > .btn-wrap {
   margin-top: auto;
-  padding: 0 5px;
+  padding: 5px;
 }
 
 .bookinfo .inner > .btn-wrap .btn:not(.btn-favorite) {
