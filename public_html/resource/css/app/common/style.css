@@ -356,7 +356,7 @@
   width: calc((100% - ((var(--gap) / 2) * 8)) / 9);
 }
 
-.home .full-width .con ul li img {
+.home .full-width .con ul li img:not([class*="tag"]) {
   width: 100%;
 }
 /** home - book list end **/
@@ -397,9 +397,10 @@
   pointer-events: none;
 }
 
-.library .right .book-list ul li.next .content-thumb::before {
+.library .right .book-list ul li.next .content-thumb::after {
   content: "";
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -1126,6 +1127,11 @@
 
 .mypage.myprofile.edit .box:last-child {
   margin-bottom: 24px;
+}
+
+.mypage.myprofile.edit .chara > span {
+  display: block;
+  margin-bottom: 4px;
 }
 /*** mypage - my profile - edit end ***/
 /** mypage - my profile end **/

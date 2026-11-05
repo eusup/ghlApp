@@ -91,6 +91,18 @@ $(document).ready(function () {
     });
   });
 
+  // 리딩맵 뱃지 클릭 시 뱃지 이미지명을 인증서 페이지로 전달
+  $(".reward .badge-list .badge-thumb[href*='certificate']").on("click", function () {
+    const img = $(this).children(".badge-img:not(.book-off)").attr("src").split("/").pop();
+    this.href = $(this).attr("href").split("?")[0] + "?img=" + encodeURIComponent(img);
+  });
+
+  // 인증서 페이지: 전달받은 뱃지 이미지를 카드 앞면에 표시
+  const rewardImg = new URLSearchParams(window.location.search).get("img");
+  if (rewardImg) {
+    $(".reward.certificate .card-front .chara-img").attr({ src: "./public_html/resource/images/reward/" + rewardImg.split("/").pop(), alt: rewardImg });
+  }
+
   // 보상 카드: 클릭으로 앞뒤 전환
   $(".reward.rewardDetail .flip-card").on("click", function () {
     if (!$(this).children(".flip-inner").children(".box.card-back").length) return;

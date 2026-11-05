@@ -1298,7 +1298,30 @@ nav.nav-bottom ul li a img {
 
 .book-list ul .btn.btn-noStyle {
   display: block;
+  height: 100%;
   text-align: left;
+}
+
+.book-list ul .content-thumb {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-size: 0 0;
+}
+
+.book-list ul .content-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+}
+
+.book-list ul .content-thumb img:not([class*="tag-"]) {
+  position: relative;
 }
 
 ul > li.nothing {
