@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <script src="../public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="../public_html/resource/js/learning.js"></script>
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/learning.css">
+</head>
+
+<body>
+  <div class="wrap quiz results">
+    <div class="top">
+      <div class="con">
+        <div class="btn-wrap">
+          <button class="btn btn-icnOnly btn-close">
+            <img src="../public_html/resource/images/learning/icn-close-white.svg" alt="back to app">
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="contensts">
+      <div class="con">
+        <div class="contents-top">
+          <h2 class="results-title">Quiz Result</h2>
+          <div class="score">
+            <span>Your score is</span>
+            <strong>50</strong>
+          </div>
+        </div>
+        <div class="inner" name="content">
+          <!-- 정답 li.correct + img-O.svg / 오답 li.wrong + img-X.svg -->
+          <ul class="results-list">
+            <li class="correct">
+              <div class="results-text">
+                <span>No.1</span>
+                <p>My answer is <strong>c</strong></p>
+              </div>
+              <img src="../public_html/resource/images/learning/img-O.svg" alt="correct">
+            </li>
+            <li class="wrong">
+              <div class="results-text">
+                <span>No.2</span>
+                <p>My answer is <strong>a</strong></p>
+              </div>
+              <img src="../public_html/resource/images/learning/img-X.svg" alt="wrong">
+            </li>
+            <li class="wrong">
+              <div class="results-text">
+                <span>No.3</span>
+                <p>My answer is <strong>a</strong></p>
+              </div>
+              <img src="../public_html/resource/images/learning/img-X.svg" alt="wrong">
+            </li>
+            <li class="wrong">
+              <div class="results-text">
+                <span>No.4</span>
+                <p>My answer is <strong>a</strong></p>
+              </div>
+              <img src="../public_html/resource/images/learning/img-X.svg" alt="wrong">
+            </li>
+            <li class="correct">
+              <div class="results-text">
+                <span>No.5</span>
+                <p>My answer is <strong>c</strong></p>
+              </div>
+              <img src="../public_html/resource/images/learning/img-O.svg" alt="correct">
+            </li>
+          </ul>
+        </div>
+        <div class="contents-bottom">
+          <!-- Review Answers 클릭 시 .review 에 act 추가 -->
+          <button class="btn btn-noStyle btn-review">Review Answers</button>
+          <a href="javascript:void(0);" class="btn btn-big">OK</a>
+        </div>
+      </div>
+    </div>
+    <!-- 문항별 정답 리스트: 정답 보기 li.correct -->
+    <div class="review">
+      <div class="top">
+        <div class="con">
+          <div class="btn-wrap">
+            <button class="btn btn-icnOnly btn-close">
+              <img src="../public_html/resource/images/learning/icn-close-white.svg" alt="close">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="review-contents">
+        <div class="con">
+          <h2 class="review-title">Bessie Coleman</h2>
+          <ul class="review-list">
+            <li>
+              <p class="review-question">1. What did Bessie help her parents pick?</p>
+              <ul class="review-option">
+                <li>a. rice</li>
+                <li>b. corn</li>
+                <li>c. wheat</li>
+                <li class="correct">d. cotton</li>
+              </ul>
+            </li>
+            <li>
+              <p class="review-question">2. What was Bessie good in at school?</p>
+              <ul class="review-option">
+                <li>a. art and reading</li>
+                <li class="correct">b. reading and math</li>
+                <li>c. writing and science</li>
+                <li>d. running and science</li>
+              </ul>
+            </li>
+            <li>
+              <p class="review-question">3. What did Bessie help her parents pick?</p>
+              <ul class="review-option">
+                <li>a. rice</li>
+                <li>b. corn</li>
+                <li>c. wheat</li>
+                <li class="correct">d. cotton</li>
+              </ul>
+            </li>
+            <li>
+              <p class="review-question">4. What was Bessie good in at school?</p>
+              <ul class="review-option">
+                <li>a. art and reading</li>
+                <li class="correct">b. reading and math</li>
+                <li>c. writing and science</li>
+                <li>d. running and science</li>
+              </ul>
+            </li>
+            <li>
+              <p class="review-question">5. What did Bessie help her parents pick?</p>
+              <ul class="review-option">
+                <li>a. rice</li>
+                <li>b. corn</li>
+                <li>c. wheat</li>
+                <li class="correct">d. cotton</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 나가기 확인 팝업 (상단 X 클릭 시 .dimmed 에 act 추가되어 노출) -->
+    <div class="dimmed">
+      <div class="top">
+        <div class="con">
+          <div class="btn-wrap">
+            <button class="btn btn-icnOnly btn-close">
+              <img src="../public_html/resource/images/learning/icn-close-white.svg" alt="close">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="popup-exit">
+        <h2 class="exit-title">Exit Quiz</h2>
+        <p class="exit-text">Are you sure want to exit the Quiz?<br>Your answers will not be saved.</p>
+        <div class="btn-wrap">
+          <button class="btn btn-no">No</button>
+          <a href="#" class="btn btn-ok">Ok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

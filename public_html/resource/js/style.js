@@ -35,11 +35,11 @@ $(document).ready(function () {
     else $(window).one("load", hideTapInfo);
   }
 
-  // 하단 메뉴 순서: Home, Library, My Profile, Reward
+  // 하단 메뉴 순서: Home, Library, My Profile, Reward, Download
   $(".wrap").each(function () {
     const $wrap = $(this);
     const $navItems = $wrap.children("nav.nav-bottom").children("ul").children("li");
-    const pageClasses = ["home", "library", "mypage", "reward"];
+    const pageClasses = ["home", "library", "mypage", "reward", "download"];
 
     $navItems.removeClass("act");
     for (let i = 0; i < pageClasses.length; i++) {
@@ -67,8 +67,45 @@ $(document).ready(function () {
     });
   });
 
+  // Download: 삭제 항목 선택과 취소, 확인 후 선택 항목 제거
+  $(".download").each(function () {
+    const $download = $(this);
+    const $removePopup = $download.siblings(".dimmed").children(".popup-box");
+    $download.find(".btn-trash").on("click", function () {
+      const $box = $(this).closest(".box");
+      $box.toggleClass("act");
+      $(this).attr("aria-pressed", $box.hasClass("act") ? "true" : "false");
+    });
+
+    $download.find(".btn-cancel").on("click", function () {
+      $download.find(".download-list .box.act").removeClass("act").find(".btn-trash").attr("aria-pressed", "false");
+    });
+
+    $download.find(".btn-remove").on("click", function () {
+      openLayerPopup($removePopup);
+    });
+
+    $removePopup.find(".btn-remove").on("click", function () {
+      $download.find(".download-list .box.act").remove();
+      closeLayerPopup($removePopup);
+    });
+  });
+
+  // 리딩맵 뱃지 클릭 시 뱃지 이미지명을 인증서 페이지로 전달
+  $(".reward .badge-list .badge-thumb[href*='certificate']").on("click", function () {
+    const img = $(this).children(".badge-img:not(.book-off)").attr("src").split("/").pop();
+    this.href = $(this).attr("href").split("?")[0] + "?img=" + encodeURIComponent(img);
+  });
+
+  // 인증서 페이지: 전달받은 뱃지 이미지를 카드 앞면에 표시
+  const rewardImg = new URLSearchParams(window.location.search).get("img");
+  if (rewardImg) {
+    $(".reward.certificate .card-front .chara-img").attr({ src: "./public_html/resource/images/reward/" + rewardImg.split("/").pop(), alt: rewardImg });
+  }
+
   // 보상 카드: 클릭으로 앞뒤 전환
   $(".reward.rewardDetail .flip-card").on("click", function () {
+    if (!$(this).children(".flip-inner").children(".box.card-back").length) return;
     $(this).find(".tap-info").removeClass("act");
     if ($(this).hasClass("flipping")) return;
     $(this)
@@ -78,6 +115,54 @@ $(document).ready(function () {
         $(this).parent().removeClass("flipping");
       });
     $(this).addClass("turned").toggleClass("flipped");
+  });
+
+  // 인증서: 카드 위치에서 전체 화면으로 확대 후 원래 위치로 복귀
+  $(".reward.certificate .btn-certificate").on("click", function () {
+    const $certificate = $(this).closest(".certificate");
+    const $card = $certificate.find(".flip-card");
+    const $source = $card.find(".card-back .chara-img");
+    if ($certificate.hasClass("certificate-open") || $card.hasClass("flipping") || !$source[0].naturalWidth) return;
+
+    $certificate.addClass("certificate-open");
+    const $view = $('<div class="certificate-view"></div>').appendTo($certificate.closest(".wrap"));
+    const $image = $source.clone().attr("class", "certificate-image").appendTo($view);
+    const image = $image[0];
+    const cardTransform = function () {
+      const rect = ($card.hasClass("flipped") ? $card[0] : $source[0]).getBoundingClientRect();
+      const width = image.clientWidth;
+      const height = image.clientHeight;
+      const cardScale = Math.min(rect.width / image.naturalWidth, rect.height / image.naturalHeight);
+      const fullScale = Math.min(width / image.naturalWidth, height / image.naturalHeight);
+      return "translate(" + (rect.left + rect.width / 2 - width / 2) + "px, " + (rect.top + rect.height / 2 - height / 2) + "px) scale(" + cardScale / fullScale + ")";
+    };
+    let animation = image.animate([{ transform: cardTransform() }, { transform: "none" }], {
+      duration: 500,
+      easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+    });
+    $view[0].getBoundingClientRect();
+    $view.addClass("act");
+
+    const closeCertificate = function () {
+      if ($view.hasClass("closing")) return;
+      $view.addClass("closing").removeClass("act");
+      const transform = window.getComputedStyle(image).transform;
+      animation.cancel();
+      animation = image.animate([{ transform: transform }, { transform: cardTransform() }], {
+        duration: 450,
+        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        fill: "forwards",
+      });
+      animation.onfinish = function () {
+        $view.remove();
+        $certificate.removeClass("certificate-open");
+        $(document).off("keydown.certificateView");
+      };
+    };
+    $image.on("click", closeCertificate);
+    $(document).on("keydown.certificateView", function (event) {
+      if (event.key === "Escape") closeCertificate();
+    });
   });
 
   // 새 캐릭터 선택 상태 확인용
@@ -101,15 +186,7 @@ $(document).ready(function () {
   $(".select ul.selectBorn li").click(function () {
     $(this).parent("ul.selectBorn").siblings(".val").text($(this).text());
     $(this).parent("ul.selectBorn").removeClass("act");
-  });
-
-  // 임시: 99popup.html 클릭 시 기본 팝업 확인. 확인 후 제거.
-  if (window.location.pathname.split("/").pop() === "99popup.html") {
-    $("body").click(function (event) {
-      if ($(event.target).closest(".dimmed").length) return;
-      openLayerPopup($(".popup-box:not(.book-info)"));
-    });
-  }
+  }); 
 
   // 프로필 캐릭터 변경
   $(".chara .flex li .btn")
@@ -149,6 +226,17 @@ $(document).ready(function () {
     $(this).closest(".flex").find("li > button").removeClass("act");
     $(this).closest(".flex").find("li > button + span").remove();
     $(this).addClass("act").after("<span>Now</span>");
+  });
+
+  // My Profile: 최초 선택 항목 외의 항목 클릭 후 Save 버튼 고정 노출
+  $(".mypage.myprofile .profile-options").each(function () {
+    const $options = $(this);
+    const $initialSelection = $options.find('.chara .flex li.act .btn, .category-wrap label[class*="category-"]:has(:checked), .myLevel .flex li.act button');
+
+    $options.on("click", '.chara .flex li .btn, .category-wrap label[class*="category-"], .myLevel .flex li button', function () {
+      if ($initialSelection.is(this)) return;
+      $options.siblings(".profile-save").addClass("act");
+    });
   });
 
   // 팝업 닫기 기능 -dimmed 영역 클릭시에도 닫힘
@@ -313,11 +401,6 @@ $(document).ready(function () {
     });
   }
 
-  // book info 팝업
-  $("button:has(.content-thumb), .todays-book .inner .btn").click(function () {
-    openLayerPopup($(".book-info"));
-  });
-
   // user detail 안내 팝업
   $(function () {
     const $userDetail = $(".user-detail");
@@ -359,6 +442,18 @@ $(document).ready(function () {
     $(this).toggleClass("act");
   });
 
+  // 썸네일의 즐겨찾기 상태를 Book Info 화면에 전달
+  $("a[href*='99bookInfo.html']").on("click", function () {
+    const url = new URL(this.href);
+    if ($(this).find(".content-thumb.fav").length) url.searchParams.set("favorite", "1");
+    else url.searchParams.delete("favorite");
+    this.href = url.href;
+  });
+
+  if ($(".bookinfo").length && new URLSearchParams(window.location.search).get("favorite") === "1") {
+    $(".bookinfo .btn-favorite").addClass("act");
+  }
+
   // 상단 메뉴 셀렉트 열기·닫기
   $(".menu-select > .btn-noStyle").click(function () {
     $(this).siblings(".menu-wrap").toggleClass("act");
@@ -375,33 +470,6 @@ $(document).ready(function () {
       $(".nav-top").toggleClass("act", window.scrollY >= 1);
     })
     .trigger("scroll");
-
-  // 탭
-  // 도서 정보: 터치 스와이프 및 다음 항목 이동
-  $(".popup.book-info").each(function () {
-    const $popup = $(this);
-    const slider = $popup.find(".book-slides")[0];
-    if (!slider) return;
-    const $slides = $(slider).children();
-    if (!$slides.length) return;
-
-    const $next = $popup.children(".btn-next");
-    $next.prop("disabled", $slides.length < 2);
-
-    $(slider).on("scroll", function () {
-      if (!slider.clientWidth) return;
-      const current = Math.round(slider.scrollLeft / slider.clientWidth);
-      $next.toggleClass("act", current > 0);
-    });
-
-    $next.on("click", function () {
-      const current = Math.round(slider.scrollLeft / slider.clientWidth);
-      const next = (current + 1) % $slides.length;
-      slider.scrollTo({ left: next * slider.clientWidth, behavior: "smooth" });
-    });
-  });
-
-  bottomSheet();
 
   // 팝업오픈시 스크롤 작동 금지하기위한 변수
   let layerPopupScrollTop = 0;
@@ -431,9 +499,8 @@ $(document).ready(function () {
   }
 
   // 팝업 공통 - 팝업과 dimmed 창 act클래스 제거
-  function closeLayerPopup(popup, skipBookInfoAnimation) {
+  function closeLayerPopup(popup) {
     const $popup = $(popup);
-    const $bookInfo = $popup.filter(".book-info.act");
 
     const finishCloseLayerPopup = function () {
       $(".dimmed").removeClass("act");
@@ -451,125 +518,7 @@ $(document).ready(function () {
       }
     };
 
-    if ($bookInfo.length && !skipBookInfoAnimation) {
-      $bookInfo[0].style.removeProperty("animation-name");
-      $bookInfo.addClass("closing");
-      window.setTimeout(finishCloseLayerPopup, 300);
-      return;
-    }
-
     finishCloseLayerPopup();
-  }
-
-  // 바텀시트 팝업 방식 - 상단 영역을 아래로 드래그하여 닫기
-  function bottomSheet() {
-    const dragHandleHeight = 48;
-
-    $(".book-info").each(function () {
-      const bottomSheet = this;
-      let startY = 0;
-      let dragDistance = 0;
-      let isDragging = false;
-
-      const startDrag = function (clientY) {
-        startY = clientY;
-        dragDistance = 0;
-        isDragging = true;
-        bottomSheet.style.setProperty("animation-name", "none");
-        bottomSheet.style.setProperty("transition-property", "none");
-        bottomSheet.style.setProperty("user-select", "none");
-      };
-
-      const moveDrag = function (clientY) {
-        dragDistance = Math.max(0, clientY - startY);
-        bottomSheet.style.setProperty("transform", `translate(-50%, ${dragDistance}px)`);
-      };
-
-      bottomSheet.addEventListener("pointerdown", function (event) {
-        const sheetRect = bottomSheet.getBoundingClientRect();
-        const isHandleArea = event.clientY >= sheetRect.top && event.clientY <= sheetRect.top + dragHandleHeight;
-
-        if (event.pointerType === "touch" || event.button !== 0 || !isHandleArea || !bottomSheet.classList.contains("act")) return;
-
-        startDrag(event.clientY);
-        bottomSheet.setPointerCapture(event.pointerId);
-      });
-
-      bottomSheet.addEventListener("pointermove", function (event) {
-        if (!isDragging) return;
-
-        moveDrag(event.clientY);
-        event.preventDefault();
-      });
-
-      const finishDrag = function (event) {
-        if (!isDragging) return;
-
-        isDragging = false;
-
-        if (event.pointerId >= 0 && bottomSheet.hasPointerCapture(event.pointerId)) {
-          bottomSheet.releasePointerCapture(event.pointerId);
-        }
-
-        const closeDistance = Math.min(120, bottomSheet.offsetHeight * 0.2);
-        const shouldClose = dragDistance >= closeDistance;
-        const endPosition = shouldClose ? bottomSheet.offsetHeight : 0;
-        const slideAnimation = bottomSheet.animate([{ transform: `translate(-50%, ${dragDistance}px)` }, { transform: `translate(-50%, ${endPosition}px)` }], {
-          duration: 200,
-          easing: shouldClose ? "ease-in" : "ease-out",
-          fill: "forwards",
-        });
-
-        slideAnimation.finished.then(function () {
-          slideAnimation.cancel();
-          bottomSheet.style.removeProperty("transform");
-          bottomSheet.style.removeProperty("transition-property");
-          bottomSheet.style.removeProperty("user-select");
-
-          if (shouldClose) {
-            closeLayerPopup($(bottomSheet), true);
-            bottomSheet.style.removeProperty("animation-name");
-          }
-        });
-      };
-
-      bottomSheet.addEventListener("pointerup", finishDrag);
-      bottomSheet.addEventListener("pointercancel", finishDrag);
-
-      bottomSheet.addEventListener(
-        "touchstart",
-        function (event) {
-          const touch = event.touches[0];
-          const sheetRect = bottomSheet.getBoundingClientRect();
-          const isHandleArea = touch.clientY >= sheetRect.top && touch.clientY <= sheetRect.top + dragHandleHeight;
-
-          if (!isHandleArea || !bottomSheet.classList.contains("act")) return;
-
-          event.preventDefault();
-          startDrag(touch.clientY);
-        },
-        { passive: false },
-      );
-
-      bottomSheet.addEventListener(
-        "touchmove",
-        function (event) {
-          if (!isDragging) return;
-
-          event.preventDefault();
-          moveDrag(event.touches[0].clientY);
-        },
-        { passive: false },
-      );
-
-      bottomSheet.addEventListener("touchend", function () {
-        finishDrag({ pointerId: -1 });
-      });
-
-      bottomSheet.addEventListener("touchcancel", function () {
-        finishDrag({ pointerId: -1 });
-      });
-    });
   }
 });
 

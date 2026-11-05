@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>home</title>
+
+  <script src="../public_html/resource/js/jquery-1.11.1.min.js"></script>
+  <script src="../public_html/resource/js/style.js"></script>
+
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/module.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/style.css">
+  <link rel="stylesheet" href="../public_html/resource/css/app/common/responsive.css">
+  <link rel="stylesheet" href="./menual.css">
+  <script src="./menual.js"></script>
+</head>
+
+<body>
+  <div class="wrap lv15_20">
+    <div class="library phonics">
+      <nav class="nav-top">
+        <div class="con">
+          <div class="flex">
+            <h2>Library</h2>
+            <div class="menu-select">
+              <button class="btn btn-noStyle" id="oMenu" aria-label="menu open">
+                <p>Phonics</p>
+                <img src="../public_html/resource/images/icn-menuArrow.svg" alt="#">
+              </button>
+              <ul class="menu-wrap">
+                <li>
+                  <a href="./02library-01phonics.html" data-nav="phonics">Phonics</a>
+                </li>
+                <li>
+                  <a href="./02library-02books.html" data-nav="level">Books</a>
+                </li>
+                <li>
+                  <a href="./02library-03magazine.html" data-nav="magazines">Magazines</a>
+                </li>
+                <li>
+                  <a href="./02library-04extensive.html" data-nav="plusbook">Extensive Books</a>
+                </li>
+                <li>
+                  <a href="./02library-05videos.html" data-nav="animation">Videos</a>
+                </li>
+                <li>
+                  <a href="./02library-06Assignment.html" data-nav="assignment">Assignment
+                    <span class="new">New</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="con half">
+        <div class="color-box myPhonics">
+          <a href="./99bookInfo.html" class="flex">
+            <div class="content-thumb">
+              <img src="../public_html/resource/images/dump/phonics01.jpg" alt="#">
+            </div>
+            <div class="inner">
+              <p>Recent Books</p>
+              <h2 class="title">At Bat</h2>
+              <ul class="meta-data">
+                <li>level 14</li>
+                <li>People &amp; Places</li>
+                <li>Fiction</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <div class="right">
+          <div class="flex">
+            <div class="search-wrap">
+              <button class="btn btn-icnOnly">
+                <img src="../public_html/resource/images/icn-search.svg" alt="search">
+              </button>
+              <input type="text" placeholder="Search for title, Keyword">
+            </div>
+            <button class="btn btn-favorite" id="favoriteBtn">
+              <img src="../public_html/resource/images/icn-favorite.svg" alt="#">
+              <img src="../public_html/resource/images/icn-favorite+act.svg" alt="#">
+            </button>
+          </div>
+
+          <div class="book-list">
+            <ul>
+              <li>
+                <a href="./99bookInfo.html" class="btn btn-noStyle">
+                  <div class="content-thumb">
+                    <img src="../public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                  </div>
+                </a>
+              </li>
+              <li class="next">
+                <a href="./99bookInfo.html" class="btn btn-noStyle">
+                  <div class="content-thumb">
+                    <img src="../public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                  </div>
+                </a>
+              </li>
+              <li class="next">
+                <a href="./99bookInfo.html" class="btn btn-noStyle">
+                  <div class="content-thumb">
+                    <img src="../public_html/resource/images/dump/bookimg01.jpg" alt="#">
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-bottom">
+      <ul>
+        <li>
+          <a href="./01main.html">
+            <img src="../public_html/resource/images/icn-nav-home.svg" alt="#">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="./02library-02books.html">
+            <img src="../public_html/resource/images/icn-nav-library.svg" alt="#">
+            <span>Library</span>
+          </a>
+        </li>
+        <li>
+          <a href="./03mypage-01myPage.html">
+            <img src="../public_html/resource/images/icn-nav-user.svg" alt="#">
+            <span>My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="./04reward-01ReadingMap.html">
+            <img src="../public_html/resource/images/icn-nav-reward.svg" alt="#">
+            <span>Reward</span>
+          </a>
+        </li>
+        <li>
+          <a href="./download.html">
+            <img src="../public_html/resource/images/icn-nav-down.svg" alt="#">
+            <span>Download</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="dimmed">
+      <div class="popup badge-layer">
+        <h2 class="title">Congratulations on reading<br><span>YOUR FIRST BOOK</span></h2>
+        <img class="badge" src="../public_html/resource/images/img-badge-first-book.png" alt="First book badge">
+        <img class="badge-bg" src="../public_html/resource/images/img-badge-popup-bg.png" alt="#">
+        <p>A reward is waiting for you!<br>Do you want to go to the rewards page?</p>
+        <div class="btn-wrap">
+          <button type="button" class="btn btn-white btn-close">Cancel</button>
+          <button type="button" class="btn btn-close">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menual menual-library">
+    <div class="explanation explanation-phonics-metadata top">
+      해당 파닉스북의 메타데이터가 나타나도록 부탁드립니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-library-favorite top">
+      기존 my favorite 페이지가 사라지며 각 페이지에 좋아요 콘텐츠를 모아볼 수 있는 필터 버튼이 추가되었습니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+    <div class="explanation explanation-library-dimmed top">
+      popup이나 다른 dom 요소가 없는 빈 여백을 클릭해도 popup 요소가 나타나지 않도록 부탁드립니다.
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-noStyle btn-explanation-close">
+          <img src="../public_html/resource/images/icn-close-black.svg" alt="설명 닫기">
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
